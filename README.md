@@ -10,4 +10,4 @@
 
 ### DB 相关
 
-- SQL 优化
+- [SQL 优化](https://github.com/crossoverJie/Java-Interview/blob/master/SQL-optimization.md)
