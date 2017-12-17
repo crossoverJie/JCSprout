@@ -3,6 +3,7 @@
 ## 双亲委派模型
 
 模型如下图：
+
 ![](https://ws3.sinaimg.cn/large/006tNc79ly1fmjwua3iv4j30ic0f0mxq.jpg)
 
 双亲委派模型中除了启动类加载器之外其余都需要有自己的父类加载器
