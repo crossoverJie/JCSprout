@@ -6,3 +6,8 @@
 
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/Spike.md)
+
+
+### DB 相关
+
+- SQL 优化
