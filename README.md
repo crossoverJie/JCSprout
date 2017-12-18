@@ -1,10 +1,10 @@
-# Java-Interview
+# Java 面试常见题型
 
 ### Java 基础
 
 
 ### Java 多线程
-- 对锁的一些认知，有哪些锁
+- [对锁的一些认知，有哪些锁](https://github.com/crossoverJie/Java-Interview/blob/master/Java-lock.md)
 
 ### Java 底层
 - [Java 运行时内存划分](https://github.com/crossoverJie/Java-Interview/blob/master/MemoryAllocation.md)
