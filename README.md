@@ -5,6 +5,7 @@
 
 ### Java 多线程
 - [对锁的一些认知，有哪些锁](https://github.com/crossoverJie/Java-Interview/blob/master/Java-lock.md)
+- [垃圾回收](https://github.com/crossoverJie/Java-Interview/blob/master/GarbageCollection.md)
 
 ### Java 底层
 - [Java 运行时内存划分](https://github.com/crossoverJie/Java-Interview/blob/master/MemoryAllocation.md)
@@ -12,6 +13,8 @@
 
 ### 常用框架
 
+- Spring IOC 的实现原理
+- Spring AOP 的实现原理 
 
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/Spike.md)
