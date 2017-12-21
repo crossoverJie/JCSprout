@@ -51,3 +51,5 @@ public final boolean compareAndSet(long expect, long update) {
 `synchronize`和加锁也能能保证可见性，实现原理就是在释放锁之前其余线程是访问不到这个共享变量的。但是和 `volatile` 相比开销较大。
 
 ## 顺序性
+
+volatile
