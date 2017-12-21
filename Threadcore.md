@@ -52,4 +52,4 @@ public final boolean compareAndSet(long expect, long update) {
 
 ## 顺序性
 
-volatile
+volatile1
