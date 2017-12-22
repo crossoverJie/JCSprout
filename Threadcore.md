@@ -48,8 +48,55 @@ public final boolean compareAndSet(long expect, long update) {
 
 `volatile` 关键字就是用于保证内存可见性，当线程A更新了 volatile 修饰的变量时，它会立即刷新到主线程，并且将其余缓存中该变量的值清空，导致其余线程只能去主内存读取最新值。
 
+使用 `volatile` 关键词修饰的变量每次读取都会的到最新的数据，不管哪个线程对这个变量的修改都会立即刷新到主内存。
+
 `synchronize`和加锁也能能保证可见性，实现原理就是在释放锁之前其余线程是访问不到这个共享变量的。但是和 `volatile` 相比开销较大。
 
 ## 顺序性
+以下这段代码:
 
-volatile1
+```java
+int a = 100 ; //1
+int b = 200 ; //2
+int c = a + b ; //3
+```
+
+正常情况下的执行顺序应该是 `1>>2>>3`。但是有时 `JVM` 为了提高整体的效率会进行指令重排导致执行的顺序可能是 `2>>1>>3`。但是 JVM 也不能是什么都进行重排，是在保证最终结果和代码顺序执行结果一致的情况下才可能进行重排。
+
+重排在单线程中不会出现问题，但在多线程中会出现数据不一致的问题。
+
+Java 中可以使用 `volatile` 来保证顺序性，`synchronize 和 lock` 也可以来保证有序性，和保证原子性的方式一样，通过同一段时间只能一个线程访问来实现的。
+
+除了通过 `volatile` 关键字显示的保证顺序之外， JVM 还通过 `happen-before` 原则来隐式的保证顺序性。
+
+其中有一条就是适用于 volatile 关键字的，针对于 volatile 关键字的写操作肯定是在读操作之前，也就是说读取的值肯定是最新的。
+
+### volatile 的应用
+
+可以用 volatile 实现一个双重检查锁的单例模式：
+
+```java
+public class Singleton{
+	private static volatile Singleton singleton ;
+	private Singleton(){}
+	public static Singleton getInstance(){
+		if(singleton == null){
+			synchronize(Singleton.class){
+				if(singleton == null){
+					singleton = new Singleton();
+				}
+			}
+		}
+		return singleton ;
+	}
+	
+}
+```
+
+这里的 volatile 关键字主要是为了防止指令重排。
+如果不用 volatile ，`singleton = new Singleton();`，这段代码其实是分为三步：
+
+- 分配内存空间。
+- 赋值。
+- 对象应用。
+
