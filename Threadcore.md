@@ -84,9 +84,9 @@ public class Singleton{
 	public static Singleton getInstance(){
 		if(singleton == null){
 			synchronize(Singleton.class){
-				if(singleton == null){
-					singleton = new Singleton();
-				}
+			  if(singleton == null){
+			    singleton = new Singleton();
+			  }
 			}
 		}
 		return singleton ;
@@ -110,14 +110,14 @@ public class Singleton{
 private volatile boolean flag ;
 private void run(){
 	new Thread(new Runnable(){
-		if(flag){
-			doSomeThing();
-		}
+	  if(flag){
+            doSomeThing();
+	  }
 	});
 }
 
 private void stop(){
-	flag = false ;
+  flag = false ;
 }
 ```
 
