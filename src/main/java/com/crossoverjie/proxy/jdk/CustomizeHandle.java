@@ -1,4 +1,4 @@
-package com.crossoverjie.proxy;
+package com.crossoverjie.proxy.jdk;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

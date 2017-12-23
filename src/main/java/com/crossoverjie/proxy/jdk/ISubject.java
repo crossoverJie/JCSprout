@@ -1,4 +1,4 @@
-package com.crossoverjie.proxy;
+package com.crossoverjie.proxy.jdk;
 
 /**
  * Function:
