@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.lang.reflect.Proxy;
 
 /**
- * Function:
+ * Function:JDK 代理单测
  *
  * @author crossoverJie
  *         Date: 23/12/2017 22:40
