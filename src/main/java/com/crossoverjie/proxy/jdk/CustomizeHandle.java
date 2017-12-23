@@ -36,7 +36,6 @@ public class CustomizeHandle implements InvocationHandler {
         after();
 
         LOGGER.info("proxy class={}", proxy.getClass());
-
         return result;
     }
 
