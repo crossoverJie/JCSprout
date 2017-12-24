@@ -1,4 +1,4 @@
-# ArrayList 的底层实现
+# ArrayList 的底层分析
 
 `ArrayList` 实现于 `List`、`RandomAccess` 接口。可以插入空数据并且允许数据为空，也支持随机随机访问。
 
