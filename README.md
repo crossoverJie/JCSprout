@@ -21,6 +21,7 @@
 
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Spike.md)
+- 分布式缓存设计
 
 
 ### DB 相关

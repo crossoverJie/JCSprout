@@ -219,5 +219,6 @@ public class $Proxy1 extends Proxy implements ISubject {
 ## CGLIB 动态代理
 
 cglib 是对一个小儿快的字节码处理框架 `ASM` 的封装。
-他的特点是继承与被代理类，这就要求被代理类不能被 `final` 修饰。
+他的特点是继承于被代理类，这就要求被代理类不能被 `final` 修饰。
+
 
