@@ -117,6 +117,7 @@ public class CustomizeHandle implements InvocationHandler {
 首先传入被代理类的类类型构建代理处理器。接着使用 Proxy的`newProxyInstance` 方法动态创建代理类。第一个参数为类加载器，第二个参数为代理类需要实现的接口列表，最后一个则是处理器。
 
 其实代理类是由
+
 ![](https://ws3.sinaimg.cn/large/006tNc79gy1fms01lcml3j30ki09s75v.jpg)
 
 这个方法动态创建出来的。将 proxyClassFile 输出到文件并进行反编译的话就可以的到代理类。
