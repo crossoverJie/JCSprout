@@ -213,7 +213,11 @@ public class $Proxy1 extends Proxy implements ISubject {
 
 可以看到代理类继承了 `Proxy` 类，并实现了 `ISubject` 接口，由此也可以看到 JDK 动态代理为什么需要实现接口，已经继承了 `Proxy`是不能再继承其余类了。
 
-其中实现了 `ISubject` 的 `execute()` 方法，通过 `InvocationHandler` 中的 `invoke()` 方法来进行调用的。
+其中实现了 `ISubject` 的 `execute()` 方法，并通过 `InvocationHandler` 中的 `invoke()` 方法来进行调用的。
 
 
 ## CGLIB 动态代理
+
+cglib 是对一个小儿快的字节码处理框架 `ASM` 的封装。
+他的特点是继承与被代理类，这就要求被代理类不能被 `final` 修饰。
+
