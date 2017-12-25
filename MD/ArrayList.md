@@ -1,4 +1,6 @@
-# ArrayList 的底层分析
+# ArrayList/Vector 的底层分析
+
+## ArrayList
 
 `ArrayList` 实现于 `List`、`RandomAccess` 接口。可以插入空数据并且允许数据为空，也支持随机随机访问。
 
@@ -52,3 +54,20 @@
 也是一个数组复制的过程。
 
 由此可见 `ArrayList` 的主要消耗是数组扩容以及在指定位置添加数据，在日常使用时最好是指定大小，尽量减少扩容。更要减少在指定位置插入数据的操作。
+
+
+## Vector
+
+`Voctor` 也是实现于 `List` 接口，底层数据结构和 `ArrayList` 类似,也是一个动态数组存放数据。不过是在 `add()` 方法的时候使用 `synchronize` 进行同步写数据，但是开销较大，所以 Vector 是一个同步容器并不是一个并发容器。
+
+以下是 `add()` 方法：
+```java
+    public synchronized boolean add(E e) {
+        modCount++;
+        ensureCapacityHelper(elementCount + 1);
+        elementData[elementCount++] = e;
+        return true;
+    }
+```
+
+
