@@ -23,6 +23,7 @@
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Spike.md)
 - [分布式缓存设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Cache-design.md)
+- 分布式 ID 生成器
 
 
 ### DB 相关
