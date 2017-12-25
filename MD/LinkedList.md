@@ -2,7 +2,7 @@
 
 ![](https://ws1.sinaimg.cn/large/006tKfTcgy1fmtdndjiwej30hj06mabj.jpg)
 
-如图所示 `LinkedList` 底层是基于双向链表实现的，也是实现了 `List` 接口，所以 List 接口，所以也拥有 List 的一些特点。
+如图所示 `LinkedList` 底层是基于双向链表实现的，也是实现了 `List` 接口，所以也拥有 List 的一些特点。
 
 ## 新增
 
