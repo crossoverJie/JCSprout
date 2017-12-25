@@ -70,4 +70,23 @@
     }
 ```
 
+以及指定位置插入数据:
+```java
+    public void add(int index, E element) {
+        insertElementAt(element, index);
+    }
+        public synchronized void insertElementAt(E obj, int index) {
+        modCount++;
+        if (index > elementCount) {
+            throw new ArrayIndexOutOfBoundsException(index
+                                                     + " > " + elementCount);
+        }
+        ensureCapacityHelper(elementCount + 1);
+        System.arraycopy(elementData, index, elementData, index + 1, elementCount - index);
+        elementData[index] = obj;
+        elementCount++;
+    }
+```
+
+
 
