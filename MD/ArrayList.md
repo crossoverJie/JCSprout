@@ -75,7 +75,7 @@
     public void add(int index, E element) {
         insertElementAt(element, index);
     }
-        public synchronized void insertElementAt(E obj, int index) {
+    public synchronized void insertElementAt(E obj, int index) {
         modCount++;
         if (index > elementCount) {
             throw new ArrayIndexOutOfBoundsException(index
