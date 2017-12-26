@@ -29,6 +29,7 @@
 ### DB 相关
 
 - [SQL 优化](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SQL-optimization.md)
+- 数据库水平垂直拆分
 - MySQL 索引数据结构
 
 ### 附加技能
