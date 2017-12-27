@@ -24,7 +24,7 @@
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Spike.md)
 - [分布式缓存设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Cache-design.md)
 - [分布式 ID 生成器](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ID-generator.md)
-
+- 限流算法
 
 ### DB 相关
 
@@ -34,4 +34,4 @@
 
 ### 附加技能
 
-[TCP/IP 协议](https://github.com/crossoverJie/Java-Interview/blob/master/MD/TCP%3AIP.md)
+- [TCP/IP 协议](https://github.com/crossoverJie/Java-Interview/blob/master/MD/TCP%3AIP.md)
