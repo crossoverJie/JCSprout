@@ -41,3 +41,6 @@ Process finished with exit code 1
 
 ## 方法区/运行时常量池溢出
 
+> `JDK8` 中将永久代移除，使用 MetaSpace 来保存类加载之后的类信息。
+
+`PermSize` 和 `MaxPermSize` 已经不能使用了，在 JDK8 中配置这两个参数将会发出警告。
