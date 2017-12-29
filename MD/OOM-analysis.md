@@ -8,12 +8,12 @@
 伪代码:
 
 ```java
-public void main(String[] args){
-    List<String> list = new ArrayList(10) ;
-    while(true){
-        list.add("1") ;
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>(10) ;
+        while (true){
+            list.add("1") ;
+        }
     }
-}
 ```
 
 当出现 OOM 时可以通过工具来分析 `GC-Roots` [引用链](https://github.com/crossoverJie/Java-Interview/blob/master/MD/GarbageCollection.md#%E5%8F%AF%E8%BE%BE%E6%80%A7%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95) ，查看对象和 `GC-Roots` 是如何进行关联的，是否存在对象的生命周期过长，或者是这些对象确实改存在的，那就要考虑将堆内存调大了。
