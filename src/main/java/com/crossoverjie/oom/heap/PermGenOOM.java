@@ -1,10 +1,10 @@
 package com.crossoverjie.oom.heap;
 
-import com.crossoverjie.proxy.jdk.CustomizeHandle;
-import com.crossoverjie.proxy.jdk.ISubject;
-import com.crossoverjie.proxy.jdk.impl.ISubjectImpl;
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
 
-import java.lang.reflect.Proxy;
+import java.lang.reflect.Method;
 
 /**
  * Function:方法区内存溢出
@@ -17,9 +17,16 @@ public class PermGenOOM {
 
     public static void main(String[] args) {
         while (true){
-            CustomizeHandle handle = new CustomizeHandle(ISubjectImpl.class) ;
-            ISubject subject = (ISubject) Proxy.newProxyInstance(PermGenOOM.class.getClassLoader(), new Class[]{ISubject.class}, handle);
-            subject.execute() ;
+            Enhancer  enhancer = new Enhancer() ;
+            enhancer.setSuperclass(HeapOOM.class);
+            enhancer.setUseCache(false) ;
+            enhancer.setCallback(new MethodInterceptor() {
+                @Override
+                public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+                    return methodProxy.invoke(o,objects) ;
+                }
+            });
+            enhancer.create() ;
 
         }
     }
