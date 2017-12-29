@@ -82,4 +82,5 @@ Caused by: java.lang.OutOfMemoryError: Metaspace
 	... 16 more
 ```
 
+注意：这里的 OOM 伴随的是 `java.lang.OutOfMemoryError: Metaspace` 也就是元数据溢出。
 
