@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
  *         Date: 29/12/2017 21:34
  * @since JDK 1.8
  */
-public class PermGenOOM {
+public class MetaSpaceOOM {
 
     public static void main(String[] args) {
         while (true){
