@@ -46,4 +46,40 @@ Process finished with exit code 1
 `PermSize` 和 `MaxPermSize` 已经不能使用了，在 JDK8 中配置这两个参数将会发出警告。
 
 
-JDK 8 中将类信息移到到了本地堆内存(Native Heap)中
+JDK 8 中将类信息移到到了本地堆内存(Native Heap)中，将原有的永久代移动到了本地堆中成为 `MetaSpace` ,如果不指定该区域的大小，JVM 将会动态的调整。
+
+可以使用 `-XX:MaxMetaspaceSize=10M` 来限制最大元数据。这样当不听的创建类时将会占满该区域并出现 OOM。
+
+```java
+    public static void main(String[] args) {
+        while (true){
+            Enhancer  enhancer = new Enhancer() ;
+            enhancer.setSuperclass(HeapOOM.class);
+            enhancer.setUseCache(false) ;
+            enhancer.setCallback(new MethodInterceptor() {
+                @Override
+                public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+                    return methodProxy.invoke(o,objects) ;
+                }
+            });
+            enhancer.create() ;
+
+        }
+    }
+```
+使用 `cglib` 不停的创建新类，最终会抛出:
+```
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.sf.cglib.core.ReflectUtils.defineClass(ReflectUtils.java:459)
+	at net.sf.cglib.core.AbstractClassGenerator.generate(AbstractClassGenerator.java:336)
+	... 11 more
+Caused by: java.lang.OutOfMemoryError: Metaspace
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	... 16 more
+```
+
+
