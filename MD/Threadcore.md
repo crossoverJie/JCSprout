@@ -67,7 +67,7 @@ int c = a + b ; //3
 
 Java 中可以使用 `volatile` 来保证顺序性，`synchronize 和 lock` 也可以来保证有序性，和保证原子性的方式一样，通过同一段时间只能一个线程访问来实现的。
 
-除了通过 `volatile` 关键字显示的保证顺序之外， JVM 还通过 `happen-before` 原则来隐式的保证顺序性。
+除了通过 `volatile` 关键字显式的保证顺序之外， JVM 还通过 `happen-before` 原则来隐式的保证顺序性。
 
 其中有一条就是适用于 volatile 关键字的，针对于 volatile 关键字的写操作肯定是在读操作之前，也就是说读取的值肯定是最新的。
 
