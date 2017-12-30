@@ -37,6 +37,7 @@
 - 清楚之后容易出现不连续内存，当需要分配一个较大内存时就不得不需要进行一次垃圾回收。
 
 标记清除过程如下:
+
 ![](https://ws3.sinaimg.cn/large/006tNc79gy1fmz99ai1n3j30fj08qdgc.jpg)
 
 ### 复制算法
@@ -50,6 +51,7 @@
 新生代中分为一个 `Eden` 区和两个 `Survivor` 区。通常两个区域的比例是 `8:1:1` ，使用时会用到 `Eden` 去和其中一个 `Survivor` 区。当发生回收时则会将还存活的对象从 Eden ，Survivor 区拷贝到另一个 Survivor 区。当该区域内存也不足时候则会使用分配担保使用永久代来存放内存。
 
 复制算法过程：
+
 ![](https://ws3.sinaimg.cn/large/006tNc79gy1fmzavlf4enj30fj08qt9b.jpg)
 
 
