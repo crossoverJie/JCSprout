@@ -31,7 +31,7 @@
 
 - [SQL 优化](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SQL-optimization.md)
 - [数据库水平垂直拆分](https://github.com/crossoverJie/Java-Interview/blob/master/MD/DB-split.md)
-- MySQL 索引数据结构
+- `MySQL` 索引原理
 
 ### 附加技能
 
