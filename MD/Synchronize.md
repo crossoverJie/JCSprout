@@ -20,3 +20,6 @@
 
 ![](https://ws2.sinaimg.cn/large/006tNc79ly1fn26q2val1j31e80hyq56.jpg)
 
+
+ > Synchronize 关键字也支持重入。
+
