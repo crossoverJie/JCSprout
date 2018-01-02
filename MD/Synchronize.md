@@ -21,5 +21,53 @@
 ![](https://ws2.sinaimg.cn/large/006tNc79ly1fn26q2val1j31e80hyq56.jpg)
 
 
+通过一段代码来演示:
+
+```java
+    public static void main(String[] args) {
+        synchronized (Synchronize.class){
+            System.out.println("Synchronize");
+        }
+    }
+```
+
+使用 `javap -c Synchronize` 可以查看编译之后的具体信息。
+
+```
+public class com.crossoverjie.synchronize.Synchronize {
+  public com.crossoverjie.synchronize.Synchronize();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: ldc           #2                  // class com/crossoverjie/synchronize/Synchronize
+       2: dup
+       3: astore_1
+       **4: monitorenter**
+       5: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       8: ldc           #4                  // String Synchronize
+      10: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      13: aload_1
+      **14: monitorexit**
+      15: goto          23
+      18: astore_2
+      19: aload_1
+      20: monitorexit
+      21: aload_2
+      22: athrow
+      23: return
+    Exception table:
+       from    to  target type
+           5    15    18   any
+          18    21    18   any
+}
+```
+
+可以看到在同步块的入口和出口分别有 `monitorenter,monitorexit`
+指令。
+
  > Synchronize 关键字也支持重入。
 
