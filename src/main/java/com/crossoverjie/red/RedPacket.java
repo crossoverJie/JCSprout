@@ -23,7 +23,7 @@ public class RedPacket {
     private static final int MAXMONEY = 200 * 100 ;
 
     /**
-     * 小于最小值状态
+     * 小于最小值
      */
     private static final int LESS = -1 ;
     /**
