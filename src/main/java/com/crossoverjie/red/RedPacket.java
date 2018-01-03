@@ -15,12 +15,12 @@ public class RedPacket {
     /**
      * 生成红包最小值 1分
      */
-    private static final int MINMONEY = 1 ;
+    private static final int MIN_MONEY = 1 ;
 
     /**
      * 生成红包最大值 200人民币
      */
-    private static final int MAXMONEY = 200 * 100 ;
+    private static final int MAX_MONEY = 200 * 100 ;
 
     /**
      * 小于最小值
@@ -48,11 +48,11 @@ public class RedPacket {
 
         //计算出最大红包
         int max = (int) ((money / count) * TIMES) ;
-        max = max > MAXMONEY ? MAXMONEY : max ;
+        max = max > MAX_MONEY ? MAX_MONEY : max ;
 
         for (int i = 0 ; i< count ; i++){
             //随机获取红包
-            int redPacket = randomRedPacket(money,MINMONEY,max,count - i) ;
+            int redPacket = randomRedPacket(money, MIN_MONEY,max,count - i) ;
             moneys.add(redPacket);
             //总金额每次减少
             money -= redPacket ;
@@ -110,11 +110,11 @@ public class RedPacket {
      */
     private int checkMoney(int lastMoney, int count) {
         double avg = lastMoney / count ;
-        if (avg < MINMONEY){
+        if (avg < MIN_MONEY){
             return LESS ;
         }
 
-        if (avg > MAXMONEY){
+        if (avg > MAX_MONEY){
             return MORE ;
         }
 
