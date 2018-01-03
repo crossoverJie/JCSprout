@@ -12,7 +12,7 @@
 `ConcurrentHashMap` 采用了分段锁技术，其中 `Segment` 继承于 `ReentrantLock`。不会像 `HashTable` 那样不管是 `put` 还是 `get` 操作都需要做同步处理，理论上 ConcurrentHashMap 支持 `CurrencyLevel` (Segment 数组数量)的线程并发。每当一个线程占用锁访问一个 `Segment` 时，不会影响到其他的 `Segment`。
 
 ## get 方法
-ConcurrentHashMap 的 get 方法是非常高效的，因为整个过程都不需要加锁。
+`ConcurrentHashMap` 的 `get` 方法是非常高效的，因为整个过程都不需要加锁。
 
 只需要将 `Key` 通过 `Hash` 之后定位到具体的 `Segment` ，再通过一次 `Hash` 定位到具体的元素上。由于 `HashEntry` 中的 `value` 属性是用 `volatile` 关键词修饰的，保证了内存可见性，所以每次获取时都是最新值([volatile 相关知识点](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Threadcore.md#%E5%8F%AF%E8%A7%81%E6%80%A7))。
 
@@ -35,7 +35,7 @@ ConcurrentHashMap 的 get 方法是非常高效的，因为整个过程都不需
     }
 ```
 
-虽然 HashEntry 中的 value 是用 volatile 关键词修饰的，但是并不能保证并发的原子性。所以 put 操作时仍然需要加锁处理。
+虽然 HashEntry 中的 value 是用 `volatile` 关键词修饰的，但是并不能保证并发的原子性，所以 put 操作时仍然需要加锁处理。
 
 首先也是通过 Key 的 Hash 定位到具体的 Segment，在 put 之前会进行一次扩容校验。这里比 HashMap 要好的一点是：HashMap 是插入元素之后再看是否需要扩容，有可能扩容之后后续就没有插入就浪费了本次扩容(扩容非常消耗性能)。
 
