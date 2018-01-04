@@ -38,7 +38,8 @@
 ### 数据结构与算法
 - [红包算法](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/red/RedPacket.java)
 - [二叉树中序遍历](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/BinaryNode.java#L76-L101)
-- 是否为快乐数字
+- [是否为快乐数字](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/HappyNum.java#L38-L55)
+- 链表是否有环
 
 ### 附加技能
 

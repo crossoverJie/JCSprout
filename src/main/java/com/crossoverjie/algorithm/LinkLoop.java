@@ -24,6 +24,11 @@ public class LinkLoop {
         }
     }
 
+    /**
+     * 判断链表是否有环
+     * @param node
+     * @return
+     */
     public boolean isLoop(Node node){
         Node slow = node ;
         Node fast = node.next ;
