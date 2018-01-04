@@ -35,6 +35,10 @@
 - [SQL 优化](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SQL-optimization.md)
 - [数据库水平垂直拆分](https://github.com/crossoverJie/Java-Interview/blob/master/MD/DB-split.md)
 
+### 数据结构与算法
+- [红包算法](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/red/RedPacket.java)
+- [二叉树中序遍历](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/BinaryNode.java#L76-L101)
+- 是否为快乐数字
 
 ### 附加技能
 
