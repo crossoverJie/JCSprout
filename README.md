@@ -40,7 +40,7 @@
 - [二叉树中序遍历](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/BinaryNode.java#L76-L101)
 - [是否为快乐数字](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/HappyNum.java#L38-L55)
 - [链表是否有环](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/LinkLoop.java#L32-L59)
-- 从一个数组中返回两个值相加等于目标值的下标
+- [从一个数组中返回两个值相加等于目标值的下标](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/TwoSum.java#L38-L59)
 
 ### 附加技能
 
