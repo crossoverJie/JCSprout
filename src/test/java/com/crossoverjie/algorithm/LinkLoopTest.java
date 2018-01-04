@@ -24,7 +24,7 @@ public class LinkLoopTest {
     }
 
     /**
-     * 无环
+     * 有环
      * @throws Exception
      */
     @Test
