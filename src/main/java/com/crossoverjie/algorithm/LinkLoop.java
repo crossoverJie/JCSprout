@@ -37,6 +37,7 @@ public class LinkLoop {
                 return true ;
             }
 
+            //一共只有两个节点，但却不是环形链表的情况，判断NPE
             if (fast.next == null){
                 return false ;
             }
