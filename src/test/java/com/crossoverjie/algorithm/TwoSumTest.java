@@ -13,4 +13,13 @@ public class TwoSumTest {
 
     }
 
+    @Test
+    public void getTwo2(){
+        TwoSum twoSum = new TwoSum() ;
+        int[] nums ={1,3,5,7};
+        int[] two = twoSum.getTwo2(nums, 4);
+        System.out.println(JSON.toJSONString(two));
+
+    }
+
 }
