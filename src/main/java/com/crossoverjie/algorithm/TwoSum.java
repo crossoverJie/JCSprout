@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Function:
+ * Function:{1,3,5,7} target=8 返回{2,3}
  *
  * @author crossoverJie
  *         Date: 04/01/2018 09:53
