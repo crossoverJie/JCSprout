@@ -86,7 +86,7 @@ public class RedPacket {
             return redPacket ;
         }
 
-        //如果生成的金额合法 则递归重新生成
+        //如果生成的金额不合法 则递归重新生成
         if (LESS == status){
             recursiveCount ++ ;
             System.out.println("recursiveCount==" + recursiveCount);
