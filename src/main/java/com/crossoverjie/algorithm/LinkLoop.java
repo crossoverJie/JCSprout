@@ -37,6 +37,9 @@ public class LinkLoop {
                 return true ;
             }
 
+            if (fast.next == null){
+                return false ;
+            }
             //slow走慢点  fast走快点
             slow = slow.next ;
             fast = fast.next.next ;
