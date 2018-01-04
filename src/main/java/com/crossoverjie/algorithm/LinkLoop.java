@@ -28,7 +28,7 @@ public class LinkLoop {
         Node slow = node ;
         Node fast = node.next ;
 
-        while (node.next != null){
+        while (slow.next != null){
             Object dataSlow = slow.data;
             Object dataFast = fast.data;
 
