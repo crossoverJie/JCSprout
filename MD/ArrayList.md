@@ -2,7 +2,7 @@
 
 ## ArrayList
 
-`ArrayList` 实现于 `List`、`RandomAccess` 接口。可以插入空数据并且允许数据为空，也支持随机随机访问。
+`ArrayList` 实现于 `List`、`RandomAccess` 接口。可以插入空数据，也支持随机随机访问。
 
 `ArrayList `相当于动态数据，其中最重要的两个属性分别是:
 `elementData` 数组，以及 size 大小。
