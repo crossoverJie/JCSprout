@@ -4,7 +4,7 @@
 
 如图所示 `LinkedList` 底层是基于双向链表实现的，也是实现了 `List` 接口，所以也拥有 List 的一些特点。
 
-## 新增
+## 新增方法
 
 ```java
     public boolean add(E e) {
@@ -29,7 +29,7 @@
 
 可见每次插入都是移动指针，和 ArrayList 的拷贝数组来说效率要高上不少。
 
-## 查询
+## 查询方法
 
 ```java
     public E get(int index) {

@@ -1,6 +1,6 @@
 # Java 面试常见题型
 
-### Java 基础
+### Java 集合
 - [ArrayList/Vector 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
 - [LinkedList 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/LinkedList.md)
 
