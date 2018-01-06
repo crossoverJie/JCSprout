@@ -12,8 +12,8 @@ import java.util.concurrent.*;
  *         Date: 04/01/2018 22:57
  * @since JDK 1.8
  */
-public class ThreadConnect {
-    private final static Logger LOGGER = LoggerFactory.getLogger(ThreadConnect.class);
+public class ThreadCommunication {
+    private final static Logger LOGGER = LoggerFactory.getLogger(ThreadCommunication.class);
     public static void main(String[] args) throws Exception {
         //join();
         //executorService();
