@@ -1,6 +1,6 @@
 # HashMap 底层分析
 
-> 基于 JDK1.7 分析。
+> 以下基于 JDK1.7 分析。
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1fn84b0ftj4j30eb0560sv.jpg)
 
