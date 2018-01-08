@@ -39,6 +39,12 @@ public final boolean compareAndSet(long expect, long update) {
 
 其逻辑就是判断当前的值是否被更新过，是否等于 `current`，如果等于就说明没有更新过然后将当前的值更新为 `next`，如果不等于则返回`false` 进入循环，直到更新成功为止。
 
+还有其中的 `get()` 方法也很关键，返回的是当前的值，当前值用了 `volatile` 关键词修饰，保证了内存可见性。
+
+```java
+ private volatile int value;
+```
+
 
 ## 可见性
 
