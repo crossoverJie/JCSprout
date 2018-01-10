@@ -10,7 +10,10 @@
 ## 创建一个线程池
 
 以一个使用较多的 
-`ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, RejectedExecutionHandler handler) ` 为例：
+
+`ThreadPoolExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, RejectedExecutionHandler handler) ` 
+
+为例：
 
 - 其中的 `corePoolSize` 为线程池的基本大小。
 - `maximumPoolSize` 为线程池最大线程大小。
