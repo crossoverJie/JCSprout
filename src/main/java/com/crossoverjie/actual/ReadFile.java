@@ -71,17 +71,14 @@ public class ReadFile {
             }
         }
 
-        List<SortString> sorts = new ArrayList<>() ;
         for (String key :countMap.keySet()){
             SortString sort = new SortString() ;
             sort.setKey(key);
             sort.setCount(countMap.get(key));
-            sorts.add(sort) ;
+
+            contentSet.add(sort) ;
         }
 
-        for (SortString sortString : sorts) {
-            contentSet.add(sortString) ;
-        }
     }
 
     private static class SortString implements Comparable<SortString>{
