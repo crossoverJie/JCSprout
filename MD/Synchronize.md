@@ -69,7 +69,6 @@ public class com.crossoverjie.synchronize.Synchronize {
 可以看到在同步块的入口和出口分别有 `monitorenter,monitorexit`
 指令。
 
- > Synchronize 关键字也支持重入。
 
 ## 锁优化
 synchronize  很多都称之为重量锁，`JDK1.6` 中对 synchronize 进行了各种优化，为了能减少获取和释放锁带来的消耗引入了`偏向锁`和`轻量锁`。
