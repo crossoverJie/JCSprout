@@ -71,3 +71,11 @@ public class com.crossoverjie.synchronize.Synchronize {
 
  > Synchronize 关键字也支持重入。
 
+## 锁优化
+synchronize  很多都称之为重量锁，`JDK1.6` 中对 synchronize 进行了各种优化，为了能减少获取和释放锁带来的消耗引入了`偏向锁`和`轻量锁`。
+
+
+### 轻量级锁
+当代码进入同步块时，如果同步对象为无锁状态时，当前线程会在栈帧中穿件一个锁记录(`Lock Record`)区域，同时将锁对象对象头中的 Mark Word 拷贝到锁记录中。再尝试使用 CAS 将 Mark Word 更新为指向锁记录的指针。
+
+如果更新成功，当前线程就获得了锁。如果更新失败 JVM 会先检查锁对象的 Mark Word 是否指向当前线程的锁记录，如果是则说明当前线程拥有锁对象的锁，可以直接进入同步块。
