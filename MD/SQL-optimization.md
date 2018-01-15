@@ -28,7 +28,7 @@ select name from user where name like 'zhangsan%'
 
 如 user 表中的性别字段，可以明显区分的才建议创建索引，如身份证等字段。
 
-### 字段的默认值不要为 NUll
+### 字段的默认值不要为 null
 这样会带来和预期不一致的查询结果。
 
 ### 在字段上进行计算不能命中索引
