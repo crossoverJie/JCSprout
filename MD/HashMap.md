@@ -33,6 +33,10 @@ get 和 put 类似，也是将传入的 Key 计算出 index ，如果该位置�
 > 所以 HashMap 只能在单线程中使用，并且尽量的预设容量，尽可能的减少扩容。
 
 在 `JDK1.8` 中对 `HashMap` 进行了优化：
-当 hash 碰撞之后写入链表的长度超过了阈值(默认为8)，链表将会转换为红黑树。
+当 `hash` 碰撞之后写入链表的长度超过了阈值(默认为8)，链表将会转换为**红黑树**。
+
+假设 `hash` 冲突非常严重，一个数组后面接了很长的链表，此时重新的时间复杂度就是 `O(n)` 。
+
+如果是红黑树，时间复杂度就是 `O(logn)` 。
 
 多线程场景下推荐使用 [ConcurrentHashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)。
