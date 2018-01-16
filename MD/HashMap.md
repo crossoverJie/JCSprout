@@ -39,4 +39,6 @@ get 和 put 类似，也是将传入的 Key 计算出 index ，如果该位置�
 
 如果是红黑树，时间复杂度就是 `O(logn)` 。
 
+大大提高了查询效率。
+
 多线程场景下推荐使用 [ConcurrentHashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)。
