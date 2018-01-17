@@ -14,6 +14,15 @@ public class MinorGC {
      */
     private static final int SIZE = 1024 * 1024 ;
 
+    /**
+     *
+     -XX:+PrintGCDetails
+     -Xms20M
+     -Xmx20M
+     -Xmn10M
+     -XX:SurvivorRatio=8
+     * @param args
+     */
     public static void main(String[] args) {
         byte[] one ;
         byte[] four ;
