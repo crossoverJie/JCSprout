@@ -20,6 +20,36 @@
 
 这样可以在创建对象的时候使用 `CAS` 这样的乐观锁来保证。
 
-也可以将内存分配安排在每个线程独有的空间进行，每个线程首先在堆内存中分配一小块内存，称为本地分配缓存(`TLAB Thread Local Allocation Buffer`)
+也可以将内存分配安排在每个线程独有的空间进行，每个线程首先在堆内存中分配一小块内存，称为本地分配缓存(`TLAB : Thread Local Allocation Buffer`)。
 
+之后分配内存时，只需要在自己的分配缓存中分配即可，由于这个内存区域是线程私有的，所以不会出现并发问题。
 
+可以使用 `-XX:+/-UseTLAB` 参数来设定 JVM 是否开启 `TLAB` 。
+
+内存分配之后需要对该对象进行设置，如对象头。对象头的一些应用可以查看 [Synchronize 关键字原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Synchronize.md)。
+
+### 对象访问
+
+一个对象被创建之后自然是为了使用，在 Java 中是通过栈来引用堆内存中的对象来进行操作的。
+
+对于我们常用的 HotSpot 虚拟机来说，这样引用关系是通过直接指针来关联的。
+
+如图:
+
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fnkmy0bvu3j30o60heaaq.jpg)
+
+这样的好处就是：在 Java 里进行频繁的对象访问可以提升访问速度(相对于使用句柄池来说)。
+
+## 内存分配
+
+简单的来说对象都是在堆内存中分配的，往细一点看则是优先在 `Eden` 区分配。
+
+这里就涉及到堆内存的划分了，为了方便垃圾回收，JVM 将对内存分为新生代和老年代。
+
+而新生代中又会划分为 `Eden` 区，`from Survivor、to Survivor` 区。
+
+其中 `Eden` 和 `Survivor` 区的比例默认是 `8:1:1`，当然也支持参数调整 `-XX:SurvivorRatio=8`。
+
+当在 `Eden` 区分配内存不足时，则会发生 `minorGC` ，由于 `Java` 对象多数是朝生夕灭的特性，所以 `minorGC` 通常会比较频繁，效率也比较高。
+
+当发生 minorGC 时，JVM 会根据[复制算法](https://github.com/crossoverJie/Java-Interview/blob/145064ecf867e898ad025f3467b7ada9086fc8dd/MD/GarbageCollection.md#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95)将存活的对象拷贝到另一个未使用的 `Survivor` 区，如果 `Survivor` 区内存不足时，则会使用分配担保策略将对象移动到老年代中。
