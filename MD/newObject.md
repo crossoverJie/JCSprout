@@ -42,6 +42,8 @@
 
 ## 内存分配
 
+
+### Eden 区分配
 简单的来说对象都是在堆内存中分配的，往细一点看则是优先在 `Eden` 区分配。
 
 这里就涉及到堆内存的划分了，为了方便垃圾回收，JVM 将对内存分为新生代和老年代。
@@ -52,4 +54,19 @@
 
 当在 `Eden` 区分配内存不足时，则会发生 `minorGC` ，由于 `Java` 对象多数是朝生夕灭的特性，所以 `minorGC` 通常会比较频繁，效率也比较高。
 
-当发生 minorGC 时，JVM 会根据[复制算法](https://github.com/crossoverJie/Java-Interview/blob/145064ecf867e898ad025f3467b7ada9086fc8dd/MD/GarbageCollection.md#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95)将存活的对象拷贝到另一个未使用的 `Survivor` 区，如果 `Survivor` 区内存不足时，则会使用分配担保策略将对象移动到老年代中。
+当发生 `minorGC` 时，JVM 会根据[复制算法](https://github.com/crossoverJie/Java-Interview/blob/145064ecf867e898ad025f3467b7ada9086fc8dd/MD/GarbageCollection.md#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95)将存活的对象拷贝到另一个未使用的 `Survivor` 区，如果 `Survivor` 区内存不足时，则会使用分配担保策略将对象移动到老年代中。
+
+谈到 `minorGC` 时，就不得不提到 `fullGC(majorGC)` ，这是值发生在老年代的 GC ，不论是效率还是速度都比 majorGC 慢的多，回收时还会发生 `stop the world` 使程序发生停顿，所以应当尽量避免发生 `fullGC` 。
+
+### 老年代分配
+
+也有一些情况会导致对象直接在老年代分配，比如当分配一个大对象时(大的数组，很长的字符串)，由于 Eden 区没有足够大的连续空间来分配时，会导致提前触发一次 `GC`，所以尽量别频繁的创建大对象。
+
+所以 `JVM` 会根据一个阈值来判断大于该阈值对象直接分配到老年代，这样可以避免在新生代频繁的发生 `GC`。
+
+
+对于一些在新生代的老对象 JVM 也会根据某种机制移动到老年代中。
+
+JVM 是根据记录对象年龄的方式来判断该对象是否应该移动到老年代，根据新生代的复制算法，当一个对象被移动到 Survivor 区之后 JVM 就给该对象的年龄记为1，每当熬过一次 minorGC 后对象的年龄就 +1 ，直到达到阈值(默认为15)就移动到老年代中。
+
+> 可以使用 `-XX:MaxTenuringThreshold=15` 来配置这个阈值。 
