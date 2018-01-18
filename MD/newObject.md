@@ -1,4 +1,7 @@
-# 创建对象
+# 对象的创建与内存分配
+
+
+## 创建对象
 
 当 `JVM` 收到一个 `new` 指令时，会检查指令中的参数在常量池是否有这个符号的引用，还会检查该类是否已经被[加载](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ClassLoad.md)过了，如果没有的话则要进行一次类加载。
 
