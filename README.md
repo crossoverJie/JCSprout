@@ -19,7 +19,7 @@
 -  [类加载机制](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ClassLoad.md)
 -  [OOM 分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/OOM-analysis.md)
 - [垃圾回收](https://github.com/crossoverJie/Java-Interview/blob/master/MD/GarbageCollection.md)
-- 对象的创建与内存分配
+- [对象的创建与内存分配](https://github.com/crossoverJie/Java-Interview/blob/master/MD/newObject.md)
 
 ### 常用框架
 
