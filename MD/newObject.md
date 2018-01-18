@@ -32,7 +32,7 @@
 
 一个对象被创建之后自然是为了使用，在 Java 中是通过栈来引用堆内存中的对象来进行操作的。
 
-对于我们常用的 HotSpot 虚拟机来说，这样引用关系是通过直接指针来关联的。
+对于我们常用的 `HotSpot` 虚拟机来说，这样引用关系是通过直接指针来关联的。
 
 如图:
 
@@ -52,7 +52,7 @@
 
 其中 `Eden` 和 `Survivor` 区的比例默认是 `8:1:1`，当然也支持参数调整 `-XX:SurvivorRatio=8`。
 
-当在 `Eden` 区分配内存不足时，则会发生 `minorGC` ，由于 `Java` 对象多数是朝生夕灭的特性，所以 `minorGC` 通常会比较频繁，效率也比较高。
+当在 `Eden` 区分配内存不足时，则会发生 `minorGC` ，由于 `Java` 对象多数是**朝生夕灭**的特性，所以 `minorGC` 通常会比较频繁，效率也比较高。
 
 当发生 `minorGC` 时，JVM 会根据[复制算法](https://github.com/crossoverJie/Java-Interview/blob/145064ecf867e898ad025f3467b7ada9086fc8dd/MD/GarbageCollection.md#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95)将存活的对象拷贝到另一个未使用的 `Survivor` 区，如果 `Survivor` 区内存不足时，则会使用分配担保策略将对象移动到老年代中。
 
