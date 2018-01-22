@@ -24,7 +24,7 @@
 
 分配内存时，只需要在自己的分配缓存中分配即可，由于这个内存区域是线程私有的，所以不会出现并发问题。
 
-可以使用 `-XX:+/-UseTLAB` 参数来设定 JVM 是否开启 `TLAB` 。
+可以使用 `-XX:+/-UseTLAB` 参数来设定 `JVM` 是否开启 `TLAB` 。
 
 内存分配之后需要对该对象进行设置，如对象头。对象头的一些应用可以查看 [Synchronize 关键字原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Synchronize.md)。
 
