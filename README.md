@@ -9,7 +9,7 @@
 - [`Synchronize` 关键字原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Synchronize.md)
 - [多线程的三大核心](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Threadcore.md)
 - [对锁的一些认知，有哪些锁](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Java-lock.md)
-- ReentrantLock 实现原理 
+- [ReentrantLock 实现原理 ](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ReentrantLock.md)
 - [`ConcurrentHashMap` 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)
 - [线程池原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ThreadPoolExecutor.md)
 - [线程间通信](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/ThreadCommunication.java)
