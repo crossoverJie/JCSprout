@@ -64,7 +64,7 @@ ReentrantLock 分为**公平锁**和**非公平锁**，可以通过构造方法�
         if (!tryAcquire(arg) &&
             acquireQueued(addWaiter(Node.EXCLUSIVE), arg))
             selfInterrupt();
-    }
+    	}
 ```
 
 第一步是尝试获取锁(`tryAcquire(arg)`),这个也是由其子类实现：
