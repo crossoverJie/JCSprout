@@ -202,7 +202,7 @@ ReentrantLock 分为**公平锁**和**非公平锁**，可以通过构造方法�
 ### 非公平锁获取锁
 公平锁与非公平锁的差异主要在获取锁：
 
-公平锁就相当于买票，后来的人需要排到队尾依次买票，不能插队。
+公平锁就相当于买票，后来的人需要排到队尾依次买票，**不能插队**。
 
 而非公平锁则没有这些规则，是**抢占模式**，每来一个人不会去管队列如何，直接尝试获取锁。
 
@@ -267,7 +267,7 @@ ReentrantLock 分为**公平锁**和**非公平锁**，可以通过构造方法�
         return false;
     }
     
-    //尝试释放锁
+    	  //尝试释放锁
         protected final boolean tryRelease(int releases) {
             int c = getState() - releases;
             if (Thread.currentThread() != getExclusiveOwnerThread())
