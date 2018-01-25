@@ -183,7 +183,7 @@ ReentrantLock 分为**公平锁**和**非公平锁**，可以通过构造方法�
 
 首先会根据 `node.predecessor()` 获取到上一个节点是否为头节点，如果是则尝试获取一次锁。
 
-如果不是头节点，或者获取锁失败，则会根据上一个节点的 `waitStatus` 来处理(`shouldParkAfterFailedAcquire(p, node)`)。
+如果不是头节点，或者获取锁失败，则会根据上一个节点的 `waitStatus` 状态来处理(`shouldParkAfterFailedAcquire(p, node)`)。
 
 `waitStatus` 用于记录当前节点的状态，如节点取消、节点等待等。
 
