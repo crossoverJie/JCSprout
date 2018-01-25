@@ -104,7 +104,7 @@ ReentrantLock 分为**公平锁**和**非公平锁**，可以通过构造方法�
 
 
 #### 写入队列
-如果 `tryAcquire(arg)` 获取锁失败，则需要用 `acquireQueued(addWaiter(Node.EXCLUSIVE), arg)` 将当前线程写入队列中。
+如果 `tryAcquire(arg)` 获取锁失败，则需要用 `addWaiter(Node.EXCLUSIVE)` 将当前线程写入队列中。
 
 写入之前需要将当前线程包装为一个 `Node` 对象(`addWaiter(Node.EXCLUSIVE)`)。
 
@@ -153,6 +153,76 @@ ReentrantLock 分为**公平锁**和**非公平锁**，可以通过构造方法�
 
 这个处理逻辑就相当于自旋加上 `CAS` 保证一定写入队列。
 
+#### 挂起等待线程
+
+写入队列之后需要将当前线程挂起(利用`acquireQueued(addWaiter(Node.EXCLUSIVE), arg)`)：
+
+```java
+    final boolean acquireQueued(final Node node, int arg) {
+        boolean failed = true;
+        try {
+            boolean interrupted = false;
+            for (;;) {
+                final Node p = node.predecessor();
+                if (p == head && tryAcquire(arg)) {
+                    setHead(node);
+                    p.next = null; // help GC
+                    failed = false;
+                    return interrupted;
+                }
+                if (shouldParkAfterFailedAcquire(p, node) &&
+                    parkAndCheckInterrupt())
+                    interrupted = true;
+            }
+        } finally {
+            if (failed)
+                cancelAcquire(node);
+        }
+    }
+```
+
+首先会根据 `node.predecessor()` 获取到上一个节点是否为头节点，如果是则尝试获取一次锁。
+
+如果不是头节点，或者获取锁失败，则会根据上一个节点的 `waitStatus` 来处理(`shouldParkAfterFailedAcquire(p, node)`)。
+
+`waitStatus` 用于记录当前节点的状态，如节点取消、节点等待等。
+
+`shouldParkAfterFailedAcquire(p, node)` 返回当前线程是否需要挂起，如果需要则调用 `parkAndCheckInterrupt()`：
+
+```java
+    private final boolean parkAndCheckInterrupt() {
+        LockSupport.park(this);
+        return Thread.interrupted();
+    }
+```
+
+他是利用 `LockSupport` 的 `part` 方法来挂起当前线程的，直到被唤醒。
 
 
- 
+### 非公平锁获取锁
+公平锁与非公平锁的差异主要在获取锁：
+
+公平锁就相当于买票，后来的人需要排到队尾依次买票，不能插队。
+
+而非公平锁则没有这些规则，是**抢占模式**，每来一个人不会去管队列如何，直接尝试获取锁。
+
+非公平锁:
+```java
+        final void lock() {
+            //直接尝试获取锁
+            if (compareAndSetState(0, 1))
+                setExclusiveOwnerThread(Thread.currentThread());
+            else
+                acquire(1);
+        }
+```
+
+公平锁:
+```java
+        final void lock() {
+            acquire(1);
+        }
+```
+
+
+
