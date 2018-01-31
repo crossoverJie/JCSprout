@@ -28,7 +28,7 @@ public class ThreadCommunication {
     private static void countDownLatch() throws Exception{
         int thread = 3 ;
         long start = System.currentTimeMillis();
-        CountDownLatch countDown = new CountDownLatch(thread);
+        final CountDownLatch countDown = new CountDownLatch(thread);
         for (int i= 0 ;i<thread ; i++){
             new Thread(new Runnable() {
                 @Override

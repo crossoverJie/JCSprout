@@ -76,7 +76,6 @@
         <appender-ref ref="LOGFILE-INFO" />
         <appender-ref ref="LOGFILE-ERROR" />
         <appender-ref ref="CONSOLE" />
-        <appender-ref ref="LOGFILE-COMMON" />
     </root>
 
 
