@@ -2,7 +2,7 @@
 
 ## 同一进程
 
-### 重入锁
+### [重入锁](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ReentrantLock.md)
 使用 `ReentrantLock` 获取锁的时候会会判断当前线程是否为获取锁的线程，如果是则将同步的状态 +1 ,释放锁的时候则将状态 -1。只有将同步状态的次数置为 0 的时候才会最终释放锁。
 
 ### 读写锁
