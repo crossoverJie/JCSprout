@@ -317,10 +317,6 @@ public class AbstractMap extends java.util.AbstractMap {
         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
     }
 
-
-    /**
-     * 不好意思，没太懂这个回调函数的作业
-     */
     private void lruCallback(){
         LOGGER.debug("lruCallback");
     }
