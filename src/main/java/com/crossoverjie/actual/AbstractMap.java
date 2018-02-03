@@ -11,15 +11,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Function:
  *
- * 1.在做 key 生成 hashcode 时是用的 HashMap 的hash 函数
+ * 1.在做 key 生成 hashcode 时是用的 HashMap 的 hash 函数
  * 2.在做 put get 时，如果存在 key 相等时候为了简单没有去比较 equal 和 hashcode
  * 3.限制大小， map的最大size是1024， 超过1024后，就淘汰掉最久没有访问的kv 键值对， 当淘汰时，需要调用一个callback   lruCallback(K key, V value)
  * 是利用每次 put 都将值写入一个内部队列，这样只需要判断队列里的第一个即可。
  * 4.具备超时功能， 当键值对1小时内没有被访问， 就被淘汰掉, 当淘汰时， 需要调用一个callback   timeoutCallback(K key, V value);
- * 超时同理，取的是队列里的第一个 因为第一个是最早放进去的。
- * 5.删除时的回调方法 callback 确实没有理解，不好意思。
+ * 超时同理，单独开启一个守护进程来处理，取的是队列里的第一个 因为第一个是最早放进去的。
  *
- * 其实平时写这种自定义的数据结构写的较少，是按照对 HashMap 的理解来写的，还望见谅。
  * 但是像 HashMap 里的扩容，链表在超过阈值之类的没有考虑进来。
  *
  * @author crossoverJie
