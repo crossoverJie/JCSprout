@@ -89,7 +89,9 @@ public class AbstractMap extends java.util.AbstractMap {
      */
     private void executeCheckTime() {
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
-                .setNameFormat("check-thread-%d").build();
+                .setNameFormat("check-thread-%d")
+                .setDaemon(true)
+                .build();
         checkTimePool = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
                 new ArrayBlockingQueue<>(1),namedThreadFactory,new ThreadPoolExecutor.AbortPolicy());
         checkTimePool.execute(new CheckTimeThread()) ;
