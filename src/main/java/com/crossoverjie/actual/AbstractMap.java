@@ -66,7 +66,7 @@ public class AbstractMap extends java.util.AbstractMap {
     /**
      * 超时时间
      */
-    private final static Long EXPIRETIME = 60 * 60 * 1000L ;
+    private final static Long EXPIRE_TIME = 60 * 60 * 1000L ;
 
     /**
      * 整个 Map 的大小
@@ -334,7 +334,7 @@ public class AbstractMap extends java.util.AbstractMap {
                     }
                     Long updateTime = node.getUpdateTime() ;
 
-                    if ((updateTime - System.currentTimeMillis()) >= EXPIRETIME){
+                    if ((updateTime - System.currentTimeMillis()) >= EXPIRE_TIME){
                         remove(node.key) ;
                     }
                 } catch (Exception e) {
