@@ -276,7 +276,7 @@ public class AbstractMap extends java.util.AbstractMap {
     /**
      * 链表
      */
-    public class Node{
+    private class Node{
         private Node next ;
         private Node pre ;
         private Object key ;
@@ -324,7 +324,7 @@ public class AbstractMap extends java.util.AbstractMap {
     }
 
 
-    public class CheckTimeThread implements Runnable{
+    private class CheckTimeThread implements Runnable{
 
         @Override
         public void run() {
