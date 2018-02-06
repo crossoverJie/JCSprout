@@ -183,3 +183,17 @@
 ```
 
 主体的实现都是借助于 `HashMap` 来完成的，只是对其中的 `recordAccess(),createEntry(), createEntry()` 进行了重写。
+
+`LinkedHashMap` 的实现：
+
+```java
+		 //就是判断是否是根据访问顺序排序，如果是则需要将当前这个 Entry 移动到链表的末尾
+        void recordAccess(HashMap<K,V> m) {
+            LinkedHashMap<K,V> lm = (LinkedHashMap<K,V>)m;
+            if (lm.accessOrder) {
+                lm.modCount++;
+                remove();
+                addBefore(lm.header);
+            }
+        }
+```
