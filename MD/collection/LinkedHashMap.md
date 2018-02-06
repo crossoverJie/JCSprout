@@ -198,7 +198,8 @@
         }
         
         
-        void addEntry(int hash, K key, V value, int bucketIndex) {
+    //调用了 HashMap 的实现，并判断是否需要删除最少使用的 Entry(默认不删除)    
+    void addEntry(int hash, K key, V value, int bucketIndex) {
         super.addEntry(hash, key, value, bucketIndex);
 
         // Remove eldest entry if instructed
@@ -207,6 +208,15 @@
             removeEntryForKey(eldest.key);
         }
     }
+    
+    void createEntry(int hash, K key, V value, int bucketIndex) {
+        HashMap.Entry<K,V> old = table[bucketIndex];
+        Entry<K,V> e = new Entry<>(hash, key, value, old);
+        //就多了这一步，将新增的 Entry 加入到 header 双向链表中
+        table[bucketIndex] = e;
+        e.addBefore(header);
+        size++;
+    }    
 ```
 
 
