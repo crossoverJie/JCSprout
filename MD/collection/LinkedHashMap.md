@@ -62,4 +62,28 @@
 
 其中 `Entry` 继承于 `HashMap` 的 `Entry`，并新增了上下节点的指针，也就形成了双向链表。
 
-还有一个 header 的成员变量，是这个双向链表的头结点。 
+还有一个 `header` 的成员变量，是这个双向链表的头结点。 
+
+上边的 demo 总结成一张图如下：
+
+![](https://ws1.sinaimg.cn/large/006tKfTcly1fo6n0jdrwqj310w0mqac0.jpg)
+
+第一个类似于 `HashMap` 的结构，利用 `Entry` 中的 `next` 指针进行关联。
+
+下边则是 `LinkedHashMap` 如何达到有序的关键。
+
+就是利用了头节点和其余的各个节点之间通过 `Entry` 中的 `after` 和 `before` 指针进行关联。
+
+
+其中还有一个 `accessOrder` 成员变量，默认是 `false`，便是默认按照插入顺序排序，为 `true` 时按照访问顺序排序，也可以调用:
+
+```
+    public LinkedHashMap(int initialCapacity,
+                         float loadFactor,
+                         boolean accessOrder) {
+        super(initialCapacity, loadFactor);
+        this.accessOrder = accessOrder;
+    }
+```
+
+这个方法
