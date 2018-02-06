@@ -75,7 +75,7 @@
 就是利用了头节点和其余的各个节点之间通过 `Entry` 中的 `after` 和 `before` 指针进行关联。
 
 
-其中还有一个 `accessOrder` 成员变量，默认是 `false`，便是默认按照插入顺序排序，为 `true` 时按照访问顺序排序，也可以调用:
+其中还有一个 `accessOrder` 成员变量，默认是 `false`，默认按照插入顺序排序，为 `true` 时按照访问顺序排序，也可以调用:
 
 ```
     public LinkedHashMap(int initialCapacity,
