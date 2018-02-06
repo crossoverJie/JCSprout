@@ -2,7 +2,7 @@
 
 众所周知 `HashMap` 是一个无序的 `Map`，因为每次根据 `key` 的 `hashcode` 映射到 `Entry` 数组上，所以遍历出来的顺序并不是写入的顺序。
 
-因此 JDK 推出一个基于 HashMap 但具有顺序的 LinkedHashMap 来解决有排序需求的场景。
+因此 JDK 推出一个基于 `HashMap` 但具有顺序的 `LinkedHashMap` 来解决有排序需求的场景。
 
 它的底层是继承于 `HashMap` 实现的，由一个双向链表所构成。
 
@@ -182,7 +182,7 @@
     }       
 ```
 
-主体的实现都是借助于 `HashMap` 来完成的，只是对其中的 `recordAccess(),createEntry(), createEntry()` 进行了重写。
+主体的实现都是借助于 `HashMap` 来完成的，只是对其中的 `recordAccess(), addEntry(), createEntry()` 进行了重写。
 
 `LinkedHashMap` 的实现：
 
@@ -216,7 +216,32 @@
         table[bucketIndex] = e;
         e.addBefore(header);
         size++;
-    }    
+    }
+    
+        //写入到双向链表中
+        private void addBefore(Entry<K,V> existingEntry) {
+            after  = existingEntry;
+            before = existingEntry.before;
+            before.after = this;
+            after.before = this;
+        }  
+        
+```
+
+## get 方法
+
+LinkedHashMap 的 `get()` 方法也重写了：
+
+```java
+    public V get(Object key) {
+        Entry<K,V> e = (Entry<K,V>)getEntry(key);
+        if (e == null)
+            return null;
+            
+        //多了一个判断是否是按照访问顺序排序，是则将当前的 Entry 移动到链表末尾   
+        e.recordAccess(this);
+        return e.value;
+    }
 ```
 
 
