@@ -32,3 +32,34 @@
 调试可以看到 `map` 的组成：
 
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fo6l9xp91lj319m0s4tgi.jpg)
+
+
+打开源码可以看到：
+
+```java
+    /**
+     * The head of the doubly linked list.
+     */
+    private transient Entry<K,V> header;
+
+    /**
+     * The iteration ordering method for this linked hash map: <tt>true</tt>
+     * for access-order, <tt>false</tt> for insertion-order.
+     *
+     * @serial
+     */
+    private final boolean accessOrder;
+    
+    private static class Entry<K,V> extends HashMap.Entry<K,V> {
+        // These fields comprise the doubly linked list used for iteration.
+        Entry<K,V> before, after;
+
+        Entry(int hash, K key, V value, HashMap.Entry<K,V> next) {
+            super(hash, key, value, next);
+        }
+    }  
+```
+
+其中 `Entry` 继承于 `HashMap` 的 `Entry`，并新增了上下节点的指针，也就形成了双向链表。
+
+还有一个 header 的成员变量，是这个双向链表的头结点。 
