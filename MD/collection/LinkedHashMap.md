@@ -86,4 +86,100 @@
     }
 ```
 
-这个方法
+这个构造方法可以显示的传入 `accessOrder `。
+
+
+## 构造方法
+
+`LinkedHashMap` 的构造方法:
+
+```java
+    public LinkedHashMap() {
+        super();
+        accessOrder = false;
+    }
+```
+
+其实就是调用的 `HashMap` 的构造方法:
+
+`HashMap` 实现：
+
+```java
+    public HashMap(int initialCapacity, float loadFactor) {
+        if (initialCapacity < 0)
+            throw new IllegalArgumentException("Illegal initial capacity: " +
+                                               initialCapacity);
+        if (initialCapacity > MAXIMUM_CAPACITY)
+            initialCapacity = MAXIMUM_CAPACITY;
+        if (loadFactor <= 0 || Float.isNaN(loadFactor))
+            throw new IllegalArgumentException("Illegal load factor: " +
+                                               loadFactor);
+
+        this.loadFactor = loadFactor;
+        threshold = initialCapacity;
+        //HashMap 只是定义了改方法，具体实现交给了 LinkedHashMap
+        init();
+    }
+```
+
+可以看到里面有一个空的 `init()`，具体是有 `LinkedHashMap` 来实现的：
+
+```java
+    @Override
+    void init() {
+        header = new Entry<>(-1, null, null, null);
+        header.before = header.after = header;
+    }
+```
+其实也就是对 `header` 进行了初始化。
+
+## put() 方法
+
+看 `LinkedHashMap` 的 `put()` 方法之前先看看 `HashMap` 的 `put` 方法：
+
+```
+    public V put(K key, V value) {
+        if (table == EMPTY_TABLE) {
+            inflateTable(threshold);
+        }
+        if (key == null)
+            return putForNullKey(value);
+        int hash = hash(key);
+        int i = indexFor(hash, table.length);
+        for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+            Object k;
+            if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+                V oldValue = e.value;
+                e.value = value;
+                //空实现，交给 LinkedHashMap 自己实现
+                e.recordAccess(this);
+                return oldValue;
+            }
+        }
+
+        modCount++;
+        // LinkedHashMap 对其重写
+        addEntry(hash, key, value, i);
+        return null;
+    }
+    
+    // LinkedHashMap 对其重写
+    void addEntry(int hash, K key, V value, int bucketIndex) {
+        if ((size >= threshold) && (null != table[bucketIndex])) {
+            resize(2 * table.length);
+            hash = (null != key) ? hash(key) : 0;
+            bucketIndex = indexFor(hash, table.length);
+        }
+
+        createEntry(hash, key, value, bucketIndex);
+    }
+    
+    // LinkedHashMap 对其重写
+    void createEntry(int hash, K key, V value, int bucketIndex) {
+        Entry<K,V> e = table[bucketIndex];
+        table[bucketIndex] = new Entry<>(hash, key, value, e);
+        size++;
+    }       
+```
+
+主体的实现都是借助于 `HashMap` 来完成的，只是对其中的 `recordAccess(),createEntry(), createEntry()` 进行了重写。
