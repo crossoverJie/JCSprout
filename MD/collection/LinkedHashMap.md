@@ -196,4 +196,17 @@
                 addBefore(lm.header);
             }
         }
+        
+        
+        void addEntry(int hash, K key, V value, int bucketIndex) {
+        super.addEntry(hash, key, value, bucketIndex);
+
+        // Remove eldest entry if instructed
+        Entry<K,V> eldest = header.after;
+        if (removeEldestEntry(eldest)) {
+            removeEntryForKey(eldest.key);
+        }
+    }
 ```
+
+
