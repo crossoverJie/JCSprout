@@ -7,11 +7,11 @@
 
 ### Java 多线程
 - [多线程中的常见问题](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Thread-common-problem.md)
-- [`Synchronize` 关键字原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Synchronize.md)
+- [Synchronize 关键字原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Synchronize.md)
 - [多线程的三大核心](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Threadcore.md)
 - [对锁的一些认知，有哪些锁](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Java-lock.md)
 - [ReentrantLock 实现原理 ](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ReentrantLock.md)
-- [`ConcurrentHashMap` 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)
+- [ConcurrentHashMap 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)
 - [线程池原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ThreadPoolExecutor.md)
 - [线程间通信](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/ThreadCommunication.java)
 
@@ -41,7 +41,7 @@
 
 ### DB 相关
 
-- [`MySQL` 索引原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MySQL-Index.md)
+- [MySQL 索引原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MySQL-Index.md)
 - [SQL 优化](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SQL-optimization.md)
 - [数据库水平垂直拆分](https://github.com/crossoverJie/Java-Interview/blob/master/MD/DB-split.md)
 
