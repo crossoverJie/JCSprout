@@ -29,10 +29,10 @@
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SpringAOP.md) 
 
 ### SpringBoot
-- `SpringBoot` 启动过程
+- SpringBoot 启动过程
 
 ### Tomcat
-- `Tomcat` 类加载机制
+- Tomcat 类加载机制
 
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Spike.md)
