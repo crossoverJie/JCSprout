@@ -15,10 +15,10 @@ public class AbstractMapTest {
         map.put(2,2) ;
 
         Object o = map.get(1);
-        LOGGER.info("size={}",map.size());
+        LOGGER.info("getSize={}",map.size());
 
         map.remove(1) ;
-        LOGGER.info("size"+map.size());
+        LOGGER.info("getSize"+map.size());
     }
 
     public static void main(String[] args) {
@@ -27,10 +27,10 @@ public class AbstractMapTest {
         map.put(2,2) ;
 
         Object o = map.get(1);
-        LOGGER.info("size={}",map.size());
+        LOGGER.info("getSize={}",map.size());
 
         map.remove(1) ;
         map.remove(2) ;
-        LOGGER.info("size"+map.size());
+        LOGGER.info("getSize"+map.size());
     }
 }
