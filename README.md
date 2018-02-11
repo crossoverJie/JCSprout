@@ -1,3 +1,10 @@
+整理了 Java 日常开发知识点，继续完善中。
+
+如果有帮助到你请点下 `Star`。
+
+有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)。
+
+有更好的见解请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
 
 ### Java 集合
 - [ArrayList/Vector 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
@@ -59,3 +66,10 @@
 ### 附加技能
 
 - [TCP/IP 协议](https://github.com/crossoverJie/Java-Interview/blob/master/MD/TCP%3AIP.md)
+
+
+### 联系作者
+
+> crossoverJie#gmail.com
+
+![](https://ws4.sinaimg.cn/large/006tKfTcly1fochm4as0sj30by0bydgh.jpg)
