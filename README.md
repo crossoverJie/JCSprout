@@ -1,6 +1,6 @@
-整理了 Java 日常开发知识点，继续完善中。
+整理了 `Java` 日常开发知识点(包括一些大厂面试题)，继续完善中。
 
-如果对你有帮助请点下 `Star`，有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)，有更好的见解请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
+如果对你有帮助请点下 `Star`，有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)，有好的想法请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
 
 ### Java 集合
 - [ArrayList/Vector 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
