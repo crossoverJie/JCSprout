@@ -48,6 +48,7 @@ public class ReverseNode {
             return ;
         }
 
+        //最终翻转之后的 Node
         Node node ;
 
         Node pre = head;
@@ -66,6 +67,7 @@ public class ReverseNode {
         node = pre;
 
 
+        //遍历新链表
         while (node != null){
             System.out.println(node.value);
             node = node.next ;
