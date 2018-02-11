@@ -53,6 +53,7 @@
 - [从一个数组中返回两个值相加等于目标值的下标](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/TwoSum.java#L38-L59)
 - [一致 Hash 算法](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Consistent-Hash.md)
 - [限流算法](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Limiting.md)
+- [三种方式反向打印单向链表](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Limiting.md)
 
 ### 附加技能
 
