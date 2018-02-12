@@ -53,7 +53,7 @@ public class ReverseNode {
 
         Node pre = head;
         Node cur = head.next;
-        Node next                                                                     ;
+        Node next ;
         while(cur != null){
             next = cur.next;
 
