@@ -66,7 +66,7 @@
 
 上边的 demo 总结成一张图如下：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fo6n0jdrwqj310w0mqac0.jpg)
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1fodggwc523j30za0n4wgj.jpg)
 
 第一个类似于 `HashMap` 的结构，利用 `Entry` 中的 `next` 指针进行关联。
 
