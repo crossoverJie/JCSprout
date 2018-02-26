@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.lang.reflect.Proxy;
 
 /**
- * Function:JDK 代理单测
+ * Function: JDK 代理单测
  *
  * @author crossoverJie
  *         Date: 23/12/2017 22:40
