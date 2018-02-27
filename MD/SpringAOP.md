@@ -114,7 +114,7 @@ public class CustomizeHandle implements InvocationHandler {
     }
 ```
 
-首先传入被代理类的类类型构建代理处理器。接着使用 Proxy的`newProxyInstance` 方法动态创建代理类。第一个参数为类加载器，第二个参数为代理类需要实现的接口列表，最后一个则是处理器。
+首先传入被代理类的类类型构建代理处理器。接着使用 `Proxy` 的`newProxyInstance` 方法动态创建代理类。第一个参数为类加载器，第二个参数为代理类需要实现的接口列表，最后一个则是处理器。
 
 其实代理类是由
 
