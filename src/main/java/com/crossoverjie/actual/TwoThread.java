@@ -67,6 +67,7 @@ public class TwoThread {
                     }
                 } else {
                     try {
+                        //防止线程空转
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -104,6 +105,7 @@ public class TwoThread {
                     }
                 } else {
                     try {
+                        //防止线程空转
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
