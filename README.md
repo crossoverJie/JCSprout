@@ -21,7 +21,7 @@
 - [线程间通信](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/ThreadCommunication.java)
 - [交替打印奇偶数](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
 
-### Java 底层
+### JMM(Java 内存模型)
 - [Java 运行时内存划分](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MemoryAllocation.md)
 -  [类加载机制](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ClassLoad.md)
 -  [OOM 分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/OOM-analysis.md)
