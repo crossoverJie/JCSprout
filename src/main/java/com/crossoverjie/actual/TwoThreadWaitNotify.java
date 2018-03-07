@@ -10,18 +10,18 @@ package com.crossoverjie.actual;
  */
 public class TwoThreadWaitNotify {
 
-    private int start = 1 ;
+    private int start = 1;
 
-    private boolean flag = false ;
+    private boolean flag = false;
 
     public static void main(String[] args) {
-        TwoThread twoThread = new TwoThread();
+        TwoThreadWaitNotify twoThread = new TwoThreadWaitNotify();
 
-        Thread t1 = new Thread(new TwoThread.OuNum(twoThread));
+        Thread t1 = new Thread(new OuNum(twoThread));
         t1.setName("t1");
 
 
-        Thread t2 = new Thread(new TwoThread.JiNum(twoThread));
+        Thread t2 = new Thread(new JiNum(twoThread));
         t2.setName("t2");
 
         t1.start();
@@ -40,13 +40,18 @@ public class TwoThreadWaitNotify {
 
         @Override
         public void run() {
-            synchronized (TwoThreadWaitNotify.class){
-                while (number.start <= 100){
-                    if (number.flag){
-                        System.out.println(Thread.currentThread().getName() + "+-+" + number.start);
-                        number.start ++ ;
 
-                        number.flag = false ;
+            while (number.start <= 100) {
+                synchronized (TwoThreadWaitNotify.class) {
+                    System.out.println("偶数线程抢到锁了");
+                    if (number.flag) {
+                        System.out.println(Thread.currentThread().getName() + "+-+偶数" + number.start);
+                        number.start++;
+
+                        number.flag = false;
+                        TwoThreadWaitNotify.class.notify();
+
+                    }else {
                         try {
                             TwoThreadWaitNotify.class.wait();
                         } catch (InterruptedException e) {
@@ -63,7 +68,7 @@ public class TwoThreadWaitNotify {
     /**
      * 奇数线程
      */
-    public static class JiNum implements Runnable{
+    public static class JiNum implements Runnable {
         private TwoThreadWaitNotify number;
 
         public JiNum(TwoThreadWaitNotify number) {
@@ -72,15 +77,22 @@ public class TwoThreadWaitNotify {
 
         @Override
         public void run() {
-            synchronized (TwoThreadWaitNotify.class){
-                while (number.start <= 100){
-                    if (!number.flag){
-                        System.out.println(Thread.currentThread().getName() + "+-+" + number.start);
-                        number.start ++ ;
+            while (number.start <= 100) {
+                synchronized (TwoThreadWaitNotify.class) {
+                    System.out.println("奇数线程抢到锁了");
+                    if (!number.flag) {
+                        System.out.println(Thread.currentThread().getName() + "+-+奇数" + number.start);
+                        number.start++;
 
-                        number.flag = true ;
+                        number.flag = true;
 
                         TwoThreadWaitNotify.class.notify();
+                    }else {
+                        try {
+                            TwoThreadWaitNotify.class.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }
