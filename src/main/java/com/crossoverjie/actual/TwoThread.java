@@ -6,6 +6,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Function: 两个线程交替执行打印 1~100
  *
+ * lock 版
+ *
  * @author crossoverJie
  *         Date: 11/02/2018 10:04
  * @since JDK 1.8
