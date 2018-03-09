@@ -85,7 +85,7 @@ public class AbstractMap extends java.util.AbstractMap {
     }
 
     /**
-     * 开启一个线程检查最先放入队列的值是否超期
+     * 开启一个线程检查最先放入队列的值是否超期 设置为守护线程
      */
     private void executeCheckTime() {
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
