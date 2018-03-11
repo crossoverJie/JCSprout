@@ -1,7 +1,7 @@
 package com.crossoverjie.concurrent;
 
 /**
- * Function:
+ * Function:单例模式-双重检查锁
  *
  * @author crossoverJie
  *         Date: 09/03/2018 01:14
