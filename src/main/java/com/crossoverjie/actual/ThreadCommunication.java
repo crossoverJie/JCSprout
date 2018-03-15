@@ -15,9 +15,9 @@ import java.util.concurrent.*;
 public class ThreadCommunication {
     private final static Logger LOGGER = LoggerFactory.getLogger(ThreadCommunication.class);
     public static void main(String[] args) throws Exception {
-        //join();
+        join();
         //executorService();
-        countDownLatch();
+        //countDownLatch();
 
     }
 
@@ -118,10 +118,11 @@ public class ThreadCommunication {
         }) ;
 
         t1.start();
+        t2.start();
+
         //等待线程1终止
         t1.join();
 
-        t2.start();
         //等待线程2终止
         t2.join();
 
