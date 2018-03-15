@@ -212,7 +212,82 @@ synchronized(Object){
 
 ## volatile 共享内存
 
+因为 Java 其实是采用共享内存的方式进行线程通信的，所以可以采用以下方式用主线程关闭 A 线程:
+
+```java
+public class Volatile implements Runnable{
+
+    private static volatile boolean flag = true ;
+
+    @Override
+    public void run() {
+        while (flag){
+            System.out.println(Thread.currentThread().getName() + "正在运行。。。");
+        }
+        System.out.println(Thread.currentThread().getName() +"执行完毕");
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Volatile aVolatile = new Volatile();
+        new Thread(aVolatile,"thread A").start();
+
+
+        System.out.println("main 线程正在运行") ;
+
+        TimeUnit.MILLISECONDS.sleep(100) ;
+
+        aVolatile.stopThread();
+
+    }
+
+    private void stopThread(){
+        flag = false ;
+    }
+}
+```
+
+这里的 flag 存放于主内存中，所以主线程和线程 A 都可以看到。
+
+flag 采用 volatile 修饰主要是为了内存可见性，具体内容可以查看[这里](http://crossoverjie.top/2018/03/09/volatile/)。
+
+
 ## CountDownLatch 并发工具
+
+CountDownLatch 可以实现 join 相同的功能，但是更加的灵活。
+
+```java
+    private static void countDownLatch() throws Exception{
+        int thread = 3 ;
+        long start = System.currentTimeMillis();
+        final CountDownLatch countDown = new CountDownLatch(thread);
+        for (int i= 0 ;i<thread ; i++){
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    LOGGER.info("thread run");
+                    try {
+                        Thread.sleep(2000);
+                        countDown.countDown();
+
+                        LOGGER.info("thread end");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+
+        countDown.await();
+        long stop = System.currentTimeMillis();
+        LOGGER.info("main over total time={}",stop-start);
+    }
+```
+
+CountDownLatch 也是基于 AQS(AbstractQueuedSynchronizer) 实现的，更多实现参考 [ReentrantLock 实现原理](http://crossoverjie.top/2018/01/25/ReentrantLock/)
+
+- 初始化一个 CountDownLatch 时告诉并发的线程，然后在每个线程处理完毕之后调用 countDown() 方法。
+- 该方法会将 AQS 内置的一个 state 状态 -1 。
+- 最终在主线程调用 await() 方法，它会知道 `state == 0` 的时候返回。
 
 ## 线程响应中断
 
