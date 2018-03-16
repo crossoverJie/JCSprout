@@ -20,10 +20,10 @@ public class ThreadCommunication {
     private final static Logger LOGGER = LoggerFactory.getLogger(ThreadCommunication.class);
 
     public static void main(String[] args) throws Exception {
-        //join();
+        join();
         //executorService();
         //countDownLatch();
-        piped();
+        //piped();
 
     }
 

@@ -3,7 +3,7 @@ package com.crossoverjie.concurrent;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Function:
+ * Function:响应中断
  *
  * @author crossoverJie
  *         Date: 16/03/2018 01:41

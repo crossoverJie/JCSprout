@@ -110,13 +110,28 @@ public class TwoThreadWaitNotify {
 }
 ```
 
+输出结果：
+
+```
+t2+-+奇数93
+t1+-+偶数94
+t2+-+奇数95
+t1+-+偶数96
+t2+-+奇数97
+t1+-+偶数98
+t2+-+奇数99
+t1+-+偶数100
+```
+
 这里的线程 A 和线程 B 都对同一个对象 `TwoThreadWaitNotify.class` 获取锁，A 线程调用了同步对象的 wait() 方法释放了锁并进入 `WAITING` 状态。
 
-B 线程调用了 notify() 方法，这样 A 线程收到通知之后就可以从 wait() 方法中返回。利用了 `TwoThreadWaitNotify.class` 对象完成了交互。
+B 线程调用了 notify() 方法，这样 A 线程收到通知之后就可以从 wait() 方法中返回。
 
-这里有一些注意点:
+这里利用了 `TwoThreadWaitNotify.class` 对象完成了通信。
 
-- wait() 、nofify() 、nofityAll() 调用的前提都是获得了对象的锁(也可成为对象监视器)。
+有一些需要注意:
+
+- wait() 、nofify() 、nofityAll() 调用的前提都是获得了对象的锁(也可称为对象监视器)。
 - 调用 wait() 方法后线程会释放锁，进入 `WAITING` 状态，该线程也会被移动到**等待队列**中。
 - 调用 notify() 方法会将**等待队列**中的线程移动到**同步队列**中，线程状态也会更新为 `BLOCKED`
 - 从 wait() 方法返回的前提是调用 notify() 方法的线程释放锁，wait() 方法的线程获得锁。
@@ -196,6 +211,15 @@ synchronized(Object){
     }
 ```
 
+输出结果:
+
+```
+2018-03-16 20:21:30.967 [Thread-1] INFO  c.c.actual.ThreadCommunication - running2
+2018-03-16 20:21:30.967 [Thread-0] INFO  c.c.actual.ThreadCommunication - running
+2018-03-16 20:21:34.972 [main] INFO  c.c.actual.ThreadCommunication - main over
+
+```
+
 在  `t1.join()` 时会一直阻塞到 t1 执行完毕，所以最终主线程会等待 t1 和 t2 线程执行完毕。
 
 其实从源码可以看出，join() 也是利用的等待通知机制：
@@ -212,7 +236,7 @@ synchronized(Object){
 
 ## volatile 共享内存
 
-因为 Java 其实是采用共享内存的方式进行线程通信的，所以可以采用以下方式用主线程关闭 A 线程:
+因为 Java 是采用共享内存的方式进行线程通信的，所以可以采用以下方式用主线程关闭 A 线程:
 
 ```java
 public class Volatile implements Runnable{
@@ -246,9 +270,18 @@ public class Volatile implements Runnable{
 }
 ```
 
+输出结果：
+```
+thread A正在运行。。。
+thread A正在运行。。。
+thread A正在运行。。。
+thread A正在运行。。。
+thread A执行完毕
+```
+
 这里的 flag 存放于主内存中，所以主线程和线程 A 都可以看到。
 
-flag 采用 volatile 修饰主要是为了内存可见性，具体内容可以查看[这里](http://crossoverjie.top/2018/03/09/volatile/)。
+flag 采用 volatile 修饰主要是为了内存可见性，更多内容可以查看[这里](http://crossoverjie.top/2018/03/09/volatile/)。
 
 
 ## CountDownLatch 并发工具
@@ -283,11 +316,23 @@ CountDownLatch 可以实现 join 相同的功能，但是更加的灵活。
     }
 ```
 
+输出结果:
+
+```
+2018-03-16 20:19:44.126 [Thread-0] INFO  c.c.actual.ThreadCommunication - thread run
+2018-03-16 20:19:44.126 [Thread-2] INFO  c.c.actual.ThreadCommunication - thread run
+2018-03-16 20:19:44.126 [Thread-1] INFO  c.c.actual.ThreadCommunication - thread run
+2018-03-16 20:19:46.136 [Thread-2] INFO  c.c.actual.ThreadCommunication - thread end
+2018-03-16 20:19:46.136 [Thread-1] INFO  c.c.actual.ThreadCommunication - thread end
+2018-03-16 20:19:46.136 [Thread-0] INFO  c.c.actual.ThreadCommunication - thread end
+2018-03-16 20:19:46.136 [main] INFO  c.c.actual.ThreadCommunication - main over total time=2012
+```
+
 CountDownLatch 也是基于 AQS(AbstractQueuedSynchronizer) 实现的，更多实现参考 [ReentrantLock 实现原理](http://crossoverjie.top/2018/01/25/ReentrantLock/)
 
 - 初始化一个 CountDownLatch 时告诉并发的线程，然后在每个线程处理完毕之后调用 countDown() 方法。
 - 该方法会将 AQS 内置的一个 state 状态 -1 。
-- 最终在主线程调用 await() 方法，它会知道 `state == 0` 的时候返回。
+- 最终在主线程调用 await() 方法，它会阻塞直到 `state == 0` 的时候返回。
 
 ## 线程响应中断
 
@@ -319,11 +364,19 @@ public class StopThread implements Runnable {
 }
 ```
 
+输出结果:
+
+```
+thread A运行中。。
+thread A运行中。。
+thread A退出。。
+```
+
 可以采用中断线程的方式来通信，调用了 `thread.interrupt()` 方法其实就是将 thread 中的一个标志属性置为了 true。
 
-并不是说调用了该方法就可以中断线程，如果不对这个标志进行响应其实是没有什么作用的(这里对这个标志进行了判断)。
+并不是说调用了该方法就可以中断线程，如果不对这个标志进行响应其实是没有什么作用(这里对这个标志进行了判断)。
 
-但是如果抛出了 InterruptedException 异常，该标志就会被 JVM 重置为 false。
+**但是如果抛出了 InterruptedException 异常，该标志就会被 JVM 重置为 false。**
 
 ## 线程池 awaitTermination() 方法
 
@@ -362,6 +415,16 @@ public class StopThread implements Runnable {
         }
         LOGGER.info("main over");
     }
+```
+
+输出结果:
+
+```
+2018-03-16 20:18:01.273 [pool-1-thread-2] INFO  c.c.actual.ThreadCommunication - running2
+2018-03-16 20:18:01.273 [pool-1-thread-1] INFO  c.c.actual.ThreadCommunication - running
+2018-03-16 20:18:02.273 [main] INFO  c.c.actual.ThreadCommunication - 线程还在执行。。。
+2018-03-16 20:18:03.278 [main] INFO  c.c.actual.ThreadCommunication - 线程还在执行。。。
+2018-03-16 20:18:04.278 [main] INFO  c.c.actual.ThreadCommunication - main over
 ```
 
 使用这个 `awaitTermination()` 方法的前提需要关闭线程池，如调用了 `shutdown()` 方法。
