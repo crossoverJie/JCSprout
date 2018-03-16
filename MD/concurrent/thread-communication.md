@@ -327,4 +327,119 @@ public class StopThread implements Runnable {
 
 ## 线程池 awaitTermination() 方法
 
+如果是用线程池来管理线程，可以使用以下方式来让主线程等待线程池中所有任务执行完毕:
+
+```java
+    private static void executorService() throws Exception{
+        BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>(10) ;
+        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(5,5,1, TimeUnit.MILLISECONDS,queue) ;
+        poolExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                LOGGER.info("running");
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        poolExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                LOGGER.info("running2");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        poolExecutor.shutdown();
+        while (!poolExecutor.awaitTermination(1,TimeUnit.SECONDS)){
+            LOGGER.info("线程还在执行。。。");
+        }
+        LOGGER.info("main over");
+    }
+```
+
+使用这个 `awaitTermination()` 方法的前提需要关闭线程池，如调用了 `shutdown()` 方法。
+
+调用了 `shutdown()` 之后线程池会停止接受新任务，并且会平滑的关闭线程池中现有的任务。
+
+
 ## 管道通信
+
+```java
+    public static void piped() throws IOException {
+        //面向于字符 PipedInputStream 面向于字节
+        PipedWriter writer = new PipedWriter();
+        PipedReader reader = new PipedReader();
+
+        //输入输出流建立连接
+        writer.connect(reader);
+
+
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LOGGER.info("running");
+                try {
+                    for (int i = 0; i < 10; i++) {
+
+                        writer.write(i+"");
+                        Thread.sleep(10);
+                    }
+                } catch (Exception e) {
+
+                } finally {
+                    try {
+                        writer.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LOGGER.info("running2");
+                int msg = 0;
+                try {
+                    while ((msg = reader.read()) != -1) {
+                        LOGGER.info("msg={}", (char) msg);
+                    }
+
+                } catch (Exception e) {
+
+                }
+            }
+        });
+        t1.start();
+        t2.start();
+    }
+```
+
+输出结果:
+
+```
+2018-03-16 19:56:43.014 [Thread-0] INFO  c.c.actual.ThreadCommunication - running
+2018-03-16 19:56:43.014 [Thread-1] INFO  c.c.actual.ThreadCommunication - running2
+2018-03-16 19:56:43.130 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=0
+2018-03-16 19:56:43.132 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=1
+2018-03-16 19:56:43.132 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=2
+2018-03-16 19:56:43.133 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=3
+2018-03-16 19:56:43.133 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=4
+2018-03-16 19:56:43.133 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=5
+2018-03-16 19:56:43.133 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=6
+2018-03-16 19:56:43.134 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=7
+2018-03-16 19:56:43.134 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=8
+2018-03-16 19:56:43.134 [Thread-1] INFO  c.c.actual.ThreadCommunication - msg=9
+```
+
+Java 虽说是基于内存通信的，但也可以使用管道通信。
+
+需要注意的是，输入流和输出流需要首先建立连接。这样线程 B 就可以收到线程 A 发出的消息了。
