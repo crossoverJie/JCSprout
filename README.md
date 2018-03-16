@@ -18,7 +18,7 @@
 - [ReentrantLock 实现原理 ](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ReentrantLock.md)
 - [ConcurrentHashMap 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)
 - [线程池原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ThreadPoolExecutor.md)
-- [线程间通信](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/ThreadCommunication.java)
+- [深入理解线程通信](https://github.com/crossoverJie/Java-Interview/blob/master/MD/concurrent/thread-communication.md)
 - [交替打印奇偶数](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
 
 ### JMM(Java 内存模型)
