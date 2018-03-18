@@ -20,18 +20,67 @@ public class ThreadCommunication {
     private final static Logger LOGGER = LoggerFactory.getLogger(ThreadCommunication.class);
 
     public static void main(String[] args) throws Exception {
-        join();
+        //join();
         //executorService();
         //countDownLatch();
         //piped();
-
+        cyclicBarrier();
     }
 
     /**
-     * 使用countDownLatch 每执行完一个就减一，最后等待全部完成
+     * CyclicBarrier
      *
      * @throws Exception
      */
+    private static void cyclicBarrier() throws Exception {
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(3) ;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LOGGER.info("thread run");
+                try {
+                    cyclicBarrier.await() ;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                LOGGER.info("thread end do something");
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LOGGER.info("thread run");
+                try {
+                    cyclicBarrier.await() ;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                LOGGER.info("thread end do something");
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LOGGER.info("thread run");
+                try {
+                    Thread.sleep(5000);
+                    cyclicBarrier.await() ;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                LOGGER.info("thread end do something");
+            }
+        }).start();
+
+        LOGGER.info("main thread");
+    }
+
     private static void countDownLatch() throws Exception {
         int thread = 3;
         long start = System.currentTimeMillis();
