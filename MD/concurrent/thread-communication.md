@@ -409,6 +409,8 @@ CyclicBarrier 中文名叫做屏障或者是栅栏，也可以用于线程间通
 
 可以看出由于其中一个线程休眠了五秒，所有其余所有的线程都得等待这个线程调用 `await()` 。
 
+该工具可以实现 CountDownLatch 同样的功能，但是要更加灵活。甚至可以调用 `reset()` 方法重置 CyclicBarrier (需要自行捕获 BrokenBarrierException 处理) 然后重新执行。
+
 ## 线程响应中断
 
 ```java
