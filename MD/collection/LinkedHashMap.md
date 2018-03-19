@@ -238,10 +238,24 @@ LinkedHashMap 的 `get()` 方法也重写了：
         if (e == null)
             return null;
             
-        //多了一个判断是否是按照访问顺序排序，是则将当前的 Entry 移动到链表末尾   
+        //多了一个判断是否是按照访问顺序排序，是则将当前的 Entry 移动到链表头部。   
         e.recordAccess(this);
         return e.value;
     }
+    
+    void recordAccess(HashMap<K,V> m) {
+        LinkedHashMap<K,V> lm = (LinkedHashMap<K,V>)m;
+        if (lm.accessOrder) {
+            lm.modCount++;
+            
+            //删除
+            remove();
+            //添加到头部
+            addBefore(lm.header);
+        }
+    }
+    
+    
 ```
 
 `clear()` 清空就要比较简单了：
