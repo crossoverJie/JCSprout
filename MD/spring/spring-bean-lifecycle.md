@@ -36,7 +36,7 @@ public class AnnotationBean {
 
 ### InitializingBean, DisposableBean 接口
 
-还可以实现 `InitializingBean,DisposableBean` 这两个接口，也是在初始化已经销毁阶段调用：
+还可以实现 `InitializingBean,DisposableBean` 这两个接口，也是在初始化以及销毁阶段调用：
 
 ```java
 @Service
@@ -56,7 +56,7 @@ public class SpringLifeCycleService implements InitializingBean,DisposableBean{
 
 ### 自定义初始化和销毁方法
 
-也可以自定义方法用于在初始化、销毁阶段进行调用:
+也可以自定义方法用于在初始化、销毁阶段调用:
 
 ```java
 @Configuration
@@ -85,7 +85,7 @@ public class SpringLifeCycle{
 }
 ```
 
-以上是在 SpringBoot 中可以这样配置，如果是原始的基于 XML 也是可以利用:
+以上是在 SpringBoot 中可以这样配置，如果是原始的基于 XML 也是可以使用:
 
 ```
 <bean class="com.crossoverjie.spring.SpringLifeCycle" init-method="start" destroy-method="destroy">
@@ -113,11 +113,11 @@ public class SpringLifeCycleAware implements ApplicationContextAware {
 }
 ```
 
-这样在 `springLifeCycleAware` 这个 bean 初始化会就会调用 `setApplicationContext` 方法，并可以获得 applicationContext 对象。
+这样在 `springLifeCycleAware` 这个 bean 初始化会就会调用 `setApplicationContext` 方法，并可以获得 `applicationContext` 对象。
 
 ### BeanPostProcessor 后处理器
 
-也可以实现 BeanPostProcessor 接口，Spring 中所有 bean 在做初始化时都会调用该接口中的两个方法，可以用于对一些特殊的 bean 进行处理：
+实现 BeanPostProcessor 接口，Spring 中所有 bean 在做初始化时都会调用该接口中的两个方法，可以用于对一些特殊的 bean 进行处理：
 
 ```java
 @Component
@@ -125,11 +125,17 @@ public class SpringLifeCycleProcessor implements BeanPostProcessor {
     private final static Logger LOGGER = LoggerFactory.getLogger(SpringLifeCycleProcessor.class);
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        if ("annotationBean".equals(beanName)){
+            LOGGER.info("SpringLifeCycleProcessor start beanName={}",beanName);
+        }
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        if ("annotationBean".equals(beanName)){
+            LOGGER.info("SpringLifeCycleProcessor end beanName={}",beanName);
+        }
         return bean;
     }
 }
