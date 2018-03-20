@@ -15,7 +15,7 @@ Spring Bean 的生命周期在整个 Spring 中占有很重要的位置，掌握
 
 ### 注解方式
 
-在 bean 初始化时会经历几个阶段，首先可以使用注解 `@PostConstruct`, `@PreDestroy` 来再 bean 的创建和销毁阶段进行调用:
+在 bean 初始化时会经历几个阶段，首先可以使用注解 `@PostConstruct`, `@PreDestroy` 来在 bean 的创建和销毁阶段进行调用:
 
 ```java
 @Component
@@ -87,7 +87,7 @@ public class SpringLifeCycle{
 
 以上是在 SpringBoot 中可以这样配置，如果是原始的基于 XML 也是可以使用:
 
-```
+```xml
 <bean class="com.crossoverjie.spring.SpringLifeCycle" init-method="start" destroy-method="destroy">
 </bean>
 ```
