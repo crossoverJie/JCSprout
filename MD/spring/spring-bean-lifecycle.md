@@ -1,7 +1,6 @@
 ## Spring Bean 生命周期
 
 
-### 前言
 
 Spring Bean 的生命周期在整个 Spring 中占有很重要的位置，掌握这些可以加深对 Spring 的理解。
 
