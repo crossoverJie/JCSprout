@@ -19,12 +19,12 @@ import org.springframework.stereotype.Service;
 public class SpringLifeCycleService implements InitializingBean,DisposableBean{
     private final static Logger LOGGER = LoggerFactory.getLogger(SpringLifeCycleService.class);
     @Override
-    public void destroy() throws Exception {
-        LOGGER.info("SpringLifeCycleService destroy");
+    public void afterPropertiesSet() throws Exception {
+        LOGGER.info("SpringLifeCycleService start");
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
-        LOGGER.info("SpringLifeCycleService start");
+    public void destroy() throws Exception {
+        LOGGER.info("SpringLifeCycleService destroy");
     }
 }
