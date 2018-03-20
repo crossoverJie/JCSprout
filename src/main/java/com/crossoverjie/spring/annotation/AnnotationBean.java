@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 /**
- * Function:
+ * Function:用注解的方法
  *
  * @author crossoverJie
  *         Date: 20/03/2018 18:46

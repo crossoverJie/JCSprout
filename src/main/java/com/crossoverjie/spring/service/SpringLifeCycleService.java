@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
- * Function:首先执行
+ * Function:实现 InitializingBean DisposableBean 接口
  *
  * @author crossoverJie
  *         Date: 20/03/2018 18:38

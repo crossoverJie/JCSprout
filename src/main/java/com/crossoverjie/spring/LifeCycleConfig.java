@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Function:
+ * Function:使用 initMethod 和 destroyMethod 的方式
  *
  * @author crossoverJie
  *         Date: 19/03/2018 22:37
