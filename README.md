@@ -1,6 +1,6 @@
-`Java` 日常开发知识点，继续完善中。
+Java 知识点，继续完善中。
 
-> 多数是一些 `Java` 基础知识、底层原理、算法详解。也有上层应用设计，其中不乏一些大厂面试真题。
+> 多数是一些 Java 基础知识、底层原理、算法详解。也有上层应用设计，其中不乏一些大厂面试真题。
 
 如果对你有帮助请点下 `Star`，有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)，有好的想法请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
 
