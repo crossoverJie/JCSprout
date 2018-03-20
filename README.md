@@ -32,7 +32,7 @@ Java 知识点，继续完善中。
 
 ### 常用框架
 
-- Spring IOC 的实现原理
+- [Spring Bean 生命周期](https://github.com/crossoverJie/Java-Interview/blob/master/MD/spring/spring-bean-lifecycle.md)
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SpringAOP.md) 
 
 ### SpringBoot
