@@ -115,7 +115,7 @@ public class SpringLifeCycleAware implements ApplicationContextAware {
 
 这样在 `springLifeCycleAware` 这个 bean 初始化会就会调用 `setApplicationContext` 方法，并可以获得 `applicationContext` 对象。
 
-### BeanPostProcessor 后处理器
+### BeanPostProcessor 增强处理器
 
 实现 BeanPostProcessor 接口，Spring 中所有 bean 在做初始化时都会调用该接口中的两个方法，可以用于对一些特殊的 bean 进行处理：
 
@@ -123,6 +123,14 @@ public class SpringLifeCycleAware implements ApplicationContextAware {
 @Component
 public class SpringLifeCycleProcessor implements BeanPostProcessor {
     private final static Logger LOGGER = LoggerFactory.getLogger(SpringLifeCycleProcessor.class);
+
+    /**
+     * 预初始化 初始化之前调用
+     * @param bean
+     * @param beanName
+     * @return
+     * @throws BeansException
+     */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         if ("annotationBean".equals(beanName)){
@@ -131,6 +139,13 @@ public class SpringLifeCycleProcessor implements BeanPostProcessor {
         return bean;
     }
 
+    /**
+     * 后初始化  bean 初始化完成调用
+     * @param bean
+     * @param beanName
+     * @return
+     * @throws BeansException
+     */
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if ("annotationBean".equals(beanName)){
