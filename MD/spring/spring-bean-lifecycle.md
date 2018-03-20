@@ -176,5 +176,5 @@ public class SpringLifeCycleProcessor implements BeanPostProcessor {
 2018-03-21 00:40:25.156 [Thread-8] INFO  c.c.spring.annotation.AnnotationBean - AnnotationBean destroy
 ```
 
-之后则是进入 bean 的销毁阶段。
+直到 Spring 上下文销毁时则会调用自定义的销毁方法以及实现了 `DisposableBean` 的 `destroy()` 方法。
 
