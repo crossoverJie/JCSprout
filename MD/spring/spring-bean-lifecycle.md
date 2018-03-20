@@ -5,7 +5,7 @@
 
 Spring Bean 的生命周期在整个 Spring 中占有很重要的位置，掌握这些可以加深对 Spring 的理解。
 
-首先放一张很经典的生命周期图：
+首先放一张经典的生命周期图：
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1fpjqo8lkc6j30fi0eemye.jpg)
 
@@ -156,5 +156,5 @@ public class SpringLifeCycleProcessor implements BeanPostProcessor {
 2018-03-21 00:40:25.156 [Thread-8] INFO  c.c.spring.annotation.AnnotationBean - AnnotationBean destroy
 ```
 
-
+之后则是进入 bean 的销毁阶段。
 
