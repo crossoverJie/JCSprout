@@ -57,7 +57,7 @@
 
 ### 序列化
 
-由于 ArrayList 是基于动态数组实现的，所以并不是所有的空间都被使用，所以使用了 `transient` 修饰，可以防止被序列化。
+由于 ArrayList 是基于动态数组实现的，所以并不是所有的空间都被使用。因此使用了 `transient` 修饰，可以防止被自动序列化。
 
 ```java
 transient Object[] elementData;
