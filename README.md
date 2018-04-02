@@ -15,7 +15,7 @@ Java 知识点，继续完善中。
 - [多线程中的常见问题](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Thread-common-problem.md)
 - [synchronize 关键字原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Synchronize.md)
 - [多线程的三大核心](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Threadcore.md)
-- [对锁的一些认知，有哪些锁](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Java-lock.md)
+- [对锁的一些认知](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Java-lock.md)
 - [ReentrantLock 实现原理 ](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ReentrantLock.md)
 - [ConcurrentHashMap 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)
 - [线程池原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ThreadPoolExecutor.md)
@@ -30,9 +30,13 @@ Java 知识点，继续完善中。
 - [对象的创建与内存分配](https://github.com/crossoverJie/Java-Interview/blob/master/MD/newObject.md)
 - [你应该知道的 volatile 关键字](https://github.com/crossoverJie/Java-Interview/blob/master/MD/concurrent/volatile.md)
 
+### 分布式相关
+
+- [基于 Redis 的分布式锁](https://github.com/crossoverJie/distributed-lock-redis)
+
 ### 常用框架
 
-- Spring IOC 的实现原理
+- [Spring Bean 生命周期](https://github.com/crossoverJie/Java-Interview/blob/master/MD/spring/spring-bean-lifecycle.md)
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SpringAOP.md) 
 
 ### SpringBoot
