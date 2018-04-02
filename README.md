@@ -30,6 +30,10 @@ Java 知识点，继续完善中。
 - [对象的创建与内存分配](https://github.com/crossoverJie/Java-Interview/blob/master/MD/newObject.md)
 - [你应该知道的 volatile 关键字](https://github.com/crossoverJie/Java-Interview/blob/master/MD/concurrent/volatile.md)
 
+### 分布式相关
+
+- [基于 Redis 的分布式锁](https://github.com/crossoverJie/distributed-lock-redis)
+
 ### 常用框架
 
 - [Spring Bean 生命周期](https://github.com/crossoverJie/Java-Interview/blob/master/MD/spring/spring-bean-lifecycle.md)
