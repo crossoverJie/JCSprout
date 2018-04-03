@@ -37,8 +37,11 @@ public class LRUMap<K, V> {
             tailer.next.tail = null ;
             tailer.next = null ;
             nodeCount -- ;
+
+            //写入表头
+            Node<K,V> node = new Node<>(key,value) ;
+            header.next = node ;
         }else {
-            Node node = new Node(key,value) ;
 
         }
 
