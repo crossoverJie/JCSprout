@@ -24,4 +24,52 @@ public class LRUMapTest {
         System.out.println(lruMap.toString());
     }
 
+    @Test
+    public void get() throws Exception {
+        LRUMap<String,Integer> lruMap = new LRUMap(3) ;
+        lruMap.put("1",1) ;
+        lruMap.put("2",2) ;
+        lruMap.put("3",3) ;
+
+        System.out.println(lruMap.toString());
+        System.out.println("==============");
+
+        Integer integer = lruMap.get("1");
+        System.out.println(integer);
+        System.out.println("==============");
+        System.out.println(lruMap.toString());
+    }
+
+    @Test
+    public void get3() throws Exception {
+        LRUMap<String,Integer> lruMap = new LRUMap(3) ;
+        lruMap.put("1",1) ;
+        lruMap.put("2",2) ;
+        lruMap.put("3",3) ;
+
+        System.out.println(lruMap.toString());
+        System.out.println("==============");
+
+        Integer integer = lruMap.get("2");
+        System.out.println(integer);
+        System.out.println("==============");
+        System.out.println(lruMap.toString());
+    }
+
+    @Test
+    public void get4() throws Exception {
+        LRUMap<String,Integer> lruMap = new LRUMap(3) ;
+        lruMap.put("1",1) ;
+        lruMap.put("2",2) ;
+        lruMap.put("3",3) ;
+
+        System.out.println(lruMap.toString());
+        System.out.println("==============");
+
+        Integer integer = lruMap.get("3");
+        System.out.println(integer);
+        System.out.println("==============");
+        System.out.println(lruMap.toString());
+    }
+
 }
