@@ -21,19 +21,30 @@ public class LRUMap<K, V> {
     private int nodeCount;
 
 
+    /**
+     * 头结点
+     */
     private Node<K, V> header;
+
+    /**
+     * 尾结点
+     */
     private Node<K, V> tailer;
 
     public LRUMap(int queueSize) {
         this.queueSize = queueSize;
+        //头结点的下一个结点为空
         header = new Node<>();
         header.next = null;
 
+        //尾结点的上一个结点为空
         tailer = new Node<>();
         tailer.tail = null;
 
-        //双向链表
+        //双向链表 头结点的上结点指向尾结点
         header.tail = tailer;
+
+        //尾结点的下结点指向头结点
         tailer.next = header;
 
 
@@ -41,6 +52,8 @@ public class LRUMap<K, V> {
 
     public void put(K key, V value) {
         cacheMap.put(key, value);
+
+        //双向链表中添加结点
         addNode(key, value);
     }
 
@@ -50,9 +63,10 @@ public class LRUMap<K, V> {
 
         //容量满了删除最后一个
         if (queueSize == nodeCount) {
+            //删除尾结点
             delTail();
 
-            //写入表头
+            //写入头结点
             addHead(node);
         } else {
             addHead(node);
@@ -70,11 +84,13 @@ public class LRUMap<K, V> {
      */
     private void addHead(Node<K, V> node) {
 
+        //写入头结点
         header.next = node;
         node.tail = header;
         header = node;
         nodeCount++;
 
+        //如果写入的数据大于2个 就将初始化的头尾结点删除
         if (nodeCount == 2) {
             tailer.next.next.tail = null;
             tailer = tailer.next.next;
@@ -83,6 +99,7 @@ public class LRUMap<K, V> {
     }
 
     private void delTail() {
+        //把尾结点从缓存中删除
         cacheMap.remove(tailer.getKey());
 
         //删除尾结点
