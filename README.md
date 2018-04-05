@@ -6,7 +6,7 @@ Java 知识点，继续完善中。
 如果对你有帮助请点下 `Star`，有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)，有好的想法请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
 
 
-常用集合 | Java 多线程 | Java 内存模型 | 分布式相关 |常用框架\第三方组件|架构设计|DB 相关|数据结构与算法|附加技能
+[常用集合](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88) | [Java 多线程](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#java-%E5%A4%9A%E7%BA%BF%E7%A8%8B) | [Java 内存模型](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#java-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B) | [分布式相关](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E7%9B%B8%E5%85%B3) |[常用框架\第三方组件](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6)|[架构设计](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1)|[DB 相关](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#db-%E7%9B%B8%E5%85%B3)|[数据结构与算法](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95)|[附加技能](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E9%99%84%E5%8A%A0%E6%8A%80%E8%83%BD)
 ---- | --- | --- | ---| ---| ---| ---| ---| ---
 
 
@@ -39,6 +39,8 @@ Java 知识点，继续完善中。
 ### 分布式相关
 
 - [基于 Redis 的分布式锁](https://github.com/crossoverJie/distributed-lock-redis)
+- [分布式缓存设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Cache-design.md)
+- [分布式 ID 生成器](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ID-generator.md)
 
 ### 常用框架\第三方组件
 
@@ -51,8 +53,6 @@ Java 知识点，继续完善中。
 
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Spike.md)
-- [分布式缓存设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Cache-design.md)
-- [分布式 ID 生成器](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ID-generator.md)
 
 ### DB 相关
 
