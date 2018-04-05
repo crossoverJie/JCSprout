@@ -1,10 +1,7 @@
 package com.crossoverjie.actual;
 
-import com.sun.scenario.effect.impl.prism.PrImage;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Function:
@@ -16,8 +13,14 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class LRUMap<K, V> {
     private final Map<K, V> cacheMap = new HashMap<>();
 
-    private int queueSize;
+    /**
+     * 最大缓存大小
+     */
+    private int cacheSize;
 
+    /**
+     * 节点大小
+     */
     private int nodeCount;
 
 
@@ -31,8 +34,8 @@ public class LRUMap<K, V> {
      */
     private Node<K, V> tailer;
 
-    public LRUMap(int queueSize) {
-        this.queueSize = queueSize;
+    public LRUMap(int cacheSize) {
+        this.cacheSize = cacheSize;
         //头结点的下一个结点为空
         header = new Node<>();
         header.next = null;
@@ -125,7 +128,7 @@ public class LRUMap<K, V> {
         Node<K, V> node = new Node<>(key, value);
 
         //容量满了删除最后一个
-        if (queueSize == nodeCount) {
+        if (cacheSize == nodeCount) {
             //删除尾结点
             delTail();
 
