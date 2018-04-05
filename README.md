@@ -5,7 +5,13 @@ Java 知识点，继续完善中。
 
 如果对你有帮助请点下 `Star`，有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)，有好的想法请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
 
-### Java 集合
+
+常用集合 | Java 多线程 | Java 内存模型 | 分布式相关 |常用框架\第三方组件|架构设计|DB 相关|数据结构与算法|附加技能
+---- | --- | --- | ---| ---| ---| ---| ---| ---
+
+
+
+### 常用集合
 - [ArrayList/Vector 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
 - [LinkedList 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/LinkedList.md)
 - [HashMap 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
@@ -22,7 +28,7 @@ Java 知识点，继续完善中。
 - [深入理解线程通信](https://github.com/crossoverJie/Java-Interview/blob/master/MD/concurrent/thread-communication.md)
 - [交替打印奇偶数](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
 
-### JMM(Java 内存模型)
+### Java 内存模型
 - [Java 运行时内存划分](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MemoryAllocation.md)
 -  [类加载机制](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ClassLoad.md)
 -  [OOM 分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/OOM-analysis.md)
@@ -34,16 +40,14 @@ Java 知识点，继续完善中。
 
 - [基于 Redis 的分布式锁](https://github.com/crossoverJie/distributed-lock-redis)
 
-### 常用框架
+### 常用框架\第三方组件
 
 - [Spring Bean 生命周期](https://github.com/crossoverJie/Java-Interview/blob/master/MD/spring/spring-bean-lifecycle.md)
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SpringAOP.md) 
-
-### SpringBoot
 - SpringBoot 启动过程
-
-### Tomcat
 - Tomcat 类加载机制
+
+
 
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Spike.md)
