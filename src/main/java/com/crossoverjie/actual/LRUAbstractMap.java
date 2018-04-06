@@ -24,9 +24,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  *         Date: 02/02/2018 20:47
  * @since JDK 1.8
  */
-public class AbstractMap extends java.util.AbstractMap {
+public class LRUAbstractMap extends java.util.AbstractMap {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(AbstractMap.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(LRUAbstractMap.class);
 
     /**
      * 检查是否超期线程
@@ -74,7 +74,7 @@ public class AbstractMap extends java.util.AbstractMap {
     private volatile AtomicInteger size  ;
 
 
-    public AbstractMap() {
+    public LRUAbstractMap() {
 
 
         arraySize = DEFAULT_ARRAY_SIZE;
@@ -310,7 +310,7 @@ public class AbstractMap extends java.util.AbstractMap {
 
 
     /**
-     * 摘抄自 HashMap 的 hash 实现
+     * copy HashMap 的 hash 实现
      * @param key
      * @return
      */

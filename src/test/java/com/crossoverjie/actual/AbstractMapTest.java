@@ -10,7 +10,7 @@ public class AbstractMapTest {
 
     @Test
     public void test(){
-        AbstractMap map = new AbstractMap() ;
+        LRUAbstractMap map = new LRUAbstractMap() ;
         map.put(1,1) ;
         map.put(2,2) ;
 
@@ -22,7 +22,7 @@ public class AbstractMapTest {
     }
 
     public static void main(String[] args) {
-        AbstractMap map = new AbstractMap() ;
+        LRUAbstractMap map = new LRUAbstractMap() ;
         map.put(1,1) ;
         map.put(2,2) ;
 
