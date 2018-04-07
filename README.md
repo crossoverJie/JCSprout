@@ -38,7 +38,7 @@ Java 知识点，继续完善中。
 
 ### 分布式相关
 
-- [基于 Redis 的分布式锁](https://github.com/crossoverJie/distributed-lock-redis)
+- [基于 Redis 的分布式锁](http://crossoverjie.top/2018/03/29/distributed-lock/distributed-lock-redis/)
 - [分布式缓存设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Cache-design.md)
 - [分布式 ID 生成器](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ID-generator.md)
 
