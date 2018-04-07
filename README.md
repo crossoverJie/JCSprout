@@ -71,6 +71,7 @@ Java 知识点，继续完善中。
 - [三种方式反向打印单向链表](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/ReverseNode.java)
 - [合并两个排好序的链表](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/MergeTwoSortedLists.java)
 - [两个栈实现队列](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/TwoStackQueue.java)
+- [动手实现一个 LRU cache](http://crossoverjie.top/2018/04/07/algorithm/LRU-cache/)
 
 ### 附加技能
 
