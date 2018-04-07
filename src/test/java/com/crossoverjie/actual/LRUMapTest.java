@@ -56,7 +56,7 @@ public class LRUMapTest {
     }
 
     @Test
-    public void get3() throws Exception {
+    public void get2() throws Exception {
         LRUMap<String,Integer> lruMap = new LRUMap(3) ;
         lruMap.put("1",1) ;
         lruMap.put("2",2) ;
@@ -72,7 +72,7 @@ public class LRUMapTest {
     }
 
     @Test
-    public void get4() throws Exception {
+    public void get3() throws Exception {
         LRUMap<String,Integer> lruMap = new LRUMap(3) ;
         lruMap.put("1",1) ;
         lruMap.put("2",2) ;

@@ -131,14 +131,10 @@ public class LRUMap<K, V> {
         if (cacheSize == nodeCount) {
             //删除尾结点
             delTail();
-
-            //写入头结点
-            addHead(node);
-        } else {
-            addHead(node);
-
         }
 
+        //写入头结点
+        addHead(node);
 
     }
 
