@@ -4,7 +4,7 @@
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1fn84b0ftj4j30eb0560sv.jpg)
 
-如图所示，HashMap 底层是基于数据和链表实现的。其中有两个重要的参数：
+如图所示，HashMap 底层是基于数组和链表实现的。其中有两个重要的参数：
 
 - 容量
 - 负载因子
