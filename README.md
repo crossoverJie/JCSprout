@@ -12,10 +12,10 @@ Java 知识点，继续完善中。
 
 
 ### 常用集合
-- [ArrayList/Vector 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
-- [LinkedList 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/LinkedList.md)
-- [HashMap 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
-- [LinkedHashMap 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/collection/LinkedHashMap.md)
+- [ArrayList/Vector](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
+- [LinkedList](https://github.com/crossoverJie/Java-Interview/blob/master/MD/LinkedList.md)
+- [HashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
+- [LinkedHashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/collection/LinkedHashMap.md)
 
 ### Java 多线程
 - [多线程中的常见问题](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Thread-common-problem.md)
