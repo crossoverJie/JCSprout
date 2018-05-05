@@ -19,7 +19,7 @@
 
 ## 构造函数
 
-```
+```java
     public HashSet() {
         map = new HashMap<>();
     }

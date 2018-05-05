@@ -22,6 +22,31 @@
 
 get 和 put 类似，也是将传入的 Key 计算出 index ，如果该位置上是一个链表就需要遍历整个链表，通过 `key.equals(k)` 来找到对应的元素。
 
+## 遍历方式
+
+
+```java
+ Iterator<Map.Entry<String, Integer>> entryIterator = map.entrySet().iterator();
+        while (entryIterator.hasNext()) {
+            Map.Entry<String, Integer> next = entryIterator.next();
+            System.out.println("key=" + next.getKey() + " value=" + next.getValue());
+        }
+```
+
+```java
+Iterator<String> iterator = map.keySet().iterator();
+        while (iterator.hasNext()){
+            String key = iterator.next();
+            System.out.println("key=" + key + " value=" + map.get(key));
+
+        }
+```
+
+**强烈建议**使用第一种 EntrySet 进行遍历。
+
+第一种可以把 key value 同时取出，第二种还得需要通过 key 取一次 value，效率较低。
+
+
 ## notice
 
 在并发环境下使用 `HashMap` 容易出现死循环。

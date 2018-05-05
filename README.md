@@ -15,6 +15,7 @@ Java 知识点，继续完善中。
 - [ArrayList/Vector](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
 - [LinkedList](https://github.com/crossoverJie/Java-Interview/blob/master/MD/LinkedList.md)
 - [HashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
+- [HashSet](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
 - [LinkedHashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/collection/LinkedHashMap.md)
 
 ### Java 多线程
@@ -67,7 +68,7 @@ Java 知识点，继续完善中。
 - [是否为快乐数字](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/HappyNum.java#L38-L55)
 - [链表是否有环](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/LinkLoop.java#L32-L59)
 - [从一个数组中返回两个值相加等于目标值的下标](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/TwoSum.java#L38-L59)
-- [一致 Hash 算法](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Consistent-Hash.md)
+- [一致性 Hash 算法](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Consistent-Hash.md)
 - [限流算法](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Limiting.md)
 - [三种方式反向打印单向链表](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/ReverseNode.java)
 - [合并两个排好序的链表](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/MergeTwoSortedLists.java)
