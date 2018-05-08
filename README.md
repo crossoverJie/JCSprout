@@ -55,6 +55,7 @@ Java 知识点，继续完善中。
 
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Spike.md)
+- [秒杀架构实践](http://crossoverjie.top/2018/05/07/ssm/SSM18-seconds-kill/)
 
 ### DB 相关
 
