@@ -15,7 +15,7 @@ Java 知识点，继续完善中。
 - [ArrayList/Vector](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
 - [LinkedList](https://github.com/crossoverJie/Java-Interview/blob/master/MD/LinkedList.md)
 - [HashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
-- [HashSet](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
+- [HashSet](https://github.com/crossoverJie/Java-Interview/blob/master/MD/collection/HashSet.md)
 - [LinkedHashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/collection/LinkedHashMap.md)
 
 ### Java 多线程
