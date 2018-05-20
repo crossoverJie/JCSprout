@@ -48,9 +48,9 @@ Java 知识点，继续完善中。
 
 - [Spring Bean 生命周期](https://github.com/crossoverJie/Java-Interview/blob/master/MD/spring/spring-bean-lifecycle.md)
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SpringAOP.md) 
+- 基于 Netty 的长连接心跳
 - SpringBoot 启动过程
 - Tomcat 类加载机制
-
 
 
 ### 架构设计
