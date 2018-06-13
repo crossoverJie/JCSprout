@@ -48,6 +48,7 @@ Java 知识点，继续完善中。
 
 - [Spring Bean 生命周期](https://github.com/crossoverJie/Java-Interview/blob/master/MD/spring/spring-bean-lifecycle.md)
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SpringAOP.md) 
+- [Guava 源码分析（Cache 原理）](https://crossoverjie.top/2018/06/13/guava/guava-cache/)
 - SpringBoot 启动过程
 - Tomcat 类加载机制
 
@@ -87,4 +88,4 @@ Java 知识点，继续完善中。
 
 > crossoverJie#gmail.com
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1frz6eaf3s4j308c0au0ss.jpg)
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fsa01u7ro1j30gs0howfq.jpg)
