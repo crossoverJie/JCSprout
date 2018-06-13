@@ -42,9 +42,15 @@ Iterator<String> iterator = map.keySet().iterator();
         }
 ```
 
+```java
+map.forEach((key,value)->{
+    System.out.println("key=" + key + " value=" + value);
+});
+```
+
 **强烈建议**使用第一种 EntrySet 进行遍历。
 
-第一种可以把 key value 同时取出，第二种还得需要通过 key 取一次 value，效率较低。
+第一种可以把 key value 同时取出，第二种还得需要通过 key 取一次 value，效率较低, 第三种通过外层遍历table，内层遍历链表或红黑树。 
 
 
 ## notice
