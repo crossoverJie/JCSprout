@@ -31,7 +31,6 @@ public class CacheLoaderTest {
     private void init() throws InterruptedException {
         loadingCache = CacheBuilder.newBuilder()
                 .expireAfterWrite(2, TimeUnit.SECONDS)
-                .maximumSize(3)
 
                 .build(new CacheLoader<Integer, AtomicLong>() {
                     @Override
@@ -49,9 +48,9 @@ public class CacheLoaderTest {
     private void checkAlert(Integer integer) {
         try {
 
-            loadingCache.put(integer,new AtomicLong(integer));
+            //loadingCache.put(integer,new AtomicLong(integer));
 
-            //TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(5);
 
 
             LOGGER.info("当前缓存值={},缓存大小={}", loadingCache.get(KEY),loadingCache.size());
@@ -60,6 +59,8 @@ public class CacheLoaderTest {
 
         } catch (ExecutionException e ) {
             LOGGER.error("Exception", e);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
     public static void main(String[] args) throws InterruptedException {
