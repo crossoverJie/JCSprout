@@ -82,6 +82,7 @@ Java 知识点，继续完善中。
 ### 附加技能
 
 - [TCP/IP 协议](https://github.com/crossoverJie/Java-Interview/blob/master/MD/TCP%3AIP.md)
+- [一个学渣的阿里之路](https://crossoverjie.top/2018/06/21/personal/Interview-experience/)
 
 
 ### 联系作者
