@@ -1,0 +1,9 @@
+language: java
+
+install: mvn install -DskipTests=true -Dmaven.javadoc.skip=true
+script: mvn -DskipTests=true clean install
+
+
+branches:
+  only:
+    - master
