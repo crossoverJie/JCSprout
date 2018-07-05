@@ -84,6 +84,7 @@ Java 知识点，继续完善中。
 
 ### Netty 相关
 - [SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/)
+- [从线程模型的角度看 Netty 为什么是高性能的？](https://crossoverjie.top/2018/07/04/netty/Netty(2)Thread-model/)
 
 ### 附加技能
 
