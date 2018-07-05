@@ -4,7 +4,7 @@
 多线程并不一定是要在多核处理器才支持的，就算是单核也是可以支持多线程的。
 CPU 通过给每个线程分配一定的时间片，由于时间非常短通常是几十毫秒，所以 CPU 可以不停的切换线程执行任务从而达到了多线程的效果。
 
-但是由于在线程切换的时候需要保存本次执行的信息([详见](https://github.com/crossoverJie/Java-Interview/blob/master/MemoryAllocation.md#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8))，在该线程被 CPU 剥夺时间片后又再次运行恢复上次所保存的信息的过程就成为上下文切换。
+但是由于在线程切换的时候需要保存本次执行的信息([详见](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MemoryAllocation.md#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8))，在该线程被 CPU 剥夺时间片后又再次运行恢复上次所保存的信息的过程就成为上下文切换。
 
 > 上下文切换是非常耗效率的。
 
