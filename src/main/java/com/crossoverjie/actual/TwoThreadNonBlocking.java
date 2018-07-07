@@ -6,7 +6,7 @@ package com.crossoverjie.actual;
  * non blocking 版
  *
  * @author twoyao
- * Date: 5/07/2018
+ * Date: 05/07/2018
  * @since JDK 1.8
  */
 
@@ -14,7 +14,7 @@ public class TwoThreadNonBlocking implements Runnable {
 
     /**
      * 当flag为1时只有奇数线程可以执行，并将其置为0
-     * 当flag为0是只有偶数线程可以执行，并将其置为1
+     * 当flag为0时只有偶数线程可以执行，并将其置为1
      */
     private volatile static int flag = 1;
 
