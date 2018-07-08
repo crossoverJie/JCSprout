@@ -5,11 +5,18 @@ Java 知识点，继续完善中。
 
 如果对你有帮助请点下 `Star`，有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)，有好的想法请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
 
-### Java 集合
-- [ArrayList/Vector 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
-- [LinkedList 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/LinkedList.md)
-- [HashMap 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
-- [LinkedHashMap 底层分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/collection/LinkedHashMap.md)
+
+[常用集合](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88) | [Java 多线程](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#java-%E5%A4%9A%E7%BA%BF%E7%A8%8B) | [JVM](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#jvm) | [分布式相关](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E7%9B%B8%E5%85%B3) |[常用框架\第三方组件](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6)|[架构设计](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1)|[DB 相关](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#db-%E7%9B%B8%E5%85%B3)|[数据结构与算法](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95)|[Netty 相关](https://github.com/crossoverJie/Java-Interview#netty-%E7%9B%B8%E5%85%B3)|[附加技能](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E9%99%84%E5%8A%A0%E6%8A%80%E8%83%BD)|[联系作者](https://github.com/crossoverJie/Java-Interview#%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85)
+---- | --- | --- | ---| ---| ---| ---| ---| ---|---|---
+
+
+
+### 常用集合
+- [ArrayList/Vector](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ArrayList.md)
+- [LinkedList](https://github.com/crossoverJie/Java-Interview/blob/master/MD/LinkedList.md)
+- [HashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/HashMap.md)
+- [HashSet](https://github.com/crossoverJie/Java-Interview/blob/master/MD/collection/HashSet.md)
+- [LinkedHashMap](https://github.com/crossoverJie/Java-Interview/blob/master/MD/collection/LinkedHashMap.md)
 
 ### Java 多线程
 - [多线程中的常见问题](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Thread-common-problem.md)
@@ -22,7 +29,7 @@ Java 知识点，继续完善中。
 - [深入理解线程通信](https://github.com/crossoverJie/Java-Interview/blob/master/MD/concurrent/thread-communication.md)
 - [交替打印奇偶数](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
 
-### JMM(Java 内存模型)
+### JVM
 - [Java 运行时内存划分](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MemoryAllocation.md)
 -  [类加载机制](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ClassLoad.md)
 -  [OOM 分析](https://github.com/crossoverJie/Java-Interview/blob/master/MD/OOM-analysis.md)
@@ -32,23 +39,23 @@ Java 知识点，继续完善中。
 
 ### 分布式相关
 
-- [基于 Redis 的分布式锁](https://github.com/crossoverJie/distributed-lock-redis)
+- [分布式限流](http://crossoverjie.top/2018/04/28/sbc/sbc7-Distributed-Limit/)
+- [基于 Redis 的分布式锁](http://crossoverjie.top/2018/03/29/distributed-lock/distributed-lock-redis/)
+- [分布式缓存设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Cache-design.md)
+- [分布式 ID 生成器](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ID-generator.md)
 
-### 常用框架
+### 常用框架\第三方组件
 
 - [Spring Bean 生命周期](https://github.com/crossoverJie/Java-Interview/blob/master/MD/spring/spring-bean-lifecycle.md)
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/SpringAOP.md) 
-
-### SpringBoot
+- [Guava 源码分析（Cache 原理）](https://crossoverjie.top/2018/06/13/guava/guava-cache/)
 - SpringBoot 启动过程
-
-### Tomcat
 - Tomcat 类加载机制
+
 
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Spike.md)
-- [分布式缓存设计](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Cache-design.md)
-- [分布式 ID 生成器](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ID-generator.md)
+- [秒杀架构实践](http://crossoverjie.top/2018/05/07/ssm/SSM18-seconds-kill/)
 
 ### DB 相关
 
@@ -62,19 +69,24 @@ Java 知识点，继续完善中。
 - [是否为快乐数字](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/HappyNum.java#L38-L55)
 - [链表是否有环](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/LinkLoop.java#L32-L59)
 - [从一个数组中返回两个值相加等于目标值的下标](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/TwoSum.java#L38-L59)
-- [一致 Hash 算法](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Consistent-Hash.md)
+- [一致性 Hash 算法](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Consistent-Hash.md)
 - [限流算法](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Limiting.md)
 - [三种方式反向打印单向链表](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/ReverseNode.java)
 - [合并两个排好序的链表](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/MergeTwoSortedLists.java)
 - [两个栈实现队列](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/TwoStackQueue.java)
+- [动手实现一个 LRU cache](http://crossoverjie.top/2018/04/07/algorithm/LRU-cache/)
+
+### Netty 相关
+- [SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/)
 
 ### 附加技能
 
-- [TCP/IP 协议](https://github.com/crossoverJie/Java-Interview/blob/master/MD/TCP%3AIP.md)
+- [TCP/IP 协议](https://github.com/crossoverJie/Java-Interview/blob/master/MD/TCP-IP.md)
+- [一个学渣的阿里之路](https://crossoverjie.top/2018/06/21/personal/Interview-experience/)
 
 
 ### 联系作者
 
 > crossoverJie#gmail.com
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fochm4as0sj30by0bydgh.jpg)
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fsa01u7ro1j30gs0howfq.jpg)

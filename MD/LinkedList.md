@@ -1,8 +1,8 @@
 # LinkedList 底层分析
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1fmtdndjiwej30hj06mabj.jpg)
+![](https://ws4.sinaimg.cn/large/006tKfTcly1fqzb66c00gj30p7056q38.jpg)
 
-如图所示 `LinkedList` 底层是基于双向链表实现的，也是实现了 `List` 接口，所以也拥有 List 的一些特点。
+如图所示 `LinkedList` 底层是基于双向链表实现的，也是实现了 `List` 接口，所以也拥有 List 的一些特点(JDK1.7/8 之后取消了循环，修改为双向链表)。
 
 ## 新增方法
 
@@ -56,7 +56,10 @@
 
 由此可以看出是使用二分查找来看 `index` 离 size 中间距离来判断是从头结点正序查还是从尾节点倒序查。
 
-这样的效率是非常低的，特别是当 index 距离 size 的中间位置越远时。
+- `node()`会以`O(n/2)`的性能去获取一个结点
+    - 如果索引值大于链表大小的一半，那么将从尾结点开始遍历
+
+这样的效率是非常低的，特别是当 index 越接近 size 的中间值时。
 
 总结：
 

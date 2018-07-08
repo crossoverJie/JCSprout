@@ -4,7 +4,7 @@
 
 ![](https://ws2.sinaimg.cn/large/006tNc79gy1fn84b0ftj4j30eb0560sv.jpg)
 
-如图所示，HashMap 底层是基于数据和链表实现的。其中有两个重要的参数：
+如图所示，HashMap 底层是基于数组和链表实现的。其中有两个重要的参数：
 
 - 容量
 - 负载因子
@@ -21,6 +21,37 @@
 ## get 方法
 
 get 和 put 类似，也是将传入的 Key 计算出 index ，如果该位置上是一个链表就需要遍历整个链表，通过 `key.equals(k)` 来找到对应的元素。
+
+## 遍历方式
+
+
+```java
+ Iterator<Map.Entry<String, Integer>> entryIterator = map.entrySet().iterator();
+        while (entryIterator.hasNext()) {
+            Map.Entry<String, Integer> next = entryIterator.next();
+            System.out.println("key=" + next.getKey() + " value=" + next.getValue());
+        }
+```
+
+```java
+Iterator<String> iterator = map.keySet().iterator();
+        while (iterator.hasNext()){
+            String key = iterator.next();
+            System.out.println("key=" + key + " value=" + map.get(key));
+
+        }
+```
+
+```java
+map.forEach((key,value)->{
+    System.out.println("key=" + key + " value=" + value);
+});
+```
+
+**强烈建议**使用第一种 EntrySet 进行遍历。
+
+第一种可以把 key value 同时取出，第二种还得需要通过 key 取一次 value，效率较低, 第三种需要 `JDK1.8` 以上，通过外层遍历 table，内层遍历链表或红黑树。 
+
 
 ## notice
 
