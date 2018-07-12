@@ -1,7 +1,10 @@
 package com.crossoverjie.algorithm;
 
 /**
- * 链表排序, 建议使用归并排序
+ * 链表排序, 建议使用归并排序，
+ * 问题描述，给定一个Int的链表，要求在时间最优的情况下完成链表元素由大到小的排序，
+ *     e.g: 1->5->4->3->2
+ *     排序后结果 5->4->3->2->1
  *
  * @author 6563699600@qq.com
  * @date 6/7/2018 11:42 PM
@@ -9,6 +12,9 @@ package com.crossoverjie.algorithm;
  */
 public class LinkedListMergeSort {
 
+    /**
+     * 定义链表数据结构，包含当前元素，以及当前元素的后续元素指针
+     */
     final static class Node {
         int e;
         Node next;
@@ -43,6 +49,7 @@ public class LinkedListMergeSort {
 
             /**
              *  这里是链表归并时要注意的细节
+             *  在链表进行归并排序过程中，会涉及到将一个链表打散为两个独立的链表，所以需要在中间元素的位置将其后续指针指为null；
              */
             Node right = middle.next;
             middle.next = null;
@@ -58,6 +65,13 @@ public class LinkedListMergeSort {
         }
     }
 
+    /**
+     * 合并链表，具体的实现细节可参考<code>MergeTwoSortedLists</code>
+     *
+     * @param left
+     * @param right
+     * @return
+     */
     public Node mergeList(Node left, Node right) {
 
         Node head = new Node();
