@@ -82,6 +82,7 @@ Java 知识点，继续完善中。
 - [两个栈实现队列](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/algorithm/TwoStackQueue.java)
 - [动手实现一个 LRU cache](http://crossoverjie.top/2018/04/07/algorithm/LRU-cache/)
 - [链表排序](./src/main/java/com/crossoverjie/algorithm/LinkedListMergeSort.java)
+- [数组右移k次](./src/main/java/com/crossoverjie/algorithm/ArrayKShift.java)
 
 ### Netty 相关
 - [SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/)
