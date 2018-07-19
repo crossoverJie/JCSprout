@@ -84,21 +84,24 @@ Java 中可以使用 `volatile` 来保证顺序性，`synchronize 和 lock` 也�
 可以用 `volatile` 实现一个双重检查锁的单例模式：
 
 ```java
-public class Singleton{
-	private static volatile Singleton singleton ;
-	private Singleton(){}
-	public static Singleton getInstance(){
-		if(singleton == null){
-			synchronize(Singleton.class){
-			  if(singleton == null){
-			    singleton = new Singleton();
-			  }
-			}
-		}
-		return singleton ;
-	}
-	
-}
+    public class Singleton {
+        private static volatile Singleton singleton;
+
+        private Singleton() {
+        }
+
+        public static Singleton getInstance() {
+            if (singleton == null) {
+                synchronized (Singleton.class) {
+                    if (singleton == null) {
+                        singleton = new Singleton();
+                    }
+                }
+            }
+            return singleton;
+        }
+
+    }
 ```
 
 这里的 `volatile` 关键字主要是为了防止指令重排。
@@ -108,23 +111,24 @@ public class Singleton{
 - 初始化对象。(2)
 - 将 `singleton` 对象指向分配的内存地址。(3)
 
-加上 `volatile` 是为了让以上的三步操作顺序执行，反之有可能第二步在第三步之前被执行就有可能某个线程拿到的单例对象是还没有初始化的，以致于报错。
+加上 `volatile` 是为了让以上的三步操作顺序执行，反之有可能第三步在第二步之前被执行就有可能导致某个线程拿到的单例对象还没有初始化，以致于使用报错。
 
 #### 控制停止线程的标记
 
 ```java
-private volatile boolean flag ;
-private void run(){
-	new Thread(new Runnable(){
-	  if(flag){
-            doSomeThing();
-	  }
-	});
-}
+    private volatile boolean flag ;
+    private void run(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                doSomeThing();
+            }
+        });
+    }
 
-private void stop(){
-  flag = false ;
-}
+    private void stop(){
+        flag = false ;
+    }
 ```
 
 这里如果没有用 volatile 来修饰 flag ，就有可能其中一个线程调用了 `stop()`方法修改了 flag 的值并不会立即刷新到主内存中，导致这个循环并不会立即停止。
