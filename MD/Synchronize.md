@@ -1,10 +1,10 @@
-# Synchronize 关键字原理
+# synchronized 关键字原理
 
-众所周知 `Synchronize` 关键字是解决并发问题常用解决方案，有以下三种使用方式:
+众所周知 `synchronized` 关键字是解决并发问题常用解决方案，有以下三种使用方式:
 
 - 同步普通方法，锁的是当前对象。
 - 同步静态方法，锁的是当前 `Class` 对象。
-- 同步块，锁的是 `{}` 中的对象。
+- 同步块，锁的是 `()` 中的对象。
 
 
 实现原理：
@@ -71,7 +71,7 @@ public class com.crossoverjie.synchronize.Synchronize {
 
 
 ## 锁优化
-`synchronize`  很多都称之为重量锁，`JDK1.6` 中对 `synchronize` 进行了各种优化，为了能减少获取和释放锁带来的消耗引入了`偏向锁`和`轻量锁`。
+`synchronized`  很多都称之为重量锁，`JDK1.6` 中对 `synchronized` 进行了各种优化，为了能减少获取和释放锁带来的消耗引入了`偏向锁`和`轻量锁`。
 
 
 ### 轻量锁
