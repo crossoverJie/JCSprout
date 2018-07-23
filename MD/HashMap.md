@@ -1,3 +1,5 @@
+**更多 HashMap 与 ConcurrentHashMap 相关请查看[这里](https://crossoverjie.top/2018/07/23/java-senior/ConcurrentHashMap/)。**
+
 # HashMap 底层分析
 
 > 以下基于 JDK1.7 分析。
