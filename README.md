@@ -26,7 +26,7 @@ Java 知识点，继续完善中。
 
 ### Java 多线程
 - [多线程中的常见问题](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Thread-common-problem.md)
-- [synchronize 关键字原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Synchronize.md)
+- [synchronized 关键字原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Synchronize.md)
 - [多线程的三大核心](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Threadcore.md)
 - [对锁的一些认知](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Java-lock.md)
 - [ReentrantLock 实现原理 ](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ReentrantLock.md)
