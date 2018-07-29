@@ -32,7 +32,7 @@ Java 知识点，继续完善中。
 - [对锁的一些认知](https://github.com/crossoverJie/Java-Interview/blob/master/MD/Java-lock.md)
 - [ReentrantLock 实现原理 ](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ReentrantLock.md)
 - [ConcurrentHashMap 的实现原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ConcurrentHashMap.md)
-- [线程池原理](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ThreadPoolExecutor.md)
+- [如何优雅的使用和理解线程池](https://github.com/crossoverJie/Java-Interview/blob/master/MD/ThreadPoolExecutor.md)
 - [深入理解线程通信](https://github.com/crossoverJie/Java-Interview/blob/master/MD/concurrent/thread-communication.md)
 - [交替打印奇偶数](https://github.com/crossoverJie/Java-Interview/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
 
