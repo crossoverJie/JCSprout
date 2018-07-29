@@ -1,3 +1,4 @@
+
 [![Build Status](https://travis-ci.org/crossoverJie/Java-Interview.svg?branch=master)](https://travis-ci.org/crossoverJie/Java-Interview)
 [![QQ群](https://img.shields.io/badge/QQ%E7%BE%A4-787381170-yellowgreen.svg)](https://jq.qq.com/?_wv=1027&k=5HPYvQk)
 
@@ -11,9 +12,9 @@ Java 知识点，继续完善中。
 
 如果对你有帮助请点下 `Star`，有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)，有好的想法请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
 
-
-[常用集合](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88) | [Java 多线程](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#java-%E5%A4%9A%E7%BA%BF%E7%A8%8B) | [JVM](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#jvm) | [分布式相关](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%88%86%E5%B8%83%E5%BC%8F%E7%9B%B8%E5%85%B3) |[常用框架\第三方组件](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E6%A1%86%E6%9E%B6%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6)|[架构设计](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1)|[DB 相关](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#db-%E7%9B%B8%E5%85%B3)|[数据结构与算法](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95)|[Netty 相关](https://github.com/crossoverJie/Java-Interview#netty-%E7%9B%B8%E5%85%B3)|[附加技能](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E9%99%84%E5%8A%A0%E6%8A%80%E8%83%BD)|[联系作者](https://github.com/crossoverJie/Java-Interview#%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85)
----- | --- | --- | ---| ---| ---| ---| ---| ---|---|---
+| 📊 |⚔️ | 🖥 | 🚏 | 🏖  | 🌁| 📮 | 🔍 | 🚀 | 🌈 |💡
+| :--------: | :---------: | :---------: | :---------: | :---------: | :---------:| :---------: | :-------: | :-------:| :------:|:------:|
+| [集合](#常用集合) | [多线程](#java-多线程)|[JVM](#jvm) | [分布式](#分布式相关) |[框架](#常用框架第三方组件)|[架构设计](#架构设计)| [数据库](#db-相关) |[算法](#数据结构与算法)|[Netty](#netty-相关)| [附加技能](#附加技能)|[联系作者](#联系作者) |
 
 
 
