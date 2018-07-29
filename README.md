@@ -1,22 +1,3 @@
----
-📊: [常用集合](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88)
-date: 2018/07/29 02:00:16 
-categories: 
-- Java 进阶
-tags: 
-- Java
-- ThreadPool
-- Hystirx
-- SpringBoot
----
-
-
----
-📊: [常用集合](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88)
-⚔️: [多线程](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#java-%E5%A4%9A%E7%BA%BF%E7%A8%8B)
-🖥: [JVM](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#jvm)
----
-
 
 [![Build Status](https://travis-ci.org/crossoverJie/Java-Interview.svg?branch=master)](https://travis-ci.org/crossoverJie/Java-Interview)
 [![QQ群](https://img.shields.io/badge/QQ%E7%BE%A4-787381170-yellowgreen.svg)](https://jq.qq.com/?_wv=1027&k=5HPYvQk)
@@ -32,6 +13,11 @@ Java 知识点，继续完善中。
 如果对你有帮助请点下 `Star`，有疑问欢迎提 [Issues](https://github.com/crossoverJie/Java-Interview/issues)，有好的想法请提 [PR](https://github.com/crossoverJie/Java-Interview/pulls)。
 
 
+---
+📊: [常用集合](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88)
+⚔️: [多线程](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#java-%E5%A4%9A%E7%BA%BF%E7%A8%8B)
+🖥: [JVM](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#jvm)
+---
 
 
 
