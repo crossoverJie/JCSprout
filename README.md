@@ -2,8 +2,8 @@
 
 ---
 📊: 常用集合
-⚔️: [多线程](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#java-%E5%A4%9A%E7%BA%BF%E7%A8%8B)
-🖥: [JVM](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#jvm)
+⚔️: 多线程
+🖥: JVM
 ---
 
 
