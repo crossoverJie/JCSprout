@@ -1,5 +1,5 @@
 ---
-📊: 常用集合
+📊: [常用集合](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88)
 date: 2018/07/29 02:00:16 
 categories: 
 - Java 进阶
@@ -10,10 +10,11 @@ tags:
 - SpringBoot
 ---
 
+
 ---
-📊: 常用集合
-⚔️: 多线程
-🖥: JVM
+📊: [常用集合](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88)
+⚔️: [多线程](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#java-%E5%A4%9A%E7%BA%BF%E7%A8%8B)
+🖥: [JVM](https://github.com/crossoverJie/Java-Interview/blob/master/README.md#jvm)
 ---
 
 
@@ -32,17 +33,6 @@ Java 知识点，继续完善中。
 
 
 
----
-📊: 常用集合
-date: 2018/07/29 02:00:16 
-categories: 
-- Java 进阶
-tags: 
-- Java
-- ThreadPool
-- Hystirx
-- SpringBoot
----
 
 
 ### 常用集合
