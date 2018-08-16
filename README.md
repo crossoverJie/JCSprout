@@ -12,11 +12,10 @@
 
 </div><br>
 
-## JCSprout
 
-> Java Core Sprout
+> `Java Core Sprout`：处于萌芽阶段的Java 核心知识库。
 
-处于萌芽阶段的Java 核心知识库。
+
 
 
 
