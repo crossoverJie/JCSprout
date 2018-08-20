@@ -10,7 +10,7 @@ CPU 通过给每个线程分配一定的时间片，由于时间非常短通常�
 
 通常有以下解决方案:
 - 采用无锁编程，比如将数据按照 `Hash(id)` 进行取模分段，每个线程处理各自分段的数据，从而避免使用锁。
-- 采用 CAS(compare and swap) 算法，如 `Atomic` 包就是采用 CAS 算法([详见](https://github.com/crossoverJie/Java-Interview/blob/master/Threadcore.md#%E5%8E%9F%E5%AD%90%E6%80%A7))。
+- 采用 CAS(compare and swap) 算法，如 `Atomic` 包就是采用 CAS 算法([详见](https://github.com/crossoverJie/JCSprout/blob/master/MD/Threadcore.md#%E5%8E%9F%E5%AD%90%E6%80%A7))。
 - 合理的创建线程，避免创建了一些线程但其中大部分都是出于 `waiting` 状态，因为每当从 `waiting` 状态切换到 `running` 状态都是一次上下文切换。
 
 ## 死锁
