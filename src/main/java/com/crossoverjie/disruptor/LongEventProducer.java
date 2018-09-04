@@ -1,6 +1,8 @@
 package com.crossoverjie.disruptor;
 
 import com.lmax.disruptor.RingBuffer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.nio.ByteBuffer;
 
@@ -12,6 +14,7 @@ import java.nio.ByteBuffer;
  * @since JDK 1.8
  */
 public class LongEventProducer {
+    private final static Logger LOGGER = LoggerFactory.getLogger(LongEventProducer.class);
     private final RingBuffer<LongEvent> ringBuffer;
 
     public LongEventProducer(RingBuffer<LongEvent> ringBuffer) {
@@ -23,7 +26,9 @@ public class LongEventProducer {
         try {
             LongEvent event = ringBuffer.get(sequence); // Get the entry in the Disruptor
             // for the sequence
-            event.set(bb.getLong(0));  // Fill with data
+            long aLong = bb.getLong(0);
+            LOGGER.info("product=[{}]",aLong);
+            event.set(aLong);  // Fill with data
         } finally {
             ringBuffer.publish(sequence);
         }
