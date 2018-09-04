@@ -3,7 +3,11 @@ package com.crossoverjie.actual;
 /**
  * Function: 两个线程交替执行打印 1~100
  * <p>
- * non blocking 版
+ * non blocking 版：
+ * 两个线程轮询volatile变量(flag) 
+ * 线程一"看到"flag值为1时执行代码并将flag设置为0,
+ * 线程二"看到"flag值为0时执行代码并将flag设置未1,
+ * 2个线程不断轮询直到满足条件退出
  *
  * @author twoyao
  * Date: 05/07/2018
