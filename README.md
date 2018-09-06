@@ -102,6 +102,7 @@
 - [TCP/IP 协议](https://github.com/crossoverJie/JCSprout/blob/master/MD/TCP-IP.md)
 - [一个学渣的阿里之路](https://crossoverjie.top/2018/06/21/personal/Interview-experience/)
 - [如何成为一位「不那么差」的程序员](https://crossoverjie.top/2018/08/12/personal/how-to-be-developer/)
+- [如何高效的使用 Git](https://github.com/crossoverJie/JCSprout/blob/master/MD/additional-skills/how-to-use-git-efficiently.md)
 
 
 ### 联系作者
