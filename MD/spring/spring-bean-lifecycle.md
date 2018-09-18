@@ -7,7 +7,7 @@ Spring Bean 的生命周期在整个 Spring 中占有很重要的位置，掌握
 
 首先看下生命周期图：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fpjsamy6uoj30nt0cqq4i.jpg)
+![](https://github.com/toby1024/JCSprout/blob/61e72de94e8f49dca0059c83d9e837785200f917/68747470733a2f2f7773332e73696e61696d672e636e2f6c617267652f303036744e63373967793166706a73616d7936756f6a33306e743063717134692e6a7067.jpeg)
 
 再谈生命周期之前有一点需要先明确：
 
