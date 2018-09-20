@@ -4,14 +4,14 @@
 多线程并不一定是要在多核处理器才支持的，就算是单核也是可以支持多线程的。
 CPU 通过给每个线程分配一定的时间片，由于时间非常短通常是几十毫秒，所以 CPU 可以不停的切换线程执行任务从而达到了多线程的效果。
 
-但是由于在线程切换的时候需要保存本次执行的信息([详见](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MemoryAllocation.md#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8))，在该线程被 CPU 剥夺时间片后又再次运行恢复上次所保存的信息的过程就成为上下文切换。
+但是由于在线程切换的时候需要保存本次执行的信息([详见](https://github.com/crossoverJie/Java-Interview/blob/master/MD/MemoryAllocation.md#%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8))，在该线程被 CPU 剥夺时间片后又再次运行恢复上次所保存的信息的过程就称为上下文切换。
 
 > 上下文切换是非常耗效率的。
 
 通常有以下解决方案:
 - 采用无锁编程，比如将数据按照 `Hash(id)` 进行取模分段，每个线程处理各自分段的数据，从而避免使用锁。
-- 采用 CAS(compare and swap) 算法，如 `Atomic` 包就是采用 CAS 算法([详见](https://github.com/crossoverJie/Java-Interview/blob/master/Threadcore.md#%E5%8E%9F%E5%AD%90%E6%80%A7))。
-- 合理的创建线程，避免创建了一些线程但其中大部分都是出于 `waiting` 状态，因为每当从 `waiting` 状态切换到 `running` 状态都是一次上下文切换。
+- 采用 CAS(compare and swap) 算法，如 `Atomic` 包就是采用 CAS 算法([详见](https://github.com/crossoverJie/JCSprout/blob/master/MD/Threadcore.md#%E5%8E%9F%E5%AD%90%E6%80%A7))。
+- 合理的创建线程，避免创建了一些线程但其中大部分都是处于 `waiting` 状态，因为每当从 `waiting` 状态切换到 `running` 状态都是一次上下文切换。
 
 ## 死锁
 
