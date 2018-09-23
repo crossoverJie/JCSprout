@@ -1,6 +1,6 @@
 package com.crossoverjie.concurrent;
 
-import java.util.concurrent.TimeUnit;
+import java.util.Scanner;
 
 /**
  * Function:
@@ -16,7 +16,6 @@ public class Volatile implements Runnable{
     @Override
     public void run() {
         while (flag){
-            System.out.println(Thread.currentThread().getName() + "正在运行。。。");
         }
         System.out.println(Thread.currentThread().getName() +"执行完毕");
     }
@@ -28,13 +27,28 @@ public class Volatile implements Runnable{
 
         System.out.println("main 线程正在运行") ;
 
-        TimeUnit.MILLISECONDS.sleep(100) ;
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            String value = sc.next();
+            if(value.equals("1")){
 
-        aVolatile.stopThread();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        aVolatile.stopThread();
+                    }
+                }).start();
+
+                break ;
+            }
+        }
+
+        System.out.println("主线程退出了！");
 
     }
 
     private void stopThread(){
         flag = false ;
     }
+
 }
