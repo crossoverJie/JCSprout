@@ -101,6 +101,7 @@ public class Search {
         t4.join();
         t5.join();
         System.out.println(ALL_MAP.size());
+        Assert.assertEquals(50000,ALL_MAP.size());
 
 
         addWord("bad");
