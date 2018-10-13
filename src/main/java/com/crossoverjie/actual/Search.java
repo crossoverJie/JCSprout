@@ -38,7 +38,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class Search {
 
-    private static Map<String,String> ALL_MAP = new ConcurrentHashMap<>(500) ;
+    private static Map<String,String> ALL_MAP = new ConcurrentHashMap<>(50000) ;
 
 
     /**
