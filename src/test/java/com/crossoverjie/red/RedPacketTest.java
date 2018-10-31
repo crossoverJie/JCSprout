@@ -31,4 +31,17 @@ public class RedPacketTest {
         }
         System.out.println(sum);
     }
+
+    @Test
+    public void right__(){
+        RedPacket redPacket = new RedPacket() ;
+        List<Integer> redPackets = redPacket.splitRedPacket(100, 101);
+        System.out.println(redPackets) ;
+
+        int sum = 0 ;
+        for (Integer red : redPackets) {
+            sum += red ;
+        }
+        System.out.println(sum);
+    }
 }
