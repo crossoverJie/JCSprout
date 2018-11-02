@@ -40,7 +40,8 @@ public class RedPacket {
      * 最大的红包是平均值的 TIMES 倍，防止某一次分配红包较大
      */
     private static final double TIMES = 2.1F;
-
+    //变量定义
+    private static int STATUS = 1;
     private int recursiveCount = 0;
 
     public List<Integer> splitRedPacket(int money, int count) throws Exception {
