@@ -43,6 +43,12 @@ Process finished with exit code 1
 `java.lang.OutOfMemoryError: Java heap space`表示堆内存溢出。
 
 
+
+更多内存溢出相关实战请看这里：[强如 Disruptor 也发生内存溢出？](https://crossoverjie.top/2018/08/29/java-senior/OOM-Disruptor/)
+
+
+
+
 ## MetaSpace (元数据) 内存溢出
 
 > `JDK8` 中将永久代移除，使用 `MetaSpace` 来保存类加载之后的类信息，字符串常量池也被移动到 Java 堆。
