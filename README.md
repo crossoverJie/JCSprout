@@ -15,7 +15,6 @@
 
 > `Java Core Sprout`：处于萌芽阶段的 Java 核心知识库。
 
-
 <br/>
 
 
@@ -41,7 +40,6 @@
 - [ConcurrentHashMap 的实现原理](https://github.com/crossoverJie/JCSprout/blob/master/MD/ConcurrentHashMap.md)
 - [如何优雅的使用和理解线程池](https://github.com/crossoverJie/JCSprout/blob/master/MD/ThreadPoolExecutor.md)
 - [深入理解线程通信](https://github.com/crossoverJie/JCSprout/blob/master/MD/concurrent/thread-communication.md)
-- [交替打印奇偶数](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
 
 ### JVM
 - [Java 运行时内存划分](https://github.com/crossoverJie/JCSprout/blob/master/MD/MemoryAllocation.md)
@@ -95,6 +93,7 @@
 - [动手实现一个 LRU cache](http://crossoverjie.top/2018/04/07/algorithm/LRU-cache/)
 - [链表排序](./src/main/java/com/crossoverjie/algorithm/LinkedListMergeSort.java)
 - [数组右移 k 次](./src/main/java/com/crossoverjie/algorithm/ArrayKShift.java)
+-  [交替打印奇偶数](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
 
 ### Netty 相关
 - [SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/)
