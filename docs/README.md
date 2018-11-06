@@ -24,6 +24,8 @@
 ----------
 # CONTACT
 
+[个人博客](https://crossoverjie.top)
+
 [Twitter](https://twitter.com/crossoverJie)
 
 [微博](http://weibo.com/crossoverJie "微博")
