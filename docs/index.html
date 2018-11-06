@@ -19,30 +19,17 @@
       coverpage: true,
       subMaxLevel: 2,
       maxLevel: 4,
+      ga: 'UA-128791327-1',
 
-
-      search: 'auto', // 默认值
-
-      search : [
-        '/',            // => /README.md
-      ],
-
-      // 完整配置参数
       search: {
-        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-        paths: [], // or 'auto'
-        placeholder: 'Type to search',
-
-        // 支持本地化
-        placeholder: {
-          '/': '搜索'
+        noData: {
+          '/': 'No results!'
         },
-
-        noData: '找不到结果',
-
-        // 搜索标题的最大程级, 1 - 6
-        depth: 1
-      }
+        paths: 'auto',
+        placeholder: {
+          '/': 'Search'
+        }
+      },
 
     }
   </script>
@@ -50,6 +37,7 @@
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/disqus.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
   
 </body>
 </html>
