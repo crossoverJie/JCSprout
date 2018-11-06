@@ -15,7 +15,7 @@
 
 > `Java Core Sprout`：处于萌芽阶段的 Java 核心知识库。
 
-**访问这里获取更好的阅读体验**：[https://crossoverjie.top/JCSprout/#/](https://crossoverjie.top/JCSprout/)
+**访问这里获取更好的阅读体验**：[https://crossoverjie.top/JCSprout/](https://crossoverjie.top/JCSprout/)
 
 <br/>
 
