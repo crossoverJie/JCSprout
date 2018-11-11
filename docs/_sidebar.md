@@ -25,6 +25,7 @@
   - [对象的创建与内存分配](jvm/newObject.md)
   - [你应该知道的 volatile 关键字](jvm/volatile.md)
   - [一次内存溢出排查优化实战](jvm/OOM-Disruptor.md)
+  - [一次 HashSet 所引起的并发问题](jvm/JVM-concurrent-HashSet-problem.md)
 
 - 分布式
 

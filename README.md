@@ -51,6 +51,7 @@
 - [对象的创建与内存分配](https://github.com/crossoverJie/JCSprout/blob/master/MD/newObject.md)
 - [你应该知道的 volatile 关键字](https://github.com/crossoverJie/JCSprout/blob/master/MD/concurrent/volatile.md)
 - [一次内存溢出排查优化实战](https://crossoverjie.top/2018/08/29/java-senior/OOM-Disruptor/)
+- [一次 HashSet 所引起的并发问题](docs/jvm/JVM-concurrent-HashSet-problem.md)
 
 ### 分布式相关
 
