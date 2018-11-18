@@ -25,6 +25,8 @@
 
 # CONTACT
 
+<div align="center">
+
 [个人博客](https://crossoverjie.top)
 
 [Twitter](https://twitter.com/crossoverJie)
