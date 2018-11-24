@@ -37,8 +37,8 @@ public class BloomFiltersTest {
     public void hashMapTest(){
         long star = System.currentTimeMillis();
 
-        Set<Integer> hashset = new HashSet<>(count) ;
-        for (int i = 0; i < 1000000; i++) {
+        Set<Integer> hashset = new HashSet<>(10000000) ;
+        for (int i = 0; i < 10000000; i++) {
             hashset.add(i) ;
         }
         Assert.assertTrue(hashset.contains(1));
@@ -53,14 +53,14 @@ public class BloomFiltersTest {
     public void bloomFilterTest(){
         long star = System.currentTimeMillis();
         BloomFilters bloomFilters = new BloomFilters(count) ;
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < count; i++) {
             bloomFilters.add(i + "") ;
         }
         Assert.assertTrue(bloomFilters.check(1+""));
         Assert.assertTrue(bloomFilters.check(2+""));
         Assert.assertTrue(bloomFilters.check(3+""));
         Assert.assertTrue(bloomFilters.check(999999+""));
-        Assert.assertFalse(bloomFilters.check(1000000+""));
+        Assert.assertFalse(bloomFilters.check(400230340+""));
         long end = System.currentTimeMillis();
         System.out.println("执行时间：" + (end - star));
     }
