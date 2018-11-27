@@ -7,7 +7,7 @@ select name from user where id not in (1,3,4);
 ```
 应该修改为:
 
-```
+```sql
 select name from user where id in (2,5,6);
 ```
 
