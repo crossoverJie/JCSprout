@@ -26,7 +26,7 @@ public class TwoSum {
             for (int j = nums.length -1 ;j >=0 ;j--){
                 int b = nums[j] ;
 
-                if ((a+b) == target){
+                if (i != j && (a + b) == target) {
                     result = new int[]{i,j} ;
                 }
             }
