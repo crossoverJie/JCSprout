@@ -19,7 +19,7 @@ public class TwoSum {
      * @return
      */
     public int[] getTwo1(int[] nums,int target){
-        int[] result = new int[2] ;
+        int[] result = null;
 
         for (int i= 0 ;i<nums.length ;i++){
             int a = nums[i] ;
