@@ -42,6 +42,7 @@
   - [Guava 源码分析（Cache 原理）](frame/guava-cache.md)
   - [轻量级 HTTP 框架](frame/cicada.md)
   - [Kakfa produce 源码分析](frame/kafka-product.md)
+  - [Kafka 消费实践](frame/kafka-consumer.md)
   - SpringBoot 启动过程
   - Tomcat 类加载机制
 
