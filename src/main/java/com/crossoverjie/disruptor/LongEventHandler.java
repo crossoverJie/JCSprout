@@ -16,6 +16,6 @@ public class LongEventHandler implements EventHandler<LongEvent> {
     @Override
     public void onEvent(LongEvent event, long sequence, boolean endOfBatch) throws InterruptedException {
         LOGGER.info("消费 Event=[{}]",event.getValue()) ;
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
     }
 }

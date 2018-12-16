@@ -4,8 +4,6 @@ import com.lmax.disruptor.RingBuffer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.nio.ByteBuffer;
-
 /**
  * Function:
  *
@@ -21,14 +19,16 @@ public class LongEventProducer {
         this.ringBuffer = ringBuffer;
     }
 
-    public void onData(ByteBuffer bb) {
+    public void onData(long bb) {
+
+        ringBuffer.getCursor();
+
         long sequence = ringBuffer.next();  // Grab the next sequence
         try {
             LongEvent event = ringBuffer.get(sequence); // Get the entry in the Disruptor
             // for the sequence
-            long aLong = bb.getLong(0);
-            LOGGER.info("product=[{}]",aLong);
-            event.set(aLong);  // Fill with data
+            //LOGGER.info("product=[{}]",bb);
+            event.set(bb);  // Fill with data、
         } finally {
             ringBuffer.publish(sequence);
         }
