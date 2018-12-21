@@ -88,6 +88,7 @@ public class LRUMap<K, V> {
         if (node.tail != null && node.next != null){
             //它的上一节点指向它的下一节点 也就删除当前节点
             node.tail.next = node.next ;
+            node.next.tail = node.tail;
             nodeCount -- ;
         }
 

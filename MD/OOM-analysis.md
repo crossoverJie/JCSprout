@@ -7,7 +7,7 @@
 只要将`-Xms(最小堆)`,`-Xmx(最大堆)` 设置为一样禁止自动扩展堆内存。
 
 
-当使用一个 `while(true)` 循环来不断创建对象就会发生 `OutOfMemory`，还可以使用 `-XX:+HeapDumpOutofMemoryErorr` 当发生 OOM 时会自动 dump 堆栈到文件中。
+当使用一个 `while(true)` 循环来不断创建对象就会发生 `OutOfMemory`，还可以使用 `-XX:+HeapDumpOnOutOfMemoryError` 当发生 OOM 时会自动 dump 堆栈到文件中。
 
 伪代码:
 
@@ -41,6 +41,12 @@ Process finished with exit code 1
 
 ```
 `java.lang.OutOfMemoryError: Java heap space`表示堆内存溢出。
+
+
+
+更多内存溢出相关实战请看这里：[强如 Disruptor 也发生内存溢出？](https://crossoverjie.top/2018/08/29/java-senior/OOM-Disruptor/)
+
+
 
 
 ## MetaSpace (元数据) 内存溢出

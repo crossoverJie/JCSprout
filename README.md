@@ -15,6 +15,7 @@
 
 > `Java Core Sprout`：处于萌芽阶段的 Java 核心知识库。
 
+**访问这里获取更好的阅读体验**：[https://crossoverjie.top/JCSprout/](https://crossoverjie.top/JCSprout/)
 
 <br/>
 
@@ -41,7 +42,6 @@
 - [ConcurrentHashMap 的实现原理](https://github.com/crossoverJie/JCSprout/blob/master/MD/ConcurrentHashMap.md)
 - [如何优雅的使用和理解线程池](https://github.com/crossoverJie/JCSprout/blob/master/MD/ThreadPoolExecutor.md)
 - [深入理解线程通信](https://github.com/crossoverJie/JCSprout/blob/master/MD/concurrent/thread-communication.md)
-- [交替打印奇偶数](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
 
 ### JVM
 - [Java 运行时内存划分](https://github.com/crossoverJie/JCSprout/blob/master/MD/MemoryAllocation.md)
@@ -51,6 +51,7 @@
 - [对象的创建与内存分配](https://github.com/crossoverJie/JCSprout/blob/master/MD/newObject.md)
 - [你应该知道的 volatile 关键字](https://github.com/crossoverJie/JCSprout/blob/master/MD/concurrent/volatile.md)
 - [一次内存溢出排查优化实战](https://crossoverjie.top/2018/08/29/java-senior/OOM-Disruptor/)
+- [一次 HashSet 所引起的并发问题](docs/jvm/JVM-concurrent-HashSet-problem.md)
 
 ### 分布式相关
 
@@ -65,6 +66,8 @@
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/JCSprout/blob/master/MD/SpringAOP.md) 
 - [Guava 源码分析（Cache 原理）](https://crossoverjie.top/2018/06/13/guava/guava-cache/)
 - [轻量级 HTTP 框架](https://github.com/crossoverJie/cicada)
+- [Kakfa produce 源码分析](https://github.com/crossoverJie/JCSprout/blob/master/MD/kafka/kafka-product.md)
+- [Kafka 消费实践](https://github.com/crossoverJie/JCSprout/blob/master/docs/frame/kafka-consumer.md)
 - SpringBoot 启动过程
 - Tomcat 类加载机制
 
@@ -72,6 +75,7 @@
 ### 架构设计
 - [秒杀系统设计](https://github.com/crossoverJie/JCSprout/blob/master/MD/Spike.md)
 - [秒杀架构实践](http://crossoverjie.top/2018/05/07/ssm/SSM18-seconds-kill/)
+- [设计一个百万级的消息推送系统](https://github.com/crossoverJie/JCSprout/blob/master/MD/architecture-design/million-sms-push.md)
 
 ### DB 相关
 
@@ -93,6 +97,8 @@
 - [动手实现一个 LRU cache](http://crossoverjie.top/2018/04/07/algorithm/LRU-cache/)
 - [链表排序](./src/main/java/com/crossoverjie/algorithm/LinkedListMergeSort.java)
 - [数组右移 k 次](./src/main/java/com/crossoverjie/algorithm/ArrayKShift.java)
+- [交替打印奇偶数](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/actual/TwoThread.java)
+- [亿级数据中判断数据是否不存在](https://github.com/crossoverJie/JCSprout/blob/master/docs/algorithm/guava-bloom-filter.md) 
 
 ### Netty 相关
 - [SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/)

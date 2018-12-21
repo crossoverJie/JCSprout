@@ -17,10 +17,10 @@ public class TwoThread {
     private int start = 1;
 
     /**
-     * 保证内存可见性
-     * 其实用锁了之后也可以保证可见性 这里用不用 volatile 都一样
+     * 对 flag 的写入虽然加锁保证了线程安全，但读取的时候由于 不是 volatile 所以可能会读取到旧值
+     *
      */
-    private boolean flag = false;
+    private volatile boolean flag = false;
 
     /**
      * 重入锁
@@ -54,7 +54,7 @@ public class TwoThread {
 
         @Override
         public void run() {
-            while (number.start <= 100) {
+            while (number.start <= 1000) {
 
                 if (number.flag) {
                     try {
@@ -66,13 +66,6 @@ public class TwoThread {
 
                     } finally {
                         LOCK.unlock();
-                    }
-                } else {
-                    try {
-                        //防止线程空转
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
                 }
             }
@@ -92,7 +85,7 @@ public class TwoThread {
 
         @Override
         public void run() {
-            while (number.start <= 100) {
+            while (number.start <= 1000) {
 
                 if (!number.flag) {
                     try {
@@ -104,13 +97,6 @@ public class TwoThread {
 
                     } finally {
                         LOCK.unlock();
-                    }
-                } else {
-                    try {
-                        //防止线程空转
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
                     }
                 }
             }
