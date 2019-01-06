@@ -52,6 +52,7 @@
 - [你应该知道的 volatile 关键字](https://github.com/crossoverJie/JCSprout/blob/master/MD/concurrent/volatile.md)
 - [一次内存溢出排查优化实战](https://crossoverjie.top/2018/08/29/java-senior/OOM-Disruptor/)
 - [一次 HashSet 所引起的并发问题](docs/jvm/JVM-concurrent-HashSet-problem.md)
+- [一次生产 CPU 100% 排查优化实践](docs/jvm/cpu-percent-100.md)
 
 ### 分布式相关
 
@@ -103,6 +104,7 @@
 ### Netty 相关
 - [SpringBoot 整合长连接心跳机制](https://crossoverjie.top/2018/05/24/netty/Netty(1)TCP-Heartbeat/)
 - [从线程模型的角度看 Netty 为什么是高性能的？](https://crossoverjie.top/2018/07/04/netty/Netty(2)Thread-model/)
+- [为自己搭建一个分布式 IM(即时通讯) 系统](https://github.com/crossoverJie/cim)
 
 ### 附加技能
 
