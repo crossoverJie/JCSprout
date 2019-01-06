@@ -72,6 +72,7 @@
   - [SpringBoot 整合长连接心跳机制](netty/Netty(1)TCP-Heartbeat.md)
   - [从线程模型的角度看 Netty 为什么是高性能的？](netty/Netty(2)Thread-model.md)
   - [自己实现一个轻量级 HTTP 框架](netty/cicada.md)
+  - [为自己搭建一个分布式 IM(即时通讯) 系统](netty/cim.md)
 
 - 附加技能
 
