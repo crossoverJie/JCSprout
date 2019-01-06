@@ -27,6 +27,7 @@
   - [你应该知道的 volatile 关键字](jvm/volatile.md)
   - [一次内存溢出排查优化实战](jvm/OOM-Disruptor.md)
   - [一次 HashSet 所引起的并发问题](jvm/JVM-concurrent-HashSet-problem.md)
+  - [一次生产 CPU 100% 排查优化实践](jvm/cpu-percent-100.md)
 
 - 分布式
 
