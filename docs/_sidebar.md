@@ -40,7 +40,6 @@
   - [Spring Bean 生命周期](frame/spring-bean-lifecycle.md)
   - [Spring AOP 的实现原理](frame/SpringAOP.md) 
   - [Guava 源码分析（Cache 原理）](frame/guava-cache.md)
-  - [轻量级 HTTP 框架](frame/cicada.md)
   - [Kakfa produce 源码分析](frame/kafka-product.md)
   - [Kafka 消费实践](frame/kafka-consumer.md)
   - SpringBoot 启动过程
@@ -71,6 +70,7 @@
 
   - [SpringBoot 整合长连接心跳机制](netty/Netty(1)TCP-Heartbeat.md)
   - [从线程模型的角度看 Netty 为什么是高性能的？](netty/Netty(2)Thread-model.md)
+  - [自己实现一个轻量级 HTTP 框架](netty/cicada.md)
 
 - 附加技能
 
