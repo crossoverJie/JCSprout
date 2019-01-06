@@ -1,6 +1,7 @@
+
 <div align="center">  
 
-<img src="https://ws3.sinaimg.cn/large/006tNbRwly1fuvfxbc7y1j30go0e9aay.jpg" width="300"/> 
+<img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxda6k9k3bj30oy08cjsx.jpg"  /> 
 <br/>
 
 [![Build Status](https://travis-ci.org/crossoverJie/cicada.svg?branch=master)](https://travis-ci.org/crossoverJie/cicada)
@@ -26,12 +27,13 @@
 
 - [x] 代码简洁，没有过多依赖。
 - [x] 一行代码即可启动 HTTP 服务。
-- [x] 自定义拦截器。
+- [x] [自定义拦截器](#自定义拦截器)。
 - [x] 灵活的传参方式。
 - [x] `json` 响应格式。
-- [x] 自定义配置。
+- [x] [自定义配置](#自定义配置)。
 - [x] 多种响应方式。
-- [ ] `Cookie` 支持。
+- [x] 内置可插拔 `IOC` 容器。
+- [x] [`Cookie` 支持](#cookie-支持)。
 - [ ] 文件上传。
 
 
@@ -43,7 +45,7 @@
 <dependency>
     <groupId>top.crossoverjie.opensource</groupId>
     <artifactId>cicada-core</artifactId>
-    <version>1.0.3</version>
+    <version>x.y.z</version>
 </dependency>
 ```
 
@@ -60,45 +62,47 @@ public class MainStart {
 
 ### 配置业务 Action
 
-创建业务 Action 实现 `top.crossoverjie.cicada.server.action.WorkAction` 接口。
-
 ```java
-@CicadaAction(value = "demoAction")
-public class DemoAction implements WorkAction {
+@CicadaAction("routeAction")
+public class RouteAction {
+
+    private static final Logger LOGGER = LoggerBuilder.getLogger(RouteAction.class);
 
 
-    private static final Logger LOGGER = LoggerBuilder.getLogger(DemoAction.class) ;
+    @CicadaRoute("getUser")
+    public void getUser(DemoReq req){
 
-    private static AtomicLong index = new AtomicLong() ;
-
-    @Override
-    public void execute(CicadaContext context,Param paramMap) throws Exception {
-        String name = paramMap.getString("name");
-        Integer id = paramMap.getInteger("id");
-        LOGGER.info("name=[{}],id=[{}]" , name,id);
-
-        DemoResVO demoResVO = new DemoResVO() ;
-        demoResVO.setIndex(index.incrementAndGet());
-        WorkRes<DemoResVO> res = new WorkRes();
-        res.setCode(StatusEnum.SUCCESS.getCode());
-        res.setMessage(StatusEnum.SUCCESS.getMessage());
-        res.setDataBody(demoResVO) ;
-        context.json(res);
+        LOGGER.info(req.toString());
+        WorkRes<DemoReq> reqWorkRes = new WorkRes<>() ;
+        reqWorkRes.setMessage("hello =" + req.getName());
+        CicadaContext.getContext().json(reqWorkRes) ;
     }
+
+    @CicadaRoute("getInfo")
+    public void getInfo(DemoReq req){
+
+        WorkRes<DemoReq> reqWorkRes = new WorkRes<>() ;
+        reqWorkRes.setMessage("getInfo =" + req.toString());
+        CicadaContext.getContext().json(reqWorkRes) ;
+    }
+
+    @CicadaRoute("getReq")
+    public void getReq(CicadaContext context,DemoReq req){
+
+        WorkRes<DemoReq> reqWorkRes = new WorkRes<>() ;
+        reqWorkRes.setMessage("getReq =" + req.toString());
+        context.json(reqWorkRes) ;
+    }
+
+
 
 }
 ```
 
-启动应用访问 [http://127.0.0.1:7317/cicada-example/demoAction?name=12345&id=10](http://127.0.0.1:7317/cicada-example/demoAction?name=12345&id=10)
+启动应用访问 [http://127.0.0.1:5688/cicada-example/routeAction/getUser?id=1234&name=zhangsan](http://127.0.0.1:5688/cicada-example/routeAction/getUser?id=1234&name=zhangsan)
 
 ```json
-{
-    "code": "9000",
-    "dataBody": {
-        "index": 1
-    },
-    "message": "成功"
-}
+{"message":"hello =zhangsan"}
 ```
 
 ## Cicada 上下文
@@ -106,22 +110,51 @@ public class DemoAction implements WorkAction {
 通过 `context.json(),context.text()` 方法可以选择不同的响应方式。
 
 ```java
-@CicadaAction("textAction")
-public class TextAction implements WorkAction {
-    @Override
-    public void execute(CicadaContext context, Param param) throws Exception {
+@CicadaAction("routeAction")
+public class RouteAction {
+
+    private static final Logger LOGGER = LoggerBuilder.getLogger(RouteAction.class);
+
+    @CicadaRoute("getUser")
+    public void getUser(DemoReq req){
+
+        LOGGER.info(req.toString());
+        WorkRes<DemoReq> reqWorkRes = new WorkRes<>() ;
+        reqWorkRes.setMessage("hello =" + req.getName());
+        CicadaContext.getContext().json(reqWorkRes) ;
+    }
+    
+    @CicadaRoute("hello")
+    public void hello() throws Exception {
+        CicadaContext context = CicadaContext.getContext();
+
         String url = context.request().getUrl();
         String method = context.request().getMethod();
         context.text("hello world url=" + url + " method=" + method);
-    }
+    }    
+
+
 }
 ```
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fvxvvo8yioj313i0tudij.jpg)
 
-同时也可以根据 `context.request()` 获得请求上下文中的其他信息。
+## Cookie 支持
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fvxvxmpsjcj30yy0yo77h.jpg)
+### 设置 Cookie
+
+```java
+Cookie cookie = new Cookie() ;
+cookie.setName("cookie");
+cookie.setValue("value");
+CicadaContext.getResponse().setCookie(cookie);
+```
+
+### 获取 Cookie
+
+```java
+Cookie cookie = CicadaContext.getRequest().getCookie("cookie");
+logger.info("cookie = " + cookie.toString());
+```
 
 ## 自定义配置
 
@@ -197,8 +230,9 @@ public class ExecuteTimeInterceptor implements CicadaInterceptor {
     private Long end;
 
     @Override
-    public void before(Param param) {
+    public boolean before(Param param) {
         start = System.currentTimeMillis();
+        return true;
     }
 
     @Override
@@ -210,23 +244,6 @@ public class ExecuteTimeInterceptor implements CicadaInterceptor {
 }
 ```
 
-### 拦截适配器
-
-同样也可以只实现其中一个方法，只需要继承 `top.crossoverjie.cicada.server.intercept.AbstractCicadaInterceptorAdapter` 抽象类。
-
-```java
-@Interceptor(value = "loggerInterceptor")
-public class LoggerInterceptorAbstract extends AbstractCicadaInterceptorAdapter {
-
-    private static final Logger LOGGER = LoggerBuilder.getLogger(LoggerInterceptorAbstract.class) ;
-
-    @Override
-    public void before(Param param) {
-        LOGGER.info("logger param=[{}]",param.toString());
-    }
-
-}
-```
 
 ## 性能测试
 
@@ -237,6 +254,15 @@ public class LoggerInterceptorAbstract extends AbstractCicadaInterceptorAdapter 
 **每秒将近 10W 请求。**
 
 ## 更新记录
+
+### v2.0.1
+- 更新 Logo ,美化日志。
+- 支持 `Cookie`
+
+### v2.0.0
+- 修复 [#12](https://github.com/TogetherOS/cicada/issues/12) [#22](https://github.com/TogetherOS/cicada/issues/22) [#28](28)
+- 更加灵活的路由方式。
+- 内置可插拔 `IOC` 容器。
 
 ### v1.0.3
 
