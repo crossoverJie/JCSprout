@@ -67,10 +67,8 @@
 - [Spring AOP 的实现原理](https://github.com/crossoverJie/JCSprout/blob/master/MD/SpringAOP.md) 
 - [Guava 源码分析（Cache 原理）](https://crossoverjie.top/2018/06/13/guava/guava-cache/)
 - [轻量级 HTTP 框架](https://github.com/crossoverJie/cicada)
-- [Kakfa produce 源码分析](https://github.com/crossoverJie/JCSprout/blob/master/MD/kafka/kafka-product.md)
+- [Kafka produce 源码分析](https://github.com/crossoverJie/JCSprout/blob/master/MD/kafka/kafka-product.md)
 - [Kafka 消费实践](https://github.com/crossoverJie/JCSprout/blob/master/docs/frame/kafka-consumer.md)
-- SpringBoot 启动过程
-- Tomcat 类加载机制
 
 
 ### 架构设计
@@ -90,7 +88,8 @@
 - [是否为快乐数字](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/HappyNum.java#L38-L55)
 - [链表是否有环](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/LinkLoop.java#L32-L59)
 - [从一个数组中返回两个值相加等于目标值的下标](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/TwoSum.java#L38-L59)
-- [一致性 Hash 算法](https://github.com/crossoverJie/JCSprout/blob/master/MD/Consistent-Hash.md)
+- [一致性 Hash 算法原理](https://github.com/crossoverJie/JCSprout/blob/master/MD/Consistent-Hash.md)
+- [一致性 Hash 算法实现](https://github.com/crossoverJie/JCSprout/blob/master/docs/algorithm/consistent-hash-implement.md)
 - [限流算法](https://github.com/crossoverJie/JCSprout/blob/master/MD/Limiting.md)
 - [三种方式反向打印单向链表](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/ReverseNode.java)
 - [合并两个排好序的链表](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/MergeTwoSortedLists.java)
