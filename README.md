@@ -89,7 +89,7 @@
 - [链表是否有环](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/LinkLoop.java#L32-L59)
 - [从一个数组中返回两个值相加等于目标值的下标](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/TwoSum.java#L38-L59)
 - [一致性 Hash 算法原理](https://github.com/crossoverJie/JCSprout/blob/master/MD/Consistent-Hash.md)
-- [一致性 Hash 算法实现](https://github.com/crossoverJie/JCSprout/blob/master/docs/algorithm/consistent-hash-implement.md)
+- [一致性 Hash 算法实践](https://github.com/crossoverJie/JCSprout/blob/master/docs/algorithm/consistent-hash-implement.md)
 - [限流算法](https://github.com/crossoverJie/JCSprout/blob/master/MD/Limiting.md)
 - [三种方式反向打印单向链表](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/ReverseNode.java)
 - [合并两个排好序的链表](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/algorithm/MergeTwoSortedLists.java)
