@@ -33,5 +33,10 @@ public class HashMapTest {
             System.out.println("key=" + key + " value=" + map.get(key));
 
         }
+
+        System.out.println("=============");
+        map.forEach((key, value) -> {
+            System.out.println("key=" + key + " value=" + map.get(key));
+        });
     }
 }
