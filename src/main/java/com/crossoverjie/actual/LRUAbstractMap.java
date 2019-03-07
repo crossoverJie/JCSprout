@@ -119,30 +119,28 @@ public class LRUAbstractMap extends java.util.AbstractMap {
         }else {
             Node cNode = currentNode ;
             Node nNode = cNode ;
-
+            Node pNode = cNode;
             //存在就覆盖
-            if (nNode.key == key){
-                cNode.val = value ;
-            }
 
-            while (nNode.next != null){
+            while (nNode != null){
                 //key 存在 就覆盖 简单判断
                 if (nNode.key == key){
                     nNode.val = value ;
-                    break ;
+                    return null ;
                 }else {
-                    //不存在就新增链表
-                    sizeUp();
-                    Node node = new Node(nNode,null,key,value) ;
 
-                    //写入队列
-                    QUEUE.offer(currentNode) ;
-
-                    cNode.next = node ;
                 }
-
+                pNode = nNode;
                 nNode = nNode.next ;
             }
+
+            //不存在就新增节点
+            sizeUp();
+            Node node = new Node(pNode,null,key,value) ;
+            pNode.next = node;
+            //写入队列
+            QUEUE.offer(currentNode) ;
+
 
         }
 
@@ -171,7 +169,7 @@ public class LRUAbstractMap extends java.util.AbstractMap {
         }
 
         Node nNode = currentNode ;
-        while (nNode.next != null){
+        while (nNode != null){
 
             if (nNode.key == key){
 
@@ -184,7 +182,7 @@ public class LRUAbstractMap extends java.util.AbstractMap {
             nNode = nNode.next ;
         }
 
-        return super.get(key);
+        return null;
     }
 
 
