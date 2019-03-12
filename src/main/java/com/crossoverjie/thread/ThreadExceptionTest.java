@@ -56,8 +56,8 @@ public class ThreadExceptionTest {
                 LOGGER.info("-------222-------------{}", count);
 
                 if (count == 10) {
+                    System.out.println(1 / 0);
                     try {
-                        System.out.println(1 / 0);
                     } catch (Exception e) {
                         LOGGER.error("Exception",e);
                     }
