@@ -38,10 +38,10 @@ public class ThreadExceptionTest {
 
         execute.execute(new Run1());
 
-        TimeUnit.SECONDS.sleep(5);
-
-        execute.execute(new Run2());
-        execute.shutdown();
+        //TimeUnit.SECONDS.sleep(5);
+        //
+        //execute.execute(new Run2());
+        //execute.shutdown();
 
     }
 
