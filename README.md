@@ -42,6 +42,8 @@
 - [ConcurrentHashMap 的实现原理](https://github.com/crossoverJie/JCSprout/blob/master/MD/ConcurrentHashMap.md)
 - [如何优雅的使用和理解线程池](https://github.com/crossoverJie/JCSprout/blob/master/MD/ThreadPoolExecutor.md)
 - [深入理解线程通信](https://github.com/crossoverJie/JCSprout/blob/master/MD/concurrent/thread-communication.md)
+- [一个线程罢工的诡异事件](docs/jvm/thread-gone.md)
+- [线程池中你不容错过的一些细节](docs/jvm/thread-gone2.md)
 
 ### JVM
 - [Java 运行时内存划分](https://github.com/crossoverJie/JCSprout/blob/master/MD/MemoryAllocation.md)
