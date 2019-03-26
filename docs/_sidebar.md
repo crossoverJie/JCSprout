@@ -41,10 +41,9 @@
   - [Spring Bean 生命周期](frame/spring-bean-lifecycle.md)
   - [Spring AOP 的实现原理](frame/SpringAOP.md) 
   - [Guava 源码分析（Cache 原理）](frame/guava-cache.md)
-  - [Kakfa produce 源码分析](frame/kafka-product.md)
+  - [Kafka produce 源码分析](frame/kafka-product.md)
   - [Kafka 消费实践](frame/kafka-consumer.md)
-  - SpringBoot 启动过程
-  - Tomcat 类加载机制
+
 
 - 架构设计
 
@@ -61,7 +60,8 @@
 - 数据结构与算法
 
   - [常见算法](algorithm/common-algorithm.md)
-  - [一致性 Hash 算法](algorithm/Consistent-Hash.md)
+  - [一致性 Hash 算法原理](algorithm/Consistent-Hash.md)
+  - [一致性 Hash 算法实践](algorithm/consistent-hash-implement.md)
   - [限流算法](algorithm/Limiting.md)
   - [动手实现一个 LRU cache](algorithm/LRU-cache.md)
   - [亿级数据中判断数据是否不存在](algorithm/guava-bloom-filter.md)
