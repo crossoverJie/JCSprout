@@ -16,6 +16,8 @@
   - [ConcurrentHashMap 的实现原理](thread/ConcurrentHashMap.md)
   - [如何优雅的使用和理解线程池](thread/ThreadPoolExecutor.md)
   - [深入理解线程通信](thread/thread-communication.md)
+  - [深入理解线程通信](thread/thread-gone.md)
+  - [深入理解线程通信](thread/thread-gone.md)
 
 - JVM
 
