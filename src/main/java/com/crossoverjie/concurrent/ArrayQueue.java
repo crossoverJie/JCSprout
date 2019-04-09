@@ -67,6 +67,7 @@ public final class ArrayQueue<T> {
 
             putIndex++;
             if (putIndex == items.length) {
+                //超过数组长度后需要从头开始
                 putIndex = 0;
             }
 
