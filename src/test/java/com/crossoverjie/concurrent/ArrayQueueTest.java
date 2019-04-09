@@ -76,14 +76,6 @@ public class ArrayQueueTest {
     public void put3() {
         final ArrayQueue<String> queue = new ArrayQueue<>(3);
 
-        new Thread(() -> {
-            try {
-                System.out.println("[" + Thread.currentThread().getName() + "]" + queue.get());
-            } catch (Exception e) {
-            }
-        }).start();
-
-
         queue.put("123");
         queue.put("1234");
         queue.put("12345");
