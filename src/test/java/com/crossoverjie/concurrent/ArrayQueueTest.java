@@ -1,12 +1,15 @@
 package com.crossoverjie.concurrent;
 
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 public class ArrayQueueTest {
 
+    private final static Logger LOGGER = LoggerFactory.getLogger(ArrayQueueTest.class) ;
 
     @Test
     public void test() throws InterruptedException {
@@ -50,8 +53,7 @@ public class ArrayQueueTest {
 
         new Thread(() -> {
             try {
-                TimeUnit.SECONDS.sleep(2);
-                System.out.println("[" + Thread.currentThread().getName() + "]" + queue.get());
+                LOGGER.info("[" + Thread.currentThread().getName() + "]" + queue.get());
             } catch (Exception e) {
             }
         }).start();
@@ -61,11 +63,11 @@ public class ArrayQueueTest {
         queue.put("1234");
         queue.put("12345");
         queue.put("123456");
-        System.out.println(queue.size());
+        LOGGER.info("size=" + queue.size());
 
 
         while (!queue.isEmpty()) {
-            System.out.println(queue.get());
+           LOGGER.info(queue.get());
         }
 
     }
