@@ -18,6 +18,7 @@
   - [深入理解线程通信](thread/thread-communication.md)
   - [一个线程罢工的诡异事件](thread/thread-gone.md)
   - [线程池中你不容错过的一些细节](thread/thread-gone2.md)
+  - [『并发包入坑指北』之阻塞队列](thread/ArrayBlockingQueue.md)
 
 - JVM
 

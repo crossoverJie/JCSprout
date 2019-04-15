@@ -44,6 +44,7 @@
 - [深入理解线程通信](https://github.com/crossoverJie/JCSprout/blob/master/MD/concurrent/thread-communication.md)
 - [一个线程罢工的诡异事件](docs/thread/thread-gone.md)
 - [线程池中你不容错过的一些细节](docs/thread/thread-gone2.md)
+- [『并发包入坑指北』之阻塞队列](docs/thread/ArrayBlockingQueue.md)
 
 ### JVM
 - [Java 运行时内存划分](https://github.com/crossoverJie/JCSprout/blob/master/MD/MemoryAllocation.md)
