@@ -84,6 +84,7 @@
 - [MySQL 索引原理](https://github.com/crossoverJie/JCSprout/blob/master/MD/MySQL-Index.md)
 - [SQL 优化](https://github.com/crossoverJie/JCSprout/blob/master/MD/SQL-optimization.md)
 - [数据库水平垂直拆分](https://github.com/crossoverJie/JCSprout/blob/master/MD/DB-split.md)
+- [一次分表踩坑实践的探讨](docs/db/sharding-db.md)
 
 ### 数据结构与算法
 - [红包算法](https://github.com/crossoverJie/JCSprout/blob/master/src/main/java/com/crossoverjie/red/RedPacket.java)

@@ -59,6 +59,7 @@
   - [MySQL 索引原理](db/MySQL-Index.md)
   - [SQL 优化](db/SQL-optimization.md)
   - [数据库水平垂直拆分](db/DB-split.md)
+  - [一次分表踩坑实践的探讨](db/sharding-db.md)
 
 - 数据结构与算法
 
