@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.PipedInputStream;
 import java.io.PipedReader;
 import java.io.PipedWriter;
 import java.util.concurrent.*;
@@ -22,9 +21,9 @@ public class ThreadCommunication {
     public static void main(String[] args) throws Exception {
         //join();
         //executorService();
-        //countDownLatch();
+        countDownLatch();
         //piped();
-        cyclicBarrier();
+        //cyclicBarrier();
     }
 
     /**
@@ -86,18 +85,15 @@ public class ThreadCommunication {
         long start = System.currentTimeMillis();
         final CountDownLatch countDown = new CountDownLatch(thread);
         for (int i = 0; i < thread; i++) {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    LOGGER.info("thread run");
-                    try {
-                        Thread.sleep(2000);
-                        countDown.countDown();
+            new Thread(() -> {
+                LOGGER.info("thread run");
+                try {
+                    Thread.sleep(2000);
+                    countDown.countDown();
 
-                        LOGGER.info("thread end");
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    LOGGER.info("thread end");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }).start();
         }

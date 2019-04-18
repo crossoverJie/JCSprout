@@ -18,6 +18,9 @@ public final class MultipleThreadCountDownKit {
     private Notify notifyListen ;
 
     public MultipleThreadCountDownKit(int number){
+        if (number < 0) {
+            throw new IllegalArgumentException("count < 0");
+        }
         count = new AtomicInteger(number) ;
         notify = new Object() ;
     }
