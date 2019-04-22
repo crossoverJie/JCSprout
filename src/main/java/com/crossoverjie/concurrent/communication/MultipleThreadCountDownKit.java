@@ -34,6 +34,9 @@ public final class MultipleThreadCountDownKit {
     }
 
 
+    /**
+     * 线程完成后计数 -1
+     */
     public void countDown(){
         int count = this.count.decrementAndGet();
         if (count < 0){
@@ -48,6 +51,10 @@ public final class MultipleThreadCountDownKit {
 
     }
 
+    /**
+     * 等待所有的线程完成
+     * @throws InterruptedException
+     */
     public void await() throws InterruptedException {
         synchronized (notify){
             while (count.get() > 0){
