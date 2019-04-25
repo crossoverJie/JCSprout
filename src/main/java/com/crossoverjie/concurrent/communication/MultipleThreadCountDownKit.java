@@ -38,6 +38,11 @@ public final class MultipleThreadCountDownKit {
      * 线程完成后计数 -1
      */
     public void countDown(){
+
+        if (count.get() == 0){
+            return;
+        }
+
         int count = this.count.decrementAndGet();
         if (count < 0){
             throw new RuntimeException("concurrent error") ;
