@@ -17,18 +17,18 @@ public class MultipleThreadCountDownKitTest {
 
         Thread t1= new Thread(() -> {
             try {
-                TimeUnit.SECONDS.sleep(1);
+                //TimeUnit.SECONDS.sleep(5);
                 LOGGER.info("t1...");
                 multipleThreadKit.countDown();
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
             }
         });
         Thread t2= new Thread(() -> {
             try {
-                TimeUnit.SECONDS.sleep(3);
+                //TimeUnit.SECONDS.sleep(3);
                 LOGGER.info("t2...");
                 multipleThreadKit.countDown();
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
             }
         });
         Thread t3= new Thread(() -> {
@@ -36,7 +36,7 @@ public class MultipleThreadCountDownKitTest {
                 TimeUnit.SECONDS.sleep(2);
                 LOGGER.info("t3...");
                 multipleThreadKit.countDown();
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
             }
         });
 
