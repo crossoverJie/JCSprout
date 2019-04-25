@@ -84,7 +84,7 @@ public class ThreadCommunication {
         int thread = 2;
         long start = System.currentTimeMillis();
         final CountDownLatch countDown = new CountDownLatch(thread);
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < thread; i++) {
             new Thread(() -> {
                 LOGGER.info("thread run");
                 try {
