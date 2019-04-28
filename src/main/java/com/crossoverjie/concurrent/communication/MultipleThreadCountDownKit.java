@@ -39,7 +39,7 @@ public final class MultipleThreadCountDownKit {
      */
     public void countDown(){
 
-        if (count.get() == 0){
+        if (count.get() <= 0){
             return;
         }
 
