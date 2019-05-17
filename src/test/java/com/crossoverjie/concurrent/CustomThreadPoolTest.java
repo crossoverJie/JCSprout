@@ -32,7 +32,7 @@ public class CustomThreadPoolTest {
             pool.execute(new Worker(i + 100));
         }
 
-        //pool.shutdown();
+        pool.shutdown();
         //pool.shutDownNow();
         //pool.execute(new Worker(100));
         LOGGER.info("++++++++++++++");
