@@ -95,26 +95,23 @@ public class CustomThreadPool {
             return;
         }
 
+        //提交的线程 计数
+        totalTask.incrementAndGet();
+
         //小于最小线程数时新建线程
         if (workers.size() < miniSize) {
-            Worker worker = new Worker(runnable, true);
-            worker.startTask();
-            workers.add(worker);
-            totalTask.incrementAndGet();
+            addWorker(runnable);
             return;
         }
 
 
         boolean offer = workQueue.offer(runnable);
-        totalTask.incrementAndGet();
         //写入队列失败
         if (!offer) {
 
             //创建新的线程执行
             if (workers.size() < maxSize) {
-                Worker worker = new Worker(runnable, true);
-                worker.startTask();
-                workers.add(worker);
+                addWorker(runnable);
                 return;
             } else {
                 LOGGER.error("超过最大线程数");
@@ -129,6 +126,16 @@ public class CustomThreadPool {
         }
 
 
+    }
+
+    /**
+     * 添加任务
+     * @param runnable 任务
+     */
+    private void addWorker(Runnable runnable) {
+        Worker worker = new Worker(runnable, true);
+        worker.startTask();
+        workers.add(worker);
     }
 
 
