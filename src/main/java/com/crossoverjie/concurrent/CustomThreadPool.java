@@ -240,6 +240,7 @@ public class CustomThreadPool {
         try {
             Runnable task = null;
             if (workers.size() > miniSize) {
+                //大于核心线程数时需要用保活时间获取任务
                 task = workQueue.poll(keepAliveTime, unit);
             } else {
                 task = workQueue.take();
