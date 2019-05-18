@@ -69,6 +69,15 @@ public class CustomThreadPool {
 
     private Notify notify;
 
+    /**
+     *
+     * @param miniSize 最小线程数
+     * @param maxSize 最大线程数
+     * @param keepAliveTime 线程保活时间
+     * @param unit
+     * @param workQueue 阻塞队列
+     * @param notify 通知接口
+     */
     public CustomThreadPool(int miniSize, int maxSize, long keepAliveTime,
                             TimeUnit unit, BlockingQueue<Runnable> workQueue, Notify notify) {
         this.miniSize = miniSize;
@@ -129,7 +138,7 @@ public class CustomThreadPool {
     }
 
     /**
-     * 添加任务
+     * 添加任务，需要加锁
      * @param runnable 任务
      */
     private void addWorker(Runnable runnable) {
