@@ -64,19 +64,18 @@ public class CustomThreadPool {
 
     /**
      * 线程池任务全部执行完毕后的通知组件
-     * */
+     */
     private Object shutDownNotify = new Object();
 
     private Notify notify;
 
     /**
-     *
-     * @param miniSize 最小线程数
-     * @param maxSize 最大线程数
+     * @param miniSize      最小线程数
+     * @param maxSize       最大线程数
      * @param keepAliveTime 线程保活时间
      * @param unit
-     * @param workQueue 阻塞队列
-     * @param notify 通知接口
+     * @param workQueue     阻塞队列
+     * @param notify        通知接口
      */
     public CustomThreadPool(int miniSize, int maxSize, long keepAliveTime,
                             TimeUnit unit, BlockingQueue<Runnable> workQueue, Notify notify) {
@@ -93,6 +92,7 @@ public class CustomThreadPool {
 
     /**
      * 执行任务
+     *
      * @param runnable 需要执行的任务
      */
     public void execute(Runnable runnable) {
@@ -139,6 +139,7 @@ public class CustomThreadPool {
 
     /**
      * 添加任务，需要加锁
+     *
      * @param runnable 任务
      */
     private void addWorker(Runnable runnable) {
@@ -215,6 +216,7 @@ public class CustomThreadPool {
 
     /**
      * 从队列中获取任务
+     *
      * @return
      */
     private Runnable getTask() {
@@ -233,26 +235,26 @@ public class CustomThreadPool {
         //        }
         //    }
 
-            lock.lock();
+        lock.lock();
 
-            try {
-                Runnable task = null;
-                if (workers.size() > miniSize) {
-                    task = workQueue.poll(keepAliveTime, unit);
-                } else {
-                    task = workQueue.take();
-                }
-
-                if (task != null) {
-                    return task;
-                }
-            } catch (InterruptedException e) {
-                return null;
-            } finally {
-                lock.unlock();
+        try {
+            Runnable task = null;
+            if (workers.size() > miniSize) {
+                task = workQueue.poll(keepAliveTime, unit);
+            } else {
+                task = workQueue.take();
             }
 
+            if (task != null) {
+                return task;
+            }
+        } catch (InterruptedException e) {
             return null;
+        } finally {
+            lock.unlock();
+        }
+
+        return null;
         //}
     }
 
@@ -285,6 +287,7 @@ public class CustomThreadPool {
 
     /**
      * 关闭线程池
+     *
      * @param isTry true 尝试关闭      --> 会等待所有任务执行完毕
      *              false 立即关闭线程池--> 任务有丢失的可能
      */
@@ -320,6 +323,7 @@ public class CustomThreadPool {
 
     /**
      * 内部存放工作线程容器，并发安全。
+     *
      * @param <T>
      */
     private final class ConcurrentHashSet<T> extends AbstractSet<T> {
