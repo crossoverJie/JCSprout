@@ -1,5 +1,6 @@
 package com.crossoverjie.concurrent;
 
+import com.crossoverjie.concurrent.communication.Notify;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,8 +17,13 @@ public class CustomThreadPoolTest {
 
 
     public static void main(String[] args) throws InterruptedException {
-        BlockingQueue queue = new ArrayBlockingQueue<>(4);
-        CustomThreadPool pool = new CustomThreadPool(3,5,1,TimeUnit.SECONDS,queue,null) ;
+        BlockingQueue queue = new ArrayBlockingQueue<>(10);
+        CustomThreadPool pool = new CustomThreadPool(3, 5, 1, TimeUnit.SECONDS, queue, new Notify() {
+            @Override
+            public void notifyListen() {
+                LOGGER.info("任务执行完毕");
+            }
+        }) ;
         for (int i = 0; i < 10; i++) {
             pool.execute(new Worker(i));
         }
@@ -36,6 +42,7 @@ public class CustomThreadPoolTest {
         //pool.shutDownNow();
         //pool.execute(new Worker(100));
         LOGGER.info("++++++++++++++");
+        pool.mainNotify();
 
     }
 

@@ -287,6 +287,24 @@ public class CustomThreadPool {
     }
 
     /**
+     * 阻塞等到任务执行完毕
+     */
+    public void mainNotify(){
+        synchronized (shutDownNotify){
+            while (totalTask.get() > 0){
+                try {
+                    shutDownNotify.wait();
+                    if (notify != null){
+                        notify.notifyListen();
+                    }
+                } catch (InterruptedException e) {
+                    return;
+                }
+            }
+        }
+    }
+
+    /**
      * 关闭线程池
      *
      * @param isTry true 尝试关闭      --> 会等待所有任务执行完毕
