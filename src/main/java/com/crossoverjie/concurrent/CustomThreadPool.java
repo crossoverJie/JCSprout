@@ -93,6 +93,12 @@ public class CustomThreadPool {
     }
 
 
+    /**
+     * 有返回值
+     * @param callable
+     * @param <T>
+     * @return
+     */
     public <T> Future<T> submit(Callable<T> callable){
         FutureTask<T> future = new FutureTask(callable) ;
         execute(future);

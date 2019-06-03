@@ -11,7 +11,7 @@ public class FutureTask<T> implements Runnable,Future<T> {
 
     private Callable<T> callable ;
 
-    private T reslut ;
+    private T result;
 
     private Object notify ;
 
@@ -24,11 +24,11 @@ public class FutureTask<T> implements Runnable,Future<T> {
     public T get() throws InterruptedException {
 
         synchronized (notify){
-            while (reslut == null){
+            while (result == null){
                 notify.wait();
             }
 
-            return reslut ;
+            return result;
         }
     }
 
@@ -37,7 +37,7 @@ public class FutureTask<T> implements Runnable,Future<T> {
 
         T call = callable.call();
 
-        this.reslut = call ;
+        this.result = call ;
 
         synchronized (notify){
             notify.notify();
