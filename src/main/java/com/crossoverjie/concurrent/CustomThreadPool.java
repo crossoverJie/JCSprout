@@ -1,6 +1,9 @@
 package com.crossoverjie.concurrent;
 
 import com.crossoverjie.concurrent.communication.Notify;
+import com.crossoverjie.concurrent.future.Callable;
+import com.crossoverjie.concurrent.future.Future;
+import com.crossoverjie.concurrent.future.FutureTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -87,6 +90,13 @@ public class CustomThreadPool {
         this.notify = notify;
 
         workers = new ConcurrentHashSet<>();
+    }
+
+
+    public <T> Future<T> submit(Callable<T> callable){
+        FutureTask<T> future = new FutureTask(callable) ;
+        execute(future);
+        return future ;
     }
 
 
