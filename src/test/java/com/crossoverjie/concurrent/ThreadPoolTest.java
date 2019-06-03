@@ -3,6 +3,8 @@ package com.crossoverjie.concurrent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 
 
@@ -11,29 +13,28 @@ public class ThreadPoolTest {
 
 
 
-    public static void main(String[] args) throws InterruptedException {
-        BlockingQueue queue = new ArrayBlockingQueue<>(4);
-        ExecutorService pool = new ThreadPoolExecutor(3,5,1, TimeUnit.SECONDS,queue,new ThreadPoolExecutor.DiscardOldestPolicy()) ;
+    public static void main(String[] args) throws Exception {
+        BlockingQueue queue = new ArrayBlockingQueue<>(10);
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(3,5,1, TimeUnit.SECONDS,queue,new ThreadPoolExecutor.DiscardOldestPolicy()) ;
+
+        List<Future> futures = new ArrayList<>() ;
         for (int i = 0; i < 10; i++) {
-            pool.execute(new Worker(i));
-            LOGGER.info("=======线程池活跃线程数={}======",((ThreadPoolExecutor) pool).getActiveCount());
-        }
-
-        TimeUnit.SECONDS.sleep(5);
-        LOGGER.info("=======休眠后线程池活跃线程数={}======",((ThreadPoolExecutor) pool).getActiveCount());
-
-        for (int i = 0; i < 3; i++) {
-            pool.execute(new Worker(i + 100));
+            Future<Integer> future = pool.submit(new Worker(i));
+            futures.add(future) ;
         }
 
         pool.shutdown();
+
+        for (Future future : futures) {
+            LOGGER.info("执行结果={}",future.get());
+        }
         LOGGER.info("++++++++++++++");
     }
 
 
 
 
-    private static class Worker implements Runnable{
+    private static class Worker implements Callable<Integer>{
 
         private int state ;
 
@@ -42,13 +43,16 @@ public class ThreadPoolTest {
         }
 
         @Override
-        public void run() {
+        public Integer call() {
             try {
                 TimeUnit.SECONDS.sleep(2);
                 LOGGER.info("state={}",state);
+                return state ;
             } catch (InterruptedException e) {
 
             }
+
+            return -1;
         }
     }
 
