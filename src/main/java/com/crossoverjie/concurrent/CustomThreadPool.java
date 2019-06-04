@@ -95,14 +95,15 @@ public class CustomThreadPool {
 
     /**
      * 有返回值
+     *
      * @param callable
      * @param <T>
      * @return
      */
-    public <T> Future<T> submit(Callable<T> callable){
-        FutureTask<T> future = new FutureTask(callable) ;
+    public <T> Future<T> submit(Callable<T> callable) {
+        FutureTask<T> future = new FutureTask(callable);
         execute(future);
-        return future ;
+        return future;
     }
 
 
@@ -202,11 +203,16 @@ public class CustomThreadPool {
                 task = this.task;
             }
 
+            boolean compile = true ;
+
             try {
                 while ((task != null || (task = getTask()) != null)) {
                     try {
                         //执行任务
                         task.run();
+                    } catch (Exception e) {
+                        compile = false ;
+                        throw e ;
                     } finally {
                         //任务执行完毕
                         task = null;
@@ -224,6 +230,11 @@ public class CustomThreadPool {
                 //释放线程
                 boolean remove = workers.remove(this);
                 //LOGGER.info("remove={},size={}", remove, workers.size());
+
+                if (!compile){
+                    LOGGER.info("失败创建线程");
+                    addWorker(null);
+                }
                 tryClose(true);
             }
         }
@@ -305,12 +316,12 @@ public class CustomThreadPool {
     /**
      * 阻塞等到任务执行完毕
      */
-    public void mainNotify(){
-        synchronized (shutDownNotify){
-            while (totalTask.get() > 0){
+    public void mainNotify() {
+        synchronized (shutDownNotify) {
+            while (totalTask.get() > 0) {
                 try {
                     shutDownNotify.wait();
-                    if (notify != null){
+                    if (notify != null) {
                         notify.notifyListen();
                     }
                 } catch (InterruptedException e) {
