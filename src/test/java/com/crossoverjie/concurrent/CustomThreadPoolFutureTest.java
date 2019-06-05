@@ -36,8 +36,6 @@ public class CustomThreadPoolFutureTest {
         }
 
         pool.shutdown();
-        //pool.shutDownNow();
-        //pool.execute(new Worker(100));
         LOGGER.info("++++++++++++++");
         pool.mainNotify();
         for (Future<Integer> future : futures) {
