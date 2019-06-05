@@ -26,16 +26,8 @@ public class CustomThreadPoolExeceptionTest {
         }) ;
 
         pool.execute(new Worker(0));
-
-        //pool.shutdown();
-        //pool.shutDownNow();
-        //pool.execute(new Worker(100));
         LOGGER.info("++++++++++++++");
         pool.mainNotify();
-
-
-
-
 
     }
 
