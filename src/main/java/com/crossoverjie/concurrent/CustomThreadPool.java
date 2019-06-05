@@ -232,7 +232,6 @@ public class CustomThreadPool {
                 //LOGGER.info("remove={},size={}", remove, workers.size());
 
                 if (!compile){
-                    LOGGER.info("失败创建线程");
                     addWorker(null);
                 }
                 tryClose(true);
