@@ -1,4 +1,4 @@
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fr1z9k79lrj31kw11zwt8.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d713e19ed.jpg)
 
 ## 前言
 
@@ -37,7 +37,7 @@
 
 先看看实际项目的结构：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fr38jkau5kj30jk07a754.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d71693bb0.jpg)
 
 还是和以前一样：
 
@@ -173,24 +173,24 @@ public class OrderServiceImpl implements OrderService {
 手动调用下 `createWrongOrder/1` 接口发现：
 
 库存表：
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fr38x4wqhcj30g404ajrg.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7189c72f.jpg)
 
 订单表：
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fr38xpcdn7j30f0040glq.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d721e9fd4.jpg)
 
 一切看起来都没有问题，数据也正常。
 
 但是当用 `JMeter` 并发测试时：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fr391hontsj31ge0b8dgt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7243c657.jpg)
 
 测试配置是：300个线程并发，测试两轮来看看数据库中的结果：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fr393xxc0rj31ge0463z6.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d726cee79.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fr3939yo1bj30c4062t8s.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d72816d67.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fr393pxvf3j30j60d60v4.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d72b9f26a.jpg)
 
 请求都响应成功，库存确实也扣完了，但是订单却生成了 **124** 条记录。
 
@@ -251,17 +251,17 @@ public class OrderServiceImpl implements OrderService {
 
 同样的测试条件，我们再进行上面的测试 `/createOptimisticOrder/1`：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fr39fxn691j31g603adgg.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d72dab853.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fr39dlobs1j30ca042wej.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d730800b1.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fr39dwfmrzj30f60gqgn7.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d73324dd2.jpg)
 
 这次发现无论是库存订单都是 OK 的。
 
 查看日志发现：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fr39hxcbsgj31kw0jhu0y.jpg)
+![](https://i.loli.net//2019//05//08//5cd1daafb70bc.jpg)
 
 很多并发请求会响应错误，这就达到了效果。
 
@@ -272,9 +272,9 @@ public class OrderServiceImpl implements OrderService {
 - web 利用 Nginx 进行负载。
 - Service 也是多台应用。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fr39lm8iyjj31kw0ad784.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d752909b9.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fr39lvxnunj31kw0adaeh.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d758c7714.jpg)
 
 再用 JMeter 测试时可以直观的看到效果。
 
@@ -418,11 +418,11 @@ echo "start $appname success"
 通过 `Druid` 的监控来看看之前请求数据库的情况：
 
 因为 Service 是两个应用。
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fr3a1zpp5lj31kw0h277s.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d764221b5.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fr3a2c0vvdj31kw0g4n0m.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7676e1d2.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fr3a3xwslqj319g10cthl.jpg)
+![](https://i.loli.net//2019//05//08//5cd1daeb0c306.jpg)
 
 数据库也有 20 多个连接。
 
@@ -554,15 +554,15 @@ Service 端就没什么更新了，依然是采用的乐观锁更新数据库。
 
 再压测看下效果 `/createOptimisticLimitOrderByRedis/1`：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fr3amu17zuj30e603ewej.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d776c39b7.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fr3an1x3pqj30oy0fwq4p.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d77ba16d2.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fr3aml0c8rj31ek0ssn3g.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d780d5aa2.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fr3ank9otcj31kw0d4die.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d784644d5.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fr3anxbb0hj31kw0cjtbb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d787b3e49.jpg)
 
 首先是看结果没有问题，再看数据库连接以及并发请求数都有**明显的下降**。
 
@@ -571,7 +571,7 @@ Service 端就没什么更新了，依然是采用的乐观锁更新数据库。
 
 其实仔细观察 Druid 监控数据发现这个 SQL 被多次查询：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1fr3aq7shudj31kw0bomzp.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d78b3896a.jpg)
 
 其实这是实时查询库存的 SQL，主要是为了在每次下单之前判断是否还有库存。
 
@@ -638,13 +638,13 @@ Service 端就没什么更新了，依然是采用的乐观锁更新数据库。
 
 压测看看实际效果 `/createOptimisticLimitOrderByRedis/1`：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1fr3b419f2aj30by04g0ss.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d78d659b6.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fr3b48vebkj30gk0cy0u3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d790607a1.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fr3b55kyv6j31kw0dijtx.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d79307676.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fr3b5n1n21j31kw0c2acg.jpg)
+![](https://i.loli.net/2019/05/08/5cd1d7973de43.jpg)
 
 最后发现数据没问题，数据库的请求与并发也都下来了。
 
