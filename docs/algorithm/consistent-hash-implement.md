@@ -1,5 +1,5 @@
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0m9w97ajwj31hc0u0qjc.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be999402c.jpg)
 
 # 前言
 
@@ -14,7 +14,7 @@
 
 > 先给新来的朋友简单介绍下 [cim](https://github.com/crossoverJie/cim) 是干啥的：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mbghm31pj31i60dsad3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be99f3bb2.jpg)
 
 其中有一个场景是在客户端登录成功后需要从可用的服务端列表中选择一台服务节点返回给客户端使用。
 
@@ -33,7 +33,7 @@
 - 通过顺时针找到离他最近的一个节点，也就是这次路由的服务节点。
 - 考虑到服务节点的个数以及 hash 算法的问题导致环中的数据分布不均匀时引入了虚拟节点。
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mczfckhij310s0q0gu2.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be9b0e4e3.jpg)
 
 # 自定义有序 Map
 
@@ -58,9 +58,9 @@
 
 他的使用方法及结果如下：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g0mhj1byydj30qw06idgo.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be9b8278e.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mhk48azdj308e026q2u.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be9bb786e.jpg)
 
 可见最终会按照 `key` 的大小进行排序，同时传入 `hashcode = 101` 时会按照顺时针找到 `hashcode = 1000` 这个节点进行返回。
 
@@ -69,19 +69,19 @@
 
 成员变量和构造函数如下：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g0mh751dkxj30qt087752.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be9c182fe.jpg)
 
 其中最核心的就是一个 `Node` 数组，用它来存放服务节点的 `hashcode` 以及 `value` 值。
 
 其中的内部类 `Node` 结构如下：
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g0mh9o18jpj30qw09nt9o.jpg)
+![](https://i.loli.net/2019/05/08/5cd1be9c6be0b.jpg)
 
 ----
 
 写入数据的方法如下：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mhfl2uzjj30qw0ayjsw.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea38b4ab.jpg)
 
 相信看过 `ArrayList` 的源码应该有印象，这里的写入逻辑和它很像。
 
@@ -90,13 +90,13 @@
 
 但是存放时是按照写入顺序存放的，遍历时自然不会有序；因此提供了一个 `Sort` 方法，可以把其中的数据按照 `key` 其实也就是 `hashcode` 进行排序。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g0miz5ovvrj30qy07074y.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea416c01.jpg)
 
 排序也比较简单，使用了 `Arrays` 这个数组工具进行排序，它其实是使用了一个 `TimSort` 的排序算法，效率还是比较高的。
 
 最后则需要按照一致性 Hash 的标准顺时针查找对应的节点：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mj5haovoj30qr0a0q3x.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea459788.jpg)
 
 代码还是比较简单清晰的；遍历数组如果找到比当前 key 大的就返回，没有查到就取第一个。
 
@@ -110,7 +110,7 @@
 
 下图是目前主流排序算法的时间复杂度：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mjhh19jfj30iz0aw755.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea49b947.jpg)
 
 最好的也就是 `O(N)` 了。
 
@@ -121,7 +121,7 @@
 ---
 
 来看看使用 `TreeMap` 如何来达到同样的效果。
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g0mjvy0ts9j30qn07eq40.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea4e6550.jpg)
 运行结果：
 
 ```
@@ -145,13 +145,13 @@
 
 先是 `SortArrayMap`：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g0mk3iwql4j30qs09i3zt.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bea9f1177.jpg)
 
 **耗时 2237 毫秒。**
 
 TreeMap：
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1g0mk559xx3j30qv06bmyb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beaa90503.jpg)
 
 **耗时 1316毫秒。**
 
@@ -167,7 +167,7 @@ TreeMap：
 
 AbstractConsistentHash，这个抽象类的主要方法如下：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mkee1l7nj30rm0hcjty.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beab41c7a.jpg)
 
 - `add` 方法自然是写入数据的。
 - `sort` 方法用于排序，但子类也不一定需要重写，比如 `TreeMap` 这样自带排序的容器就不用。
@@ -177,7 +177,7 @@ AbstractConsistentHash，这个抽象类的主要方法如下：
 
 下面我们来看看利用 `SortArrayMap` 以及 `AbstractConsistentHash` 是如何实现的。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g0mkk2ip82j30qy0emgny.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beab9a84f.jpg)
 
 就是实现了几个抽象方法，逻辑和上文是一样的，只是抽取到了不同的方法中。
 
@@ -189,7 +189,7 @@ AbstractConsistentHash，这个抽象类的主要方法如下：
 
 因此在 `AbstractConsistentHash` 中定义了 hash 方法。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g0mkomrvy6j30qo0f1mzs.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beac476c2.jpg)
 
 > 这里的算法摘抄自 xxl_job，网上也有其他不同的实现，比如 `FNV1_32_HASH` 等；实现不同但是目的都一样。
 
@@ -197,7 +197,7 @@ AbstractConsistentHash，这个抽象类的主要方法如下：
 
 这样对于使用者来说就非常简单了：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g0mkqmi7agj30qo069my3.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beacc8e2c.jpg)
 
 他只需要构建一个服务列表，然后把当前的客户端信息传入 `process` 方法中即可获得一个一致性 hash 算法的返回。
 
@@ -207,13 +207,13 @@ AbstractConsistentHash，这个抽象类的主要方法如下：
 
 同样的对于想通过 `TreeMap` 来实现也是一样的套路：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mktnu52uj30qw0dk76o.jpg)
+![](https://i.loli.net/2019/05/08/5cd1bead5feca.jpg)
 
 他这里不需要重写 sort 方法，因为自身写入时已经排好序了。
 
 而在使用时对于客户端来说只需求修改一个实现类，其他的啥都不用改就可以了。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g0mkvj19yyj30qs05wjsb.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb27d748.jpg)
 
 运行的效果也是一样的。
 
@@ -225,7 +225,7 @@ AbstractConsistentHash，这个抽象类的主要方法如下：
 
 只是一致性 hash 也有多种实现，他们的关系就如下图：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0ml5qs9ahj30hm07sdg9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb2d6428.jpg)
 
 应用还需要满足对这一类路由策略的灵活支持，比如我也想自定义一个随机的策略。
 
@@ -248,7 +248,7 @@ public interface RouteHandle {
 
 而对于一致性 hash 算法来说也是只需要实现这个接口，同时在这个接口中选择使用 `SortArrayMapConsistentHash` 还是 `TreeMapConsistentHash` 即可。
 
-![](https://ws3.sinaimg.cn/large/006tKfTcly1g0mlan84e2j30qz065mxx.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb35b595.jpg)
 
 这里还有一个 `setHash` 的方法，入参是 AbstractConsistentHash；这就是用于客户端指定需要使用具体的那种数据结构。
 
@@ -256,7 +256,7 @@ public interface RouteHandle {
 
 而对于之前就存在的轮询策略来说也是同样的实现 `RouteHandle` 接口。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g0mlcibmmwj30qt07sab9.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb3dbd86.jpg)
 
 这里我只是把之前的代码搬过来了而已。
 
@@ -265,7 +265,7 @@ public interface RouteHandle {
 
 > 为了使客户端代码几乎不动，我将这个选择的过程放入了配置文件。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1g0mley1etvj30qp05k0u0.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb476ca8.jpg)
 
 1. 如果想使用原有的轮询策略，就配置实现了 `RouteHandle` 接口的轮询策略的全限定名。
 2. 如果想使用一致性 hash 的策略，也只需要配置实现了 `RouteHandle` 接口的一致性 hash 算法的全限定名。
@@ -278,7 +278,6 @@ public interface RouteHandle {
 只需要注入 `RouteHandle`，调用它的 `routeServer` 方法。
 
 ```java
-
 @Autowired
 private RouteHandle routeHandle ;
 String server = routeHandle.routeServer(serverCache.getAll(),String.valueOf(loginReqVO.getUserId()));
@@ -287,7 +286,7 @@ String server = routeHandle.routeServer(serverCache.getAll(),String.valueOf(logi
 
 既然使用了注入，那其实这个策略切换的过程就在创建 `RouteHandle bean` 的时候完成的。
 
-![](https://ws1.sinaimg.cn/large/006tKfTcly1g0mlm6bwt6j30qx08ftae.jpg)
+![](https://i.loli.net/2019/05/08/5cd1beb4d7cd2.jpg)
 
 也比较简单，需要读取之前的配置文件来动态生成具体的实现类，主要是利用反射完成的。
 
