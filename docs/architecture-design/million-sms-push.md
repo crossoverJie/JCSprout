@@ -33,7 +33,7 @@
 
 最终的架构图如下：
 
-![](https://ws1.sinaimg.cn/mw690/72fbb941gy1fvjz1teappj20rg0humy1.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a70683166304.jpg)
 
 
 现在看着蒙没关系，下文一一介绍。
@@ -80,7 +80,7 @@
 
 这点和之前 [SpringBoot 整合长连接心跳机制](http://t.cn/EPcNHFZ) 类似。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvkj6oe4rej30k104c0tg.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a5e41f832920.jpg)
 
 同时为了可以通过 Channel 获取到客户端唯一标识（手机号码），还需要在 Channel 中设置对应的属性：
 
@@ -127,7 +127,7 @@ log.info("客户端下线，TelNo=" +  telNo);
 
 我们都知道在 Netty 中处理消息一般是在 `channelRead()` 方法中。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvkkawymbkj30o6027mxf.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a6126d530691.jpg)
 
 在这里可以解析消息，区分类型。
 
@@ -148,9 +148,9 @@ log.info("客户端下线，TelNo=" +  telNo);
 
 伪代码如下：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fvkkhd8961j30n602kglr.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a638fa183367.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvkkhwsgkqj30nh0m0gpt.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a68a53a59900.jpg)
 
 想要了解 cicada 的具体实现请点击这里：
 
@@ -181,7 +181,7 @@ log.info("客户端下线，TelNo=" +  telNo);
 
 伪代码如下：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fvkkpefci7j30w408h768.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a6da88584453.jpg)
 
 具体可以参考：
 
@@ -207,7 +207,7 @@ log.info("客户端下线，TelNo=" +  telNo);
 
 在将具体实现之前首先得讲讲上文贴出的整体架构图。
 
-![](https://ws1.sinaimg.cn/mw690/72fbb941gy1fvjz1teappj20rg0humy1.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a70683166304.jpg)
 
 先从左边开始。
 
@@ -231,19 +231,19 @@ log.info("客户端下线，TelNo=" +  telNo);
 
 `注册鉴权` 模块会订阅 Zookeeper 中的节点，从而可以获取最新的服务列表。结构如下：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fundatqf6uj30el06f0su.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a7327b184532.jpg)
 
 以下是一些伪代码：
 
 应用启动注册 Zookeeper。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvkriuz7yrj30m304lq3r.jpg)
+![](https://i.loli.net/2019/06/26/5d1393a7624a976369.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fvkrj927rsj30od08ejst.jpg)
+![](https://i.loli.net/2019/06/26/5d1393c2d2a1b31176.jpg)
 
 对于`注册鉴权`模块来说只需要订阅这个 Zookeeper 节点：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwgy1fvkrlfdgrkj30tb08j0uf.jpg)
+![](https://i.loli.net/2019/06/26/5d1393ad257fe34873.jpg)
 
 ### 路由策略
 
@@ -288,7 +288,7 @@ log.info("客户端下线，TelNo=" +  telNo);
 
 伪代码如下：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwgy1fvkt2ytdxoj30r109u40n.jpg)
+![](https://i.loli.net/2019/06/26/5d1393ad5e2e263573.jpg)
 
 这里存放路由关系的时候会有并发问题，最好是换为一个 `lua` 脚本。
 
@@ -357,4 +357,4 @@ log.info("客户端下线，TelNo=" +  telNo);
 
 **欢迎关注公众号一起交流：**
 
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fvkwiw9pwaj30760760t7.jpg)
+![](https://i.loli.net/2019/06/26/5d1393ad8d38d78633.jpg)

@@ -9,7 +9,7 @@
 
 常用的系统分层结构:
 
-<div align="center">  <img src="https://ws4.sinaimg.cn/large/006tNc79ly1fmjw06nz2zj306f0fejrh.jpg" width=""/> </div><br>
+<div align="center">  <img src="https://i.loli.net/2019/06/26/5d1393a5536d068177.jpg" width=""/> </div><br>
 
 针对于浏览器端，可以使用 JS 进行请求过滤，比如五秒钟之类只能点一次抢购按钮，五秒钟只能允许请求一次后端服务。(APP 同理)
 

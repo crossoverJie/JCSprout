@@ -118,7 +118,7 @@ public class CustomizeHandle implements InvocationHandler {
 
 其实代理类是由
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fms01lcml3j30ki09s75v.jpg)
+![](https://i.loli.net/2019/06/26/5d13945f24cb855978.jpg)
 
 这个方法动态创建出来的。将 proxyClassFile 输出到文件并进行反编译的话就可以的到代理类。
 ```java

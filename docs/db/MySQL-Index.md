@@ -5,7 +5,7 @@
 
 ## B+ Tree 的数据结构
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fn10d6j9sij30hc08cab3.jpg)
+![](https://i.loli.net/2019/06/26/5d139411b683d65706.jpg)
 
 如图所示是 `B+ Tree` 的数据结构。是由一个一个的磁盘块组成的树形结构，每个磁盘块由数据项和指针组成。
 

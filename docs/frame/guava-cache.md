@@ -141,7 +141,7 @@ Google 出的 [Guava](https://github.com/google/guava) 是 Java 核心增强的�
 2761 行，根据方法名称可以看出是判断当前的 Entry 是否过期，该 entry 就是通过 key 查询到的。
 
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1ft9l0mx77rj30zk0a1tat.jpg)
+![](https://i.loli.net/2019/06/26/5d13945fe1cae45017.jpg)
 
 这里就很明显的看出是根据根据构建时指定的过期方式来判断当前 key 是否过期了。
 
@@ -354,7 +354,7 @@ Guava 就是利用了上文的两个特性来实现了**引用回收**及**移�
 
 来自定义键和值的引用关系。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1ftatngp76aj30n20h6gpn.jpg)
+![](https://i.loli.net/2019/06/26/5d139460a52cf85772.jpg)
 
 在上文的分析中可以看出 Cache 中的 `ReferenceEntry` 是类似于 HashMap 的 Entry 存放数据的。
 
@@ -411,13 +411,13 @@ Guava 就是利用了上文的两个特性来实现了**引用回收**及**移�
 
 根据 `ValueReference<K, V> getValueReference();` 的实现：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftatsg5jfvj30vg059wg9.jpg)
+![](https://i.loli.net/2019/06/26/5d139461408fd93335.jpg)
 
 具有强引用和弱引用的不同实现。
 
 key 也是相同的道理：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1ftattls2uzj30w005eq4t.jpg)
+![](https://i.loli.net/2019/06/26/5d139461d363838006.jpg)
 
 当使用这样的构造方式时，弱引用的 key 和 value 都会被垃圾回收。
 
@@ -479,19 +479,19 @@ loadingCache = CacheBuilder.newBuilder()
 
 那么 Guava 是如何实现的呢？
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1ftau23uj5aj30mp08odh8.jpg)
+![](https://i.loli.net/2019/06/26/5d13946796ed610501.jpg)
 
 根据 LocalCache 中的 `getLiveValue()` 中判断缓存过期时，跟着这里的调用关系就会一直跟到：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftau4ed7dcj30rm0a5acd.jpg)
+![](https://i.loli.net/2019/06/26/5d139468716d365202.jpg)
 
 `removeValueFromChain()` 中的：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftau5ywcojj30rs0750u9.jpg)
+![](https://i.loli.net/2019/06/26/5d1394692e8d362414.jpg)
 
 `enqueueNotification()` 方法会将回收的缓存（包含了 key，value）以及回收原因包装成之前定义的事件接口加入到一个**本地队列**中。
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1ftau7hpijrj30sl06wtaf.jpg)
+![](https://i.loli.net/2019/06/26/5d139469c776a45831.jpg)
 
 这样一看也没有回调我们初始化时候的事件啊。
 
@@ -499,11 +499,11 @@ loadingCache = CacheBuilder.newBuilder()
 
 我们回到获取缓存的地方：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftau9rwgacj30ti0hswio.jpg)
+![](https://i.loli.net/2019/06/26/5d13946c8960257603.jpg)
 
 在 finally 中执行了 `postReadCleanup()` 方法；其实在这里面就是对刚才的队列进行了消费：
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1ftaubaco48j30lw0513zi.jpg)
+![](https://i.loli.net/2019/06/26/5d139471de1d710535.jpg)
 
 一直跟进来就会发现这里消费了队列，将之前包装好的移除消息调用了我们自定义的事件，这样就完成了一次事件回调。
 

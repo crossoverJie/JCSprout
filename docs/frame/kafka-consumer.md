@@ -1,6 +1,6 @@
 
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fxdqk5h39cj31c00u0qbt.jpg)
+![](https://i.loli.net/2019/06/26/5d1394729707f14762.jpg)
 
 
 # 前言
@@ -21,21 +21,21 @@
 
 先来谈谈最简单的单线程消费，如下图所示：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdsqd5ohgj30er08bglw.jpg)
+![](https://i.loli.net/2019/06/26/5d1394735c50464148.jpg)
 
 由于数据散列在三个不同分区，所以单个线程需要遍历三个分区将数据拉取下来。
 
 单线程消费的示例代码：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxdsw65zjvj30si0d8goz.jpg)
+![](https://i.loli.net/2019/06/26/5d139473f18c354807.jpg)
 
 这段代码大家在官网也可以找到：将数据取出放到一个内存缓冲中最后写入数据库的过程。
 
 > 先不讨论其中的 offset 的提交方式。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdsy8m2bgj30u70b9wju.jpg)
+![](https://i.loli.net/2019/06/26/5d139474d871a64091.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxdsyqby67j30t30dbjxm.jpg)
+![](https://i.loli.net/2019/06/26/5d13947ae42a961451.jpg)
 
 通过消费日志可以看出：
 
@@ -60,13 +60,13 @@
 
 看一个简单示例即可知道它的用法：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fxdukpv76lj30zb0cdacw.jpg)
+![](https://i.loli.net/2019/06/26/5d13947b7cc9386064.jpg)
 
 > 值得注意的是：独立消费者可以不设置 group.id 属性。
 
 也是发送100条消息，消费结果如下：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdulom1zcj30ax08raam.jpg)
+![](https://i.loli.net/2019/06/26/5d13947c15efb51481.jpg)
 
 通过 API 可以看出：我们可以手动指定需要消费哪些分区。
 
@@ -74,13 +74,13 @@
 
 同时它也支持多线程的方式，每个线程消费指定分区进行消费。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdvncc15dj30ou0ddgo9.jpg)
+![](https://i.loli.net/2019/06/26/5d13947cb8d4395802.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdv31z4hgj31cn0d6diw.jpg)
+![](https://i.loli.net/2019/06/26/5d13947de7b6033298.jpg)
 
 为了直观，只发送了 10 条数据。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdv3oyjbrj30gz05qwfp.jpg)
+![](https://i.loli.net/2019/06/26/5d139483f2cd338378.jpg)
 
 根据消费结果可以看出：
 
@@ -88,7 +88,7 @@ c1 线程只取 0 分区；c2 只取 1 分区；c3 只取 2 分区的数据。
 
 甚至我们可以将消费者多进程部署，这样的消费方式如下：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdvhgd1rej30rw0ddwft.jpg)
+![](https://i.loli.net/2019/06/26/5d139484a4f5012233.jpg)
 
 假设 `Topic:data-push` 的分区数为 4 个，那我们就可以按照图中的方式创建两个进程。
 
@@ -112,7 +112,7 @@ c1 线程只取 0 分区；c2 只取 1 分区；c3 只取 2 分区的数据。
 
 还是借助官方的示例图来更好的理解它。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxdvqdzduoj30d60700tc.jpg)
+![](https://i.loli.net/2019/06/26/5d13948b443d263987.jpg)
 
 某个 Topic 有四个分区 `p0 p1 p2 p3`，同时创建了两个消费组 `groupA，groupB`。
 
@@ -149,7 +149,7 @@ c1 线程只取 0 分区；c2 只取 1 分区；c3 只取 2 分区的数据。
 
 当其中一个进程（其中有三个线程，每个线程对应一个消费实例）时，消费结果如下：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxdwin6y1gj30yf08sq7f.jpg)
+![](https://i.loli.net/2019/06/26/5d13948bc771365298.jpg)
 
 里边的 20 条数据都被这个进程的三个实例消费掉。
 
@@ -159,7 +159,7 @@ c1 线程只取 0 分区；c2 只取 1 分区；c3 只取 2 分区的数据。
 
 进程1 只取到了分区 1 里的两条数据（之前是所有数据都是进程1里的线程获取的）。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxdwkziunkj30vm02kjsa.jpg)
+![](https://i.loli.net/2019/06/26/5d13948d56c0b79122.jpg)
 
 ---
 
@@ -171,7 +171,7 @@ c1 线程只取 0 分区；c2 只取 1 分区；c3 只取 2 分区的数据。
 
 当我关掉进程2，再发送10条数据时会发现所有数据又被进程1里的三个线程消费了。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxdwndw0q6j312m066acx.jpg)
+![](https://i.loli.net/2019/06/26/5d1395ff039d368487.jpg)
 
 通过这些测试相信大家已经可以看到消费组的优势了。
 
