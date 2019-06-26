@@ -29,5 +29,5 @@
 
 **欢迎我的关注公众号一起交流：**
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fsuvb4ebtmj30760760t7.jpg)
+![](https://crossoverjie.top/uploads/weixinfooter1.jpg)
 
