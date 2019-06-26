@@ -1,6 +1,6 @@
 # LinkedList 底层分析
 
-![](https://ws4.sinaimg.cn/large/006tKfTcly1fqzb66c00gj30p7056q38.jpg)
+![](https://i.loli.net/2019/06/26/5d1391f88b05665203.jpg)
 
 如图所示 `LinkedList` 底层是基于双向链表实现的，也是实现了 `List` 接口，所以也拥有 List 的一些特点(JDK1.7/8 之后取消了循环，修改为双向链表)。
 
