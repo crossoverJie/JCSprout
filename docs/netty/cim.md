@@ -1,6 +1,6 @@
 
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyr320o1ymj31hc0u0qew.jpg)
+![](https://i.loli.net/2019/07/19/5d31392e8a50b75976.jpg)
 
 # 前言
 
@@ -13,17 +13,17 @@
 
 目录结构：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrjwtbi0cj304i0jfgm3.jpg)
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrjy5iu3sj305c03x0sm.jpg)
+![](https://i.loli.net/2019/07/19/5d31392f0ad2d76578.jpg)
+![](https://i.loli.net/2019/07/19/5d31392f6182225602.jpg)
 
 > 本文较长，高能预警；带好瓜子板凳。
 
 
 <!--more-->
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyr5yjibvqj30vk04paal.jpg)
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyr60ahgr5j30te08nt9j.jpg)
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyr60vrexlj30vs0d40up.jpg)
+![](https://i.loli.net/2019/07/19/5d31392fe669471794.jpg)
+![](https://i.loli.net/2019/07/19/5d31393061d9624009.jpg)
+![](https://i.loli.net/2019/07/19/5d313930bd66213776.jpg)
 
 于是在之前的基础上我完善了一些内容，先来看看这个项目的介绍吧：
 
@@ -46,7 +46,7 @@
 | YouTube | Bilibili|
 | :------:| :------: | 
 | [群聊](https://youtu.be/_9a4lIkQ5_o) [私聊](https://youtu.be/kfEfQFPLBTQ) | [群聊](https://www.bilibili.com/video/av39405501) [私聊](https://www.bilibili.com/video/av39405821) | 
-| <img src="https://ws3.sinaimg.cn/large/006tNbRwly1fys8flaofrj315e0ose81.jpg"  height="295px" />  | <img src="https://ws4.sinaimg.cn/large/006tNbRwly1fys8mpa6wij31240lghdt.jpg" height="295px" />
+| <img src="https://i.loli.net/2019/07/19/5d313a94198c357421.jpg"  height="295px" />  | <img src="https://i.loli.net/2019/07/19/5d313a3ad160683241.jpg" height="295px" />
 
 
 也在公网部署了一套演示环境，想要试一试的可以联系我加入内测群获取账号一起尬聊😋。
@@ -55,7 +55,7 @@
 
 下面来看看具体的架构设计。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyldgiizhuj315o0r4n0k.jpg)
+![](https://i.loli.net/2019/07/19/5d313936e89ff75333.jpg)
 
 - `CIM` 中的各个组件均采用 `SpringBoot` 构建。
 -  采用 `Netty + Google Protocol Buffer` 构建底层通信。
@@ -83,7 +83,7 @@
 
 整体的流程也比较简单，流程图如下：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fylfxevl2ij30it0etaau.jpg)
+![](https://i.loli.net/2019/07/19/5d31393783d9878382.jpg)
 
 - 客户端向 `route` 发起登录。
 - 登录成功从 `Zookeeper` 中选择可用 `IM-server` 返回给客户端，并保存登录、路由信息到 `Redis`。
@@ -110,8 +110,8 @@
 
 首先是服务启动：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrejaa9iaj30sg0ammz3.jpg)
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyregwf1tnj30qq07qwg3.jpg)
+![](https://i.loli.net/2019/07/19/5d31393808e5864405.jpg)
+![](https://i.loli.net/2019/07/19/5d313938780ae12933.jpg)
 
 由于是在 `SpringBoot` 中搭建的，所以在应用启动时需要启动 `Netty` 服务。
 
@@ -125,13 +125,13 @@
 
 所以在应用启动成功后需要将自身数据注册到 `Zookeeper` 中。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyrerhadxkj30sc05ajs9.jpg)
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyres6kmkaj30sd07e3zn.jpg)
+![](https://i.loli.net/2019/07/19/5d313938d33fb47365.jpg)
+![](https://i.loli.net/2019/07/19/5d31393ec08cc70862.jpg)
 
 最主要的目的就是将当前应用的 `ip + cim-server-port+ http-port` 注册上去。
 
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyretaeawnj30y906qjrl.jpg)
+![](https://i.loli.net/2019/07/19/5d3139401722563891.jpg)
 
 上图是我在演示环境中注册的两个 `cim-server` 实例（由于在一台服务器，所以只是端口不同）。
 
@@ -141,14 +141,14 @@
 
 当客户端请求 `cim-forward-route` 中的登录接口（详见下文）做完业务验证（就相当于日常登录其他网站一样）之后，客户端会向服务端发起一个长连接，如之前的流程所示：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrg4laej8j30r30eu76o.jpg)
+![](https://i.loli.net/2019/07/19/5d313940c94a652003.jpg)
 
 这时客户端会发送一个特殊报文，表明当前是登录信息。
 
 服务端收到后就需要将该客户端的 `userID` 和当前 `Channel` 通道关系保存起来。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyrg639a1wj30sw05zdhb.jpg)
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrg6w5anej30se056abe.jpg)
+![](https://i.loli.net/2019/07/19/5d3139429a08032119.jpg)
+![](https://i.loli.net/2019/07/19/5d313943a25c029466.jpg)
 
 同时也缓存了用户的信息，也就是 `userID` 和 用户名。
 
@@ -157,7 +157,7 @@
 
 当客户端断线后也需要将刚才缓存的信息清除掉。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrgjiwu2lj30sk0in42x.jpg)
+![](https://i.loli.net/2019/07/19/5d313944af8c328873.jpg)
 
 同时也需要调用 `route` 接口清除相关信息（具体接口看下文）。
 
@@ -165,7 +165,7 @@
 
 ## IM 路由
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyreyfu8ooj314f0qads5.jpg)
+![](https://i.loli.net/2019/07/19/5d313945a039126377.jpg)
 
 从架构图中可以看出，路由层是非常重要的一环；它提供了一系列的 `HTTP` 服务承接了客户端和服务端。
 
@@ -173,8 +173,8 @@
 
 ### 注册接口
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrf29j3tmj30sn09zmze.jpg)
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrf2pkzwwj30sg089407.jpg)
+![](https://i.loli.net/2019/07/19/5d313946d089382853.jpg)
+![](https://i.loli.net/2019/07/19/5d31394c795cc10022.jpg)
 
 由于每一个客户端都是需要登录才能使用的，所以第一步自然是注册。
 
@@ -187,7 +187,7 @@
 
 这里的登录和 `cim-server` 中的登录不一样，具有业务性质，
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrfnyin5uj30sp0clq6b.jpg)
+![](https://i.loli.net/2019/07/19/5d31394d5915e56923.jpg)
 
 - 登录成功之后需要判断是否是重复登录（一个用户只能运行一个客户端）。
 - 登录成功后需要从 `Zookeeper` 中获取服务列表（`cim-server`）并根据某种算法选择一台服务返回给客户端。
@@ -195,15 +195,15 @@
 
 为了实现只能一个用户登录，使用了 `Redis` 中的 `set` 来保存登录信息；利用 `userID` 作为 `key` ，重复的登录就会写入失败。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyrflvo52lj30qu0attan.jpg)
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrfmfrnfkj30sm05bgmd.jpg)
+![](https://i.loli.net/2019/07/19/5d31394de19fe32033.jpg)
+![](https://i.loli.net/2019/07/19/5d31394e5a7cf72944.jpg)
 
 > 类似于 Java 中的 HashSet，只能去重保存。
 
 
 获取一台可用的路由实例也比较简单：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrfp67qo3j30qz08xq41.jpg)
+![](https://i.loli.net/2019/07/19/5d31394ed00d392001.jpg)
 
 - 先从 `Zookeeper` 获取所有的服务实例做一个内部缓存。
 - 轮询选择一台服务器（目前只有这一种算法，后续会新增）。
@@ -212,9 +212,9 @@
 
 具体代码如下：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrfrnxk03j30qx04g3yy.jpg)
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrfs42vwcj30qy06raaw.jpg)
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyrfsuferjj30qt08xwfy.jpg)
+![](https://i.loli.net/2019/07/19/5d31394f4609531937.jpg)
+![](https://i.loli.net/2019/07/19/5d31394f9ad3c50783.jpg)
+![](https://i.loli.net/2019/07/19/5d31395006b0b64086.jpg)
 
 也是在应用启动之后监听 `Zookeeper` 中的路由节点，一旦发生变化就会更新内部缓存。
 
@@ -230,14 +230,14 @@
 
 因此就需要路由层来发挥作用了。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrgrd1fcgj30sm0f9djy.jpg)
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyrgt3135cj30st0a340e.jpg)
+![](https://i.loli.net/2019/07/19/5d313955b870762733.jpg)
+![](https://i.loli.net/2019/07/19/5d31395784bf477598.jpg)
 
 路由接口收到消息后首先遍历出所有的客户端和服务实例的关系。
 
 路由关系在 `Redis` 中的存放如下：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrgulywq5j30bc02ztaq.jpg)
+![](https://i.loli.net/2019/07/19/5d313957c158a14876.jpg)
 
 由于 `Redis` 单线程的特质，当数据量大时；一旦使用 keys 匹配所有 `cim-route:*` 数据，会导致 Redis 不能处理其他请求。
 
@@ -249,8 +249,8 @@
 
 在 `cim-server` 中的实现如下：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrgyjn184j30sg0b40v5.jpg)
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrgz0lm1dj30sx082ac3.jpg)
+![](https://i.loli.net/2019/07/19/5d3139590e61247525.jpg)
+![](https://i.loli.net/2019/07/19/5d31395979de822216.jpg)
 
 `cim-server` 收到消息后会在内部缓存中查询该 userID 的通道，接着只需要发消息即可。
 
@@ -259,8 +259,8 @@
 
 这是一个辅助接口，可以查询出当前在线用户信息。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrh2fp5qrj30sp05u75x.jpg)
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrh2w6fk5j30sh06nmyc.jpg)
+![](https://i.loli.net/2019/07/19/5d313959c343668519.jpg)
+![](https://i.loli.net/2019/07/19/5d31395a06ae762846.jpg)
 
 实现也很简单，也就是查询之前保存 ”用户登录状态的那个去重 `set` “即可。
 
@@ -272,12 +272,12 @@
 
 类似于这样：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fylh7bdlo6g30go01shdt.gif)
+![](https://i.loli.net/2019/07/19/5d31396246da062612.jpg)
 
 在我们这个场景中，私聊的前提就是需要获得在线用户的 `userID`。
 
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrh7nditgj30so0cegot.jpg)
+![](https://i.loli.net/2019/07/19/5d3139637537e14521.jpg)
 
 所以私聊接口在收到消息后需要查询到接收者所在的 `cim-server` 实例信息，后续的步骤就和群聊一致了。调用接收者所在实例的 `HTTP` 接口下发信息。
 
@@ -287,8 +287,8 @@
 
 一旦客户端下线，我们就需要将之前存放在 `Redis` 中的一些信息删除掉（路由信息、登录状态）。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyrhcb5mehj30sp070gnl.jpg)
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrhcjsznmj30sp048q3n.jpg)
+![](https://i.loli.net/2019/07/19/5d313963e388b20088.jpg)
+![](https://i.loli.net/2019/07/19/5d3139642e6b729312.jpg)
 
 
 
@@ -301,21 +301,21 @@
 
 第一步也就是登录，需要在启动时调用 `route` 的登录接口，获得 `cim-server` 信息再创建连接。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyrhj0mgeyj30si06pdgr.jpg)
+![](https://i.loli.net/2019/07/19/5d3139645e63671036.jpg)
 
-![image-20190102001525565](https://ws1.sinaimg.cn/large/006tNbRwly1fyrjgk4maej30su05u3zq.jpg)
+![image-20190102001525565](https://i.loli.net/2019/07/19/5d313964a2d2194790.jpg)
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrhjtv984j30sr0fnadw.jpg)
+![](https://i.loli.net/2019/07/19/5d3139661c62598094.jpg)
 
 登录过程中 `route` 接口会判断是否为重复登录，重复登录则会直接退出程序。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrhl41i3cj30sm095jt2.jpg)
+![](https://i.loli.net/2019/07/19/5d31396b6301828962.jpg)
 
 接下来是利用 `route` 接口返回的 `cim-server` 实例信息（`ip+port`）创建连接。
 
 最后一步就是发送一个登录标志的信息到服务端，让它保持客户端和 `Channel` 的关系。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyrhn66rmij30sn06j0u1.jpg)
+![](https://i.loli.net/2019/07/19/5d31396ba9bfa44516.jpg)
 
 ### 自定义协议
 
@@ -323,7 +323,7 @@
 
 由于是使用 `Google Protocol Buffer` 编解码，所以先看看原始格式。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyrhpupejtj30sj072my1.jpg)
+![](https://i.loli.net/2019/07/19/5d31396be687915596.jpg)
 
 其实这个协议中目前一共就三个字段：
 
@@ -334,7 +334,7 @@
 
 目前主要是三种类型，分别对应不同的业务：
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrhsf53dzj30sf08mmy3.jpg)
+![](https://i.loli.net/2019/07/19/5d313aac604fa88452.jpg)
 
 ### 心跳
 
@@ -342,12 +342,12 @@
 
 目前的策略是每隔一分钟就是发送一个心跳包到服务端：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyrhvs3z2gj30s209njtc.jpg)
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrhwdgorcj30sj08cabj.jpg)
+![](https://i.loli.net/2019/07/19/5d313aad7641038034.jpg)
+![](https://i.loli.net/2019/07/19/5d313aae3e8ee56138.jpg)
 
 这样服务端每隔一分钟没有收到业务消息时就会收到 `ping` 的心跳包：
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyrhuu1xd3j30s40c0h83.jpg)
+![](https://i.loli.net/2019/07/19/5d313aaed8e5685298.jpg)
 
 
 ### 内置命令
@@ -361,17 +361,17 @@
 | `:all` | 获取所有命令 |
 | `:` | 更多命令正在开发中。。 |
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fylh7bdlo6g30go01shdt.gif)
+![](https://i.loli.net/2019/07/19/5d31396246da062612.jpg)
 
 比如输入 `:q` 就会退出客户端，同时会关闭一些系统资源。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyri42lsgpj30sg0cewg3.jpg)
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fyri5mwdh5j30sm0djwgp.jpg)
+![](https://i.loli.net/2019/07/19/5d313aaf6f05466906.jpg)
+![](https://i.loli.net/2019/07/19/5d313aafe852815113.jpg)
 
 当输入 `:olu`(`onlineUser` 的简写)就会去调用 `route` 的获取所有在线用户接口。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyri6wuz62j30ss08eq4b.jpg)
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyri7dvvubj312803u48b.jpg)
+![](https://i.loli.net/2019/07/19/5d313ab06dd6c35435.jpg)
+![](https://i.loli.net/2019/07/19/5d313ab0ea75d16268.jpg)
 
 ### 群聊
 
@@ -379,13 +379,13 @@
 
 这时会去调用 `route` 的群聊接口。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyri9ltxedj30su0bkjtn.jpg)
+![](https://i.loli.net/2019/07/19/5d313ab63223a26868.jpg)
 
 ### 私聊
 
 私聊也是同理，但前提是需要触发关键字；使用 `userId;;消息内容` 这样的格式才会给某个用户发送消息，所以一般都需要先使用 `:olu` 命令获取所以在线用户才方便使用。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fyrichyh40j30si0btq57.jpg)
+![](https://i.loli.net/2019/07/19/5d313ab6ac1d016245.jpg)
 
 ### 消息回调
 
@@ -393,8 +393,8 @@
 
 所以在客户端收到消息之后会回调一个接口，在这个接口中可以自定义实现。
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyriffgjt4j30sh0bitb6.jpg)
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrigbtcfrj30sq06nq3r.jpg)
+![](https://i.loli.net/2019/07/19/5d313ab75333232387.jpg)
+![](https://i.loli.net/2019/07/19/5d313ab7e6e3426627.jpg)
 
 因此先创建了一个 `caller` 的 `bean`，这个 `bean` 中包含了一个 `CustomMsgHandleListener` 接口，需要自行处理只需要实现此接口即可。
 
@@ -410,7 +410,7 @@
 
 后续计划：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fyrinluw2vj30r50arabu.jpg)
+![](https://i.loli.net/2019/07/19/5d313ab870c5834835.jpg)
 
 完整源码：
 

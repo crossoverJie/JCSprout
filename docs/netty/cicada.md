@@ -1,7 +1,7 @@
 
 <div align="center">  
 
-<img src="https://ws3.sinaimg.cn/large/006tNbRwly1fxda6k9k3bj30oy08cjsx.jpg"  /> 
+<img src="https://i.loli.net/2019/07/19/5d31392e3b7b875245.jpg"  /> 
 <br/>
 
 [![Build Status](https://travis-ci.org/crossoverJie/cicada.svg?branch=master)](https://travis-ci.org/crossoverJie/cicada)
@@ -187,7 +187,7 @@ public class KafkaConfiguration extends AbstractCicadaConfiguration {
 }
 ```
 
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv5mw7p5nvj31by0fo76t.jpg)
+![](https://i.loli.net/2019/07/19/5d31392ece42e20923.jpg)
 
 ### 获取配置
 
@@ -247,7 +247,7 @@ public class ExecuteTimeInterceptor implements CicadaInterceptor {
 
 ## 性能测试
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fv4luap7w0j31kw0iwdnu.jpg)
+![](https://i.loli.net/2019/07/19/5d31392f5efa350999.jpg)
 
 > 测试条件：100 threads and 100 connections ;1G RAM/4 CPU。
 
@@ -283,7 +283,7 @@ public class ExecuteTimeInterceptor implements CicadaInterceptor {
 
 > crossoverJie#gmail.com
 
-<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fsa01u7ro1j30gs0howfq.jpg" width="300"/> 
+<img src="https://i.loli.net/2019/07/19/5d3139302977498892.jpg" width="300"/> 
 
 ## 特别感谢
 
