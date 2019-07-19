@@ -1,6 +1,6 @@
 **[原文链接](https://medium.freecodecamp.org/how-to-use-git-efficiently-54320a236369)**
 
-![](https://ws1.sinaimg.cn/large/0069RVTdly1fuz415uvavj318g0tmh0f.jpg)
+![](https://i.loli.net/2019/07/19/5d313e9893e8f53523.jpg)
 
 > 代码昨天还是运行好好的今天就不行了。
 
@@ -22,7 +22,7 @@
 
 这里我将介绍一种工作流，它在一个多人大型项目中将非常有用。
 
-![](https://ws1.sinaimg.cn/large/0069RVTdly1fuz4imimuuj313111zq6q.jpg)
+![](https://i.loli.net/2019/07/19/5d313e9b120b999387.jpg)
 
 
 # 前言
@@ -70,11 +70,11 @@
 
 Alice 能够按照如下 GitHub 方式提交 `pull request`。
 
-![](https://ws1.sinaimg.cn/large/0069RVTdgy1fv03386jcoj30ig05swet.jpg)
+![](https://i.loli.net/2019/07/19/5d313e9c5e34a14226.jpg)
 
 在分支名字的旁边有一个 “New pull request” 按钮，点击之后将会显示如下界面：
 
-![](https://ws4.sinaimg.cn/large/0069RVTdgy1fv03etb1afj30no078gmn.jpg)
+![](https://i.loli.net/2019/07/19/5d313e9ed71a587054.jpg)
 
 - 比较分支是 Alice 的功能分支 `feature/login`。
 - base 分支则应该是发布分支 `release/fb`。
@@ -119,9 +119,9 @@ Alice 能够按照如下 GitHub 方式提交 `pull request`。
 
 甚至尝试和作者交流，经过沟通原作者也会在原文中贴上我的翻译链接。大家互惠互利使好的文章转播的更广。
 
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv0bxa6p94j30uq0rgjvc.jpg)
+![](https://i.loli.net/2019/07/19/5d313ea5e16f824179.jpg)
 
-![](https://ws3.sinaimg.cn/large/0069RVTdgy1fv0bxs6fp9j30us0qydkt.jpg)
+![](https://i.loli.net/2019/07/19/5d313ea9407c511988.jpg)
 
 
 **你的点赞与转发是最大的支持。**

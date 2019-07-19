@@ -6,7 +6,7 @@
 - 滑动窗口。
 
 ## 三次握手
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fms9a563c3j30o309ogmc.jpg)
+![](https://i.loli.net/2019/07/19/5d313e983e24378832.jpg)
 
 如图类似：
 1. 发送者问接收者我发消息了，你收到了嘛？

@@ -1,4 +1,4 @@
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fshrh2oexpj31kw0wkgsx.jpg)
+![](https://i.loli.net/2019/07/19/5d313e9cab8b192420.jpg)
 
 ## 前言
 
@@ -334,7 +334,7 @@ long 类型的赋值是否是原子的？
 
 看到这里的朋友应该都是老铁了，我也把上文提到的大多数面试题整理在了 GitHub：
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fsi40z9dulj30sl0p00yg.jpg)
+![](https://i.loli.net/2019/07/19/5d313e9f5616854253.jpg)
 
 厂库地址：
 

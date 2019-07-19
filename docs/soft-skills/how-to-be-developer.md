@@ -1,4 +1,4 @@
-![](https://ws4.sinaimg.cn/large/0069RVTdgy1fu1lwclu7hj31kw11vqf0.jpg)
+![](https://i.loli.net/2019/07/19/5d313ea44cb8b81194.jpg)
 
 ## 前言
 
@@ -326,7 +326,7 @@ Java 基础则是走向 Java 高级的必经之路。
 
 ## 思维导图
 
-![](https://ws2.sinaimg.cn/large/0069RVTdgy1fu71j8bb1tj31kw1w1qlc.jpg)
+![](https://i.loli.net/2019/07/19/5d313eafdee9c64439.jpg)
 
 结合上文产出了一个思维导图更直观些。
 
@@ -340,6 +340,6 @@ Java 基础则是走向 Java 高级的必经之路。
 
 上文大部分的知识点都有维护在 GitHub 上，感兴趣的朋友可以自行查阅：
 
-![](https://ws1.sinaimg.cn/large/0069RVTdgy1fuc1ejsp0fj31kw1hx4qp.jpg)
+![](https://i.loli.net/2019/07/19/5d313eb45ba5b49307.jpg)
 
 [https://github.com/crossoverJie/JCSprout](https://github.com/crossoverJie/JCSprout)
