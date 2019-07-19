@@ -1,6 +1,6 @@
 # Java 运行时的内存划分
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fmk5v19cmvj30g20anq3y.jpg)
+![](https://i.loli.net/2019/07/19/5d31384c568c531115.jpg)
 
 ## 程序计数器
 
@@ -73,7 +73,7 @@
 
 ## 常用参数
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fxjcmnkuqyj30p009vjsn.jpg)
+![](https://i.loli.net/2019/07/19/5d31384cbc79744624.jpg)
 
 通过上图可以直观的查看各个区域的参数设置。
 

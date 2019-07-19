@@ -4,7 +4,7 @@
 
 模型如下图：
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1fmjwua3iv4j30ic0f0mxq.jpg)
+![](https://i.loli.net/2019/07/19/5d31384d5ecdf51413.jpg)
 
 双亲委派模型中除了启动类加载器之外其余都需要有自己的父类加载器
 

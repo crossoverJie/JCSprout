@@ -36,7 +36,7 @@
 
 如图:
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fnkmy0bvu3j30o60heaaq.jpg)
+![](https://i.loli.net/2019/07/19/5d31384ddc06744280.jpg)
 
 这样的好处就是：在 Java 里进行频繁的对象访问可以提升访问速度(相对于使用句柄池来说)。
 

@@ -19,7 +19,7 @@
 
 可达性算法是通过一个称为 `GC Roots` 的对象向下搜索，整个搜索路径就称为引用链，当一个对象到 `GC Roots` 没有任何引用链 `JVM` 就认为该对象是可以被回收的。
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fmwqi5mv1jj30e407kmxm.jpg)
+![](https://i.loli.net/2019/07/19/5d313829b468683360.jpg)
 
 如图:Object1、2、3、4 都是存活的对象，而 Object5、6、7都是可回收对象。
 
@@ -39,7 +39,7 @@
 
 标记清除过程如下:
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fmz99ai1n3j30fj08qdgc.jpg)
+![](https://i.loli.net/2019/07/19/5d31382a842c844446.jpg)
 
 ### 复制算法
 
@@ -53,7 +53,7 @@
 
 复制算法过程：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fmzavlf4enj30fj08qt9b.jpg)
+![](https://i.loli.net/2019/07/19/5d31382aea89b37377.jpg)
 
 
 ### 标记整理算法
@@ -62,7 +62,7 @@
 
 所以老年代中使用的时候`标记整理算法`，它的原理和`标记清除算法`类似，只是最后一步的清除改为了将存活对象全部移动到一端，然后再将边界之外的内存全部回收。
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fmzbq55pfdj30fe08s3yx.jpg)
+![](https://i.loli.net/2019/07/19/5d31382b3ca8f11151.jpg)
 
 ### 分代回收算法
 现代多数的商用 `JVM` 的垃圾收集器都是采用的分代回收算法，和之前所提到的算法并没有新的内容。

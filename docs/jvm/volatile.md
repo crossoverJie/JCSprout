@@ -15,7 +15,7 @@
 
 如下图所示：
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fmouu3fpokj31ae0osjt1.jpg)
+![](https://i.loli.net/2019/07/19/5d31384d22ac511765.jpg)
 
 所以在并发运行时可能会出现线程 B 所读取到的数据是线程 A 更新之前的数据。
 

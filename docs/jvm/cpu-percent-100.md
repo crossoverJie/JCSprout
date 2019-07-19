@@ -1,6 +1,6 @@
 
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy67gauqxyj31eg0u0gun.jpg)
+![](https://i.loli.net/2019/07/19/5d31382a2d77079070.jpg)
 
 # 前言
 
@@ -17,7 +17,7 @@
 
 接着使用 `top -Hp pid` 将这个进程的线程显示出来。输入大写的 P 可以将线程按照 CPU 使用比例排序，于是得到以下结果。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy7z1kg8s3j30s40ncn9w.jpg)
+![](https://i.loli.net/2019/07/19/5d31382b1d3df15468.jpg)
 
 果然某些线程的 CPU 使用率非常高。
 
@@ -28,7 +28,7 @@
 
 > 因为线程快照中线程 ID 都是16进制存放。
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy7z7vtcruj30q5056tar.jpg)
+![](https://i.loli.net/2019/07/19/5d31382bb08a129414.jpg)
 
 发现这是 `Disruptor` 的一个堆栈，前段时间正好解决过一个由于 Disruptor 队列引起的一次 [OOM]()：[强如 Disruptor 也发生内存溢出？](https://crossoverjie.top/2018/08/29/java-senior/OOM-Disruptor/)
 
@@ -38,7 +38,7 @@
 
 [http://fastthread.io/](http://fastthread.io/)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy7zciqp2ij311q0q5jzl.jpg)
+![](https://i.loli.net/2019/07/19/5d31382fbe13e22162.jpg)
 
 其中有一项菜单展示了所有消耗 CPU 的线程，我仔细看了下发现几乎都是和上面的堆栈一样。
 
@@ -60,7 +60,7 @@
 
 代码如下：
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy8yrlsituj30nv0nfq5d.jpg)
+![](https://i.loli.net/2019/07/19/5d31383063b5729406.jpg)
 
 > 初步看来和这个等待策略有很大的关系。
 
@@ -68,44 +68,44 @@
 
 为了验证，我在本地创建了 15 个 `Disruptor` 队列同时结合监控观察 CPU 的使用情况。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy8wd8puupj30s10bs0up.jpg)
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy8weciz9jj30po03z0tk.jpg)
+![](https://i.loli.net/2019/07/19/5d313830e683e59146.jpg)
+![](https://i.loli.net/2019/07/19/5d3138364092a60230.jpg)
 
 创建了 15 个 `Disruptor` 队列，同时每个队列都用线程池来往 `Disruptor队列` 里面发送 100W 条数据。
 
 消费程序仅仅只是打印一下。
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy8whdcy5hj30e706tdg7.jpg)
+![](https://i.loli.net/2019/07/19/5d313836ac8a448151.jpg)
 
 跑了一段时间发现 CPU 使用率确实很高。
 
 ---
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy8wjq0xkwj310t0cln12.jpg)
+![](https://i.loli.net/2019/07/19/5d31383d664cb51737.jpg)
 
 同时 `dump` 线程发现和生产的现象也是一致的：消费线程都处于 `RUNNABLE` 状态，同时都在执行 `yield`。
 
 通过查询 `Disruptor` 官方文档发现：
 
-![](https://ws4.sinaimg.cn/large/006tNbRwly1fy8wx1x6z8j30l1069jsz.jpg)
+![](https://i.loli.net/2019/07/19/5d31383e10f0327921.jpg)
 
 > YieldingWaitStrategy 是一种充分压榨 CPU 的策略，使用`自旋 + yield`的方式来提高性能。
 > 当消费线程（Event Handler threads）的数量小于 CPU 核心数时推荐使用该策略。
 
 ---
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy8wym9wxlj30ln04sjsm.jpg)
+![](https://i.loli.net/2019/07/19/5d31383fd2dc594576.jpg)
 
 同时查阅到其他的等待策略 `BlockingWaitStrategy` （也是默认的策略），它使用的是锁的机制，对 CPU 的使用率不高。
 
 于是在和之前同样的条件下将等待策略换为 `BlockingWaitStrategy`。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy8x3b5xh7j30pl0brgnh.jpg)
+![](https://i.loli.net/2019/07/19/5d31384097d6190496.jpg)
 
 ---
 
-![](https://ws1.sinaimg.cn/large/006tNbRwly1fy8x6jytcoj30e605b3yt.jpg)
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy8x79u64nj30t6076jty.jpg)
+![](https://i.loli.net/2019/07/19/5d3138411411e73544.jpg)
+![](https://i.loli.net/2019/07/19/5d313841d679b99195.jpg)
 
 和刚才的 CPU 对比会发现到后面使用率的会有明显的降低；同时 dump 线程后会发现大部分线程都处于 waiting 状态。
 
@@ -119,9 +119,9 @@
 
 而现有的使用场景很明显消费线程数已经大大的超过了核心 CPU 数了，因为我的使用方式是一个 `Disruptor` 队列一个消费者，所以我将队列调整为只有 1 个再试试(策略依然是 `YieldingWaitStrategy`)。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fy8xlhzh05j30qo0aogng.jpg)
+![](https://i.loli.net/2019/07/19/5d313842427b798742.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fy8xn1ktk6j30e207g0t0.jpg)
+![](https://i.loli.net/2019/07/19/5d3138669071113680.jpg)
 
 跑了一分钟，发现 CPU 的使用率一直都比较平稳而且不高。
 
@@ -149,4 +149,4 @@
 
 **你的点赞与分享是对我最大的支持**
 
-![](https://ws2.sinaimg.cn/large/006tNbRwly1fyrjtr3ja2j30760760t7.jpg)
+![](https://i.loli.net/2019/07/19/5d313848b169269048.jpg)
