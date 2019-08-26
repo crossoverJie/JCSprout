@@ -45,7 +45,7 @@
 
 默认情况下元数据区域会根据使用情况动态调整，避免了在 1.7 中由于加载类过多从而出现 `java.lang.OutOfMemoryError: PermGen`。
 
-但也不能无线扩展，因此可以使用 `-XX:MaxMetaspaceSize`来控制最大内存。
+但也不能无限扩展，因此可以使用 `-XX:MaxMetaspaceSize`来控制最大内存。
 
 
 
