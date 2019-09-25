@@ -1,10 +1,6 @@
 package com.crossoverjie.actual;
 
-import com.alibaba.fastjson.JSON;
-import com.sun.org.apache.bcel.internal.generic.LUSHR;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class LRUMapTest {
 
@@ -116,6 +112,28 @@ public class LRUMapTest {
         System.out.println(integer);
         System.out.println("==============");
         System.out.println(lruMap.toString());
+    }
+
+    @Test
+    public void get4() throws Exception {
+        LRUMap<String,Integer> lru = new LRUMap<>(5);
+
+
+        lru.put("1",1);
+        lru.put("2",2);
+        lru.put("3",3);
+        lru.put("4",4);
+        lru.put("5",5);
+
+        System.out.println(lru.toString());
+
+        lru.get("2");
+        lru.get("3");
+        lru.get("4");
+        lru.get("5");
+
+        lru.put("6",6);
+        System.out.println(lru.toString());
     }
 
 }

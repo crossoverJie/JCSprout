@@ -37,7 +37,6 @@ public class Volatile implements Runnable{
     @Override
     public void run() {
         while (flag){
-            System.out.println(Thread.currentThread().getName() + "正在运行。。。");
         }
         System.out.println(Thread.currentThread().getName() +"执行完毕");
     }
@@ -49,15 +48,30 @@ public class Volatile implements Runnable{
 
         System.out.println("main 线程正在运行") ;
 
-        TimeUnit.MILLISECONDS.sleep(100) ;
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            String value = sc.next();
+            if(value.equals("1")){
 
-        aVolatile.stopThread();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        aVolatile.stopThread();
+                    }
+                }).start();
+
+                break ;
+            }
+        }
+
+        System.out.println("主线程退出了！");
 
     }
 
     private void stopThread(){
         flag = false ;
     }
+
 }
 ```
 
@@ -113,7 +127,7 @@ public class VolatileInc implements Runnable{
 
 - 所以想到达到线程安全可以使这三个线程串行执行(其实就是单线程，没有发挥多线程的优势)。
 
-- 也可以使用 `synchronize` 或者是锁的方式来保证原子性。
+- 也可以使用 `synchronized` 或者是锁的方式来保证原子性。
  
 - 还可以用 `Atomic` 包中 `AtomicInteger` 来替换 `int`，它利用了 `CAS` 算法来保证了原子性。
 

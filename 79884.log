@@ -9,30 +9,30 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.131-b11 mixed mode):
 
 "Blocked2" #13 prio=5 os_prio=31 tid=0x00007ffd7b08b000 nid=0x5503 waiting for monitor entry [0x00007000083d1000]
    java.lang.Thread.State: BLOCKED (on object monitor)
-	at com.crossoverjie.concurrent.ThreadState$Blocked.run(ThreadState.java:59)
-	- waiting to lock <0x000000079576cd60> (a java.lang.Class for com.crossoverjie.concurrent.ThreadState$Blocked)
+	at com.crossoverjie.thread.ThreadState$Blocked.run(ThreadState.java:59)
+	- waiting to lock <0x000000079576cd60> (a java.lang.Class for com.crossoverjie.thread.ThreadState$Blocked)
 	at java.lang.Thread.run(Thread.java:748)
 
 "Blocked1" #12 prio=5 os_prio=31 tid=0x00007ffd7b08a000 nid=0x5303 waiting on condition [0x00007000082ce000]
    java.lang.Thread.State: TIMED_WAITING (sleeping)
 	at java.lang.Thread.sleep(Native Method)
-	at com.crossoverjie.concurrent.ThreadState$Blocked.run(ThreadState.java:59)
-	- locked <0x000000079576cd60> (a java.lang.Class for com.crossoverjie.concurrent.ThreadState$Blocked)
+	at com.crossoverjie.thread.ThreadState$Blocked.run(ThreadState.java:59)
+	- locked <0x000000079576cd60> (a java.lang.Class for com.crossoverjie.thread.ThreadState$Blocked)
 	at java.lang.Thread.run(Thread.java:748)
 
 "Waiting" #11 prio=5 os_prio=31 tid=0x00007ffd7b089800 nid=0x5103 in Object.wait() [0x00007000081cb000]
    java.lang.Thread.State: WAITING (on object monitor)
 	at java.lang.Object.wait(Native Method)
-	- waiting on <0x0000000795768db0> (a java.lang.Class for com.crossoverjie.concurrent.ThreadState$Waiting)
+	- waiting on <0x0000000795768db0> (a java.lang.Class for com.crossoverjie.thread.ThreadState$Waiting)
 	at java.lang.Object.wait(Object.java:502)
-	at com.crossoverjie.concurrent.ThreadState$Waiting.run(ThreadState.java:42)
-	- locked <0x0000000795768db0> (a java.lang.Class for com.crossoverjie.concurrent.ThreadState$Waiting)
+	at com.crossoverjie.thread.ThreadState$Waiting.run(ThreadState.java:42)
+	- locked <0x0000000795768db0> (a java.lang.Class for com.crossoverjie.thread.ThreadState$Waiting)
 	at java.lang.Thread.run(Thread.java:748)
 
 "TimeWaiting" #10 prio=5 os_prio=31 tid=0x00007ffd7b82c800 nid=0x4f03 waiting on condition [0x00007000080c8000]
    java.lang.Thread.State: TIMED_WAITING (sleeping)
 	at java.lang.Thread.sleep(Native Method)
-	at com.crossoverjie.concurrent.ThreadState$TimeWaiting.run(ThreadState.java:27)
+	at com.crossoverjie.thread.ThreadState$TimeWaiting.run(ThreadState.java:27)
 	at java.lang.Thread.run(Thread.java:748)
 
 "Monitor Ctrl-Break" #9 daemon prio=5 os_prio=31 tid=0x00007ffd7a97e000 nid=0x4d03 runnable [0x0000700007fc5000]

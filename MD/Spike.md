@@ -1,5 +1,7 @@
 # 设计一个秒杀系统
 
+**具体实现参考 [秒杀架构实践](https://crossoverjie.top/2018/05/07/ssm/SSM18-seconds-kill/)**
+
 主要做到以下两点:
 
 - 尽量将请求过滤在上游。
@@ -7,7 +9,7 @@
 
 常用的系统分层结构:
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fmjw06nz2zj306f0fejrh.jpg)
+<div align="center">  <img src="https://ws4.sinaimg.cn/large/006tNc79ly1fmjw06nz2zj306f0fejrh.jpg" width=""/> </div><br>
 
 针对于浏览器端，可以使用 JS 进行请求过滤，比如五秒钟之类只能点一次抢购按钮，五秒钟只能允许请求一次后端服务。(APP 同理)
 

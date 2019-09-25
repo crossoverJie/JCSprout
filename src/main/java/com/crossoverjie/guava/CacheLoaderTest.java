@@ -1,9 +1,6 @@
 package com.crossoverjie.guava;
 
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
-import com.google.common.collect.Interner;
+import com.google.common.cache.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +28,12 @@ public class CacheLoaderTest {
     private void init() throws InterruptedException {
         loadingCache = CacheBuilder.newBuilder()
                 .expireAfterWrite(2, TimeUnit.SECONDS)
-
+                .removalListener(new RemovalListener<Object, Object>() {
+                    @Override
+                    public void onRemoval(RemovalNotification<Object, Object> notification) {
+                        LOGGER.info("删除原因={}，删除 key={},删除 value={}",notification.getCause(),notification.getKey(),notification.getValue());
+                    }
+                })
                 .build(new CacheLoader<Integer, AtomicLong>() {
                     @Override
                     public AtomicLong load(Integer key) throws Exception {
@@ -50,7 +52,7 @@ public class CacheLoaderTest {
 
             //loadingCache.put(integer,new AtomicLong(integer));
 
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(3);
 
 
             LOGGER.info("当前缓存值={},缓存大小={}", loadingCache.get(KEY),loadingCache.size());

@@ -41,7 +41,7 @@ public class ProxyImplement implement InterfaceA{
 }
 ```
 使用如下:
-```
+```java
 public class Main(){
     public static void main(String[] args){
         InterfaceA interface = new ProxyImplement() ;
@@ -59,7 +59,7 @@ public class Main(){
 其中有两个非常核心的类:
 
 - `java.lang.reflect.Proxy`类。
-- `java.lang.reflect.InvocationHandle`接口。
+- `java.lang.reflect.InvocationHandler`接口。
 
 `Proxy` 类是用于创建代理对象，而 `InvocationHandler` 接口主要你是来处理执行逻辑。
 
@@ -102,7 +102,7 @@ public class CustomizeHandle implements InvocationHandler {
 }
 ```
 
-其中构造方法传入被代理类的类类型。其实传代理类的实例或者是类类型并没有强制的规定，传类类型的是因为被代理对象应当有代理创建而不应该由调用方创建。
+其中构造方法传入被代理类的类类型。其实传代理类的实例或者是类类型并没有强制的规定，传类类型的是因为被代理对象应当由代理创建而不应该由调用方创建。
 
 使用方式如下：
 ```java
