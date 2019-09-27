@@ -28,28 +28,14 @@ public class HappyNumTest {
     @Test
     public void isHappy4() {
         HappyNum happyNum = new HappyNum() ;
-        boolean happy = happyNum.isHappy(Math.pow(2, 31) - 1);
+        boolean happy = happyNum.isHappy(10);
         System.out.println(happy);
     }
 
     @Test
     public void isHappy5() {
         HappyNum happyNum = new HappyNum() ;
-        boolean happy = happyNum.isHappy(Math.pow(2, 31) + 1);
-        System.out.println(happy);
-    }
-
-    @Test
-    public void isHappy6() {
-        HappyNum happyNum = new HappyNum() ;
-        boolean happy = happyNum.isHappy(Math.pow(2, 31));
-        System.out.println(happy);
-    }
-
-    @Test
-    public void isHappy7() {
-        HappyNum happyNum = new HappyNum(2) ;
-        boolean happy = happyNum.isHappy();
+        boolean happy = happyNum.isHappy(11);
         System.out.println(happy);
     }
 }
