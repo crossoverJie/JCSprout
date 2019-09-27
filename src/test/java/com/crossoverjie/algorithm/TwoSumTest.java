@@ -22,4 +22,18 @@ public class TwoSumTest {
 
     }
 
+    public int[] getTwo1(int[] array, int sum) {
+        int[] result = null;
+        for (int i = 0; i < array.length; i++) {
+            int num1 = array[i];
+            for (int j = array.length - 1; j >= 0; j--) {
+                int num2 = array[j];
+                if (i != j && (num1 + num2) == sum) {
+                    result = new int[] { i, j };
+                }
+            }
+        }
+        return result;
+    }
+
 }
