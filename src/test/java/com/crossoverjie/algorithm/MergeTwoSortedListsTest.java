@@ -11,7 +11,7 @@ public class MergeTwoSortedListsTest {
     public void setUp() throws Exception {
         mergeTwoSortedLists = new MergeTwoSortedLists();
     }
-
+	
     @Test
     public void mergeTwoLists() throws Exception {
         ListNode l1 = new ListNode(1) ;
@@ -89,5 +89,56 @@ public class MergeTwoSortedListsTest {
         Assert.assertEquals(node1.toString(),listNode.toString());
 
     }
-
+    @Test
+    public void testMergeTwoLists_tc1() throws Exception {
+        ListNode mergedList = mergeTwoSortedLists.mergeTwoLists(null, null);
+	Assert.assertEquals(mergedList,null);
+    }
+    @Test
+    public void testMergeTwoLists_tc2() throws Exception {
+        ListNode listNode1 = new ListNode(1);
+        ListNode expectedOutput = new ListNode(1);
+        ListNode mergedList = mergeTwoSortedLists.mergeTwoLists(listNode1, null);
+	Assert.assertEquals(mergedList.toString(),expectedOutput.toString());
+    }
+    @Test
+    public void testMergeTwoLists_tc3() throws Exception {
+        ListNode listNode2 = new ListNode(1);
+        ListNode expectedOutput = new ListNode(1);
+        ListNode mergedList = mergeTwoSortedLists.mergeTwoLists(null, listNode2);
+	Assert.assertEquals(mergedList.toString(),expectedOutput.toString());
+    }
+    @Test
+    public void testMergeTwoLists_tc4() throws Exception {
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode expectedOutput = new ListNode(1);
+        expectedOutput.next = new ListNode(2);
+        ListNode mergedList = mergeTwoSortedLists.mergeTwoLists(listNode1, listNode2);
+	Assert.assertEquals(mergedList.toString(),expectedOutput.toString());
+    }
+    @Test
+    public void testMergeTwoLists_tc5() throws Exception {
+        ListNode listNode1 = new ListNode(2);
+        ListNode listNode2 = new ListNode(1);
+        ListNode expectedOutput = new ListNode(1);
+        expectedOutput.next = new ListNode(2);
+        ListNode mergedList = mergeTwoSortedLists.mergeTwoLists(listNode1, listNode2);
+	Assert.assertEquals(mergedList.toString(),expectedOutput.toString());
+    }
+    @Test
+    public void testMergeTwoLists_tc7() throws Exception {
+        ListNode listNode1 = new ListNode(1);
+        listNode1.next = new ListNode(3);
+        ListNode listNode2 = new ListNode(2);
+        listNode2.next = new ListNode(4);
+        ListNode expectedOutput = new ListNode(1);
+        ListNode index = expectedOutput;
+        for(int i=0; i<3; i++){
+            index.next = new ListNode(i+2);
+            index = index.next;
+        }
+        ListNode mergedList = mergeTwoSortedLists.mergeTwoLists(listNode1, listNode2);
+	Assert.assertEquals(mergedList.toString(),expectedOutput.toString());
+    }
 }
