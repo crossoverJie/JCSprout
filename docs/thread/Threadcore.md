@@ -48,7 +48,7 @@ public final boolean compareAndSet(long expect, long update) {
 
 现代计算机中，由于 `CPU` 直接从主内存中读取数据的效率不高，所以都会对应的 `CPU` 高速缓存，先将主内存中的数据读取到缓存中，线程修改数据之后首先更新到缓存，之后才会更新到主内存。如果此时还没有将数据更新到主内存其他的线程此时来读取就是修改之前的数据。
 
-![](https://ws2.sinaimg.cn/large/006tKfTcly1fmouu3fpokj31ae0osjt1.jpg)
+![](https://i.loli.net/2019/07/19/5d313f69701ef45566.jpg)
 
 如上图所示。
 

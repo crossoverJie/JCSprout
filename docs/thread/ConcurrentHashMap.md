@@ -9,7 +9,7 @@
 ## JDK1.7 实现
 
 ### 数据结构
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fn2f5pgxinj30dw0730t7.jpg)
+![](https://i.loli.net/2019/07/19/5d313f7215c4240040.jpg)
 
 如图所示，是由 `Segment` 数组、`HashEntry` 数组组成，和 `HashMap` 一样，仍然是数组加链表组成。
 
@@ -58,13 +58,13 @@
 
 ## JDK1.8 实现
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fthpv4odbsj30lp0drmxr.jpg)
+![](https://i.loli.net/2019/07/19/5d313f751f85f13539.jpg)
 
 1.8 中的 ConcurrentHashMap 数据结构和实现与 1.7 还是有着明显的差异。
 
 其中抛弃了原有的 Segment 分段锁，而采用了 `CAS + synchronized` 来保证并发安全性。
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fthq78e5gqj30nr09mmz9.jpg)
+![](https://i.loli.net/2019/07/19/5d313f76c30a232619.jpg)
 
 也将 1.7 中存放数据的 HashEntry 改为 Node，但作用都是相同的。
 
@@ -74,7 +74,7 @@
 
 重点来看看 put 函数：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fthrz8jlo8j30oc0rbte3.jpg)
+![](https://i.loli.net/2019/07/19/5d313f78c31dc41505.jpg)
 
 - 根据 key 计算出 hashcode 。
 - 判断是否需要进行初始化。
@@ -85,7 +85,7 @@
 
 ### get 方法
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fthsnp2f35j30o409hwg7.jpg)
+![](https://i.loli.net/2019/07/19/5d313f7aab95b41715.jpg)
 
 - 根据计算出来的 hashcode 寻址，如果就在桶上那么直接返回值。
 - 如果是红黑树那就按照树的方式获取值。

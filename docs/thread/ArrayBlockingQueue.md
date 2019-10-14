@@ -1,4 +1,4 @@
-![](https://ws4.sinaimg.cn/large/006tNc79ly1g1vn9xpgp4j31ak0u013m.jpg)
+![](https://i.loli.net/2019/07/19/5d313f289d57811656.jpg)
 
 
 
@@ -19,7 +19,7 @@
 
 既然开了一个新坑，就不想做的太差；所以我打算将这个列表下的大部分类都讲到。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1vpwdqbkrj30ab09nmy9.jpg)
+![](https://i.loli.net/2019/07/19/5d313f2c7f91450086.jpg)
 
 
 所以本次重点讨论 `ArrayBlockingQueue`。
@@ -51,13 +51,13 @@
 
 很明显这里的 `items` 就是存放数据的数组；在初始化时需要根据大小创建数组。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wd71n229j30wb0u043w.jpg)
+![](https://i.loli.net/2019/07/19/5d313f2fb8fe622692.jpg)
 
 ## 写入队列
 
 写入队列比较简单，只需要依次把数据存放到这个数组中即可，如下图：
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1we7yeykej30b0060mxc.jpg)
+![](https://i.loli.net/2019/07/19/5d313f32aa77680089.jpg)
 
 但还是有几个需要注意的点：
 
@@ -93,7 +93,7 @@
     private Object empty = new Object();
 ```
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1wf8de8jzj30te0tin1i.jpg)
+![](https://i.loli.net/2019/07/19/5d313f35038c649523.jpg)
 
 所以这里声明了两个对象用于队列满、空情况下的互相通知作用。
 
@@ -107,11 +107,11 @@
 
 上文也提到了：当队列为空时，获取队列的线程需要被阻塞，直到队列中有数据时才被唤醒。
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wfhr3r6qj30tg0tiwit.jpg)
+![](https://i.loli.net/2019/07/19/5d313f3ad811825796.jpg)
 
 代码和写入的非常类似，也很好理解；只是这里的等待、唤醒恰好是相反的，通过下面这张图可以很好理解：
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1wfwr016gj30o20ksq59.jpg)
+![](https://i.loli.net/2019/07/19/5d313f3d9cf3f67442.jpg)
 
 总的来说就是：
 
@@ -123,7 +123,7 @@
 
 先来一个基本的测试：单线程的写入和消费。
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1wg97uqgpj30uu0dqwgu.jpg)
+![](https://i.loli.net/2019/07/19/5d313f405d0e291936.jpg)
 
 ```log
 3
@@ -138,7 +138,7 @@
 
 当写入的数据超过队列的大小时，就只能消费之后才能接着写入。
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1wgmshqfyj316o0n2ae5.jpg)
+![](https://i.loli.net/2019/07/19/5d313f41cf91223286.jpg)
 
 ```log
 2019-04-09 16:24:41.040 [Thread-0] INFO  c.c.concurrent.ArrayQueueTest - [Thread-0]123
@@ -152,9 +152,9 @@
 
 ---
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1wiskvki8j30yy0eo0ve.jpg)
+![](https://i.loli.net/2019/07/19/5d313f4346e6458625.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1witm4twpj31q60ai0vz.jpg)
+![](https://i.loli.net/2019/07/19/5d313f49e902d49687.jpg)
 
 而当没有消费时，再往队列里写数据则会导致写入线程被阻塞。
 
@@ -162,7 +162,7 @@
 
 ### 并发测试
 
-![](https://ws3.sinaimg.cn/large/006tNc79ly1g1wiwyz4j5j30vz0u044f.jpg)
+![](https://i.loli.net/2019/07/19/5d313f4d00e9696823.jpg)
 
 三个线程并发写入300条数据，其中一个线程消费一条。
 
@@ -182,7 +182,7 @@
 
 ## 初始化队列
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wkaau8w7j30ze0lcagb.jpg)
+![](https://i.loli.net/2019/07/19/5d313f5007ecc42909.jpg)
 
 看似要复杂些，但其实逐步拆分后也很好理解：
 
@@ -202,8 +202,8 @@
 
 ## 写入队列
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1wktuhxzuj30tk0bqq55.jpg)
-![](https://ws2.sinaimg.cn/large/006tNc79ly1g1wktfkwu2j30ug09ugnn.jpg)
+![](https://i.loli.net/2019/07/19/5d313f52b585671592.jpg)
+![](https://i.loli.net/2019/07/19/5d313f5a1c28c84172.jpg)
 
 其实会发现阻塞写入的原理都是差不多的，只是这里使用的是 Lock 来显式获取和释放锁。
 
@@ -212,7 +212,7 @@
 
 当然它还是实现了超时阻塞的 `API`。
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1g1wl1n7ir5j30vm0iqdjb.jpg)
+![](https://i.loli.net/2019/07/19/5d313f5b7a55b36447.jpg)
 
 也是比较简单，使用了一个具有超时时间的等待方法。 
 
@@ -220,8 +220,8 @@
 
 再看消费队列：
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wl3vcsioj30tc0ayq4y.jpg)
-![](https://ws4.sinaimg.cn/large/006tNc79ly1g1wl4cfrnlj30u00eq0vm.jpg)
+![](https://i.loli.net/2019/07/19/5d313f5e98db976041.jpg)
+![](https://i.loli.net/2019/07/19/5d313f5fea44784743.jpg)
 
 也是差不多的，一看就懂。
 
@@ -244,7 +244,7 @@
 
 所以我们改进了方案：
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1g1wm1v7mfxj30qs0aiq4g.jpg)
+![](https://i.loli.net/2019/07/19/5d313f61e33f644196.jpg)
 
 其实就是一个典型的生产者消费者模型：
 
