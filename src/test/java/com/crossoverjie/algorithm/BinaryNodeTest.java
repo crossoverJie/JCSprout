@@ -11,7 +11,7 @@ public class BinaryNodeTest {
         node = node.createNode() ;
         System.out.println(node);
 
-        //中序遍历二叉树
+        //层序遍历二叉树
         node.levelIterator(node) ;
 
     }

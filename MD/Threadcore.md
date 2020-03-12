@@ -1,7 +1,7 @@
 # Java 多线程三大核心
 
 ## 原子性
-`Java` 的原子性就和数据库事物的原子性差不多，一个操作中要么全部执行成功或者失败。
+`Java` 的原子性就和数据库事务的原子性差不多，一个操作中要么全部执行成功或者失败。
 
 `JMM` 只是保证了基本的原子性，但类似于 `i++` 之类的操作，看似是原子操作，其实里面涉及到:
 
@@ -9,7 +9,7 @@
 - 自增。
 - 再赋值给 i。
 
-这三步操作，所以想要实现 `i++` 这样的原子操作就需要用到 `synchronize` 或者是 `lock` 进行加锁处理。
+这三步操作，所以想要实现 `i++` 这样的原子操作就需要用到 `synchronized` 或者是 `lock` 进行加锁处理。
 
 如果是基础类的自增操作可以使用 `AtomicInteger` 这样的原子类来实现(其本质是利用了 `CPU` 级别的 的 `CAS` 指令来完成的)。
 
@@ -56,7 +56,7 @@ public final boolean compareAndSet(long expect, long update) {
 
 使用 `volatile` 关键词修饰的变量每次读取都会得到最新的数据，不管哪个线程对这个变量的修改都会立即刷新到主内存。
 
-`synchronize`和加锁也能能保证可见性，实现原理就是在释放锁之前其余线程是访问不到这个共享变量的。但是和 `volatile` 相比开销较大。
+`synchronized`和加锁也能能保证可见性，实现原理就是在释放锁之前其余线程是访问不到这个共享变量的。但是和 `volatile` 相比开销较大。
 
 ## 顺序性
 以下这段代码:
@@ -71,7 +71,7 @@ int c = a + b ; //3
 
 重排在单线程中不会出现问题，但在多线程中会出现数据不一致的问题。
 
-Java 中可以使用 `volatile` 来保证顺序性，`synchronize 和 lock` 也可以来保证有序性，和保证原子性的方式一样，通过同一段时间只能一个线程访问来实现的。
+Java 中可以使用 `volatile` 来保证顺序性，`synchronized 和 lock` 也可以来保证有序性，和保证原子性的方式一样，通过同一段时间只能一个线程访问来实现的。
 
 除了通过 `volatile` 关键字显式的保证顺序之外， `JVM` 还通过 `happen-before` 原则来隐式的保证顺序性。
 
@@ -84,21 +84,24 @@ Java 中可以使用 `volatile` 来保证顺序性，`synchronize 和 lock` 也�
 可以用 `volatile` 实现一个双重检查锁的单例模式：
 
 ```java
-public class Singleton{
-	private static volatile Singleton singleton ;
-	private Singleton(){}
-	public static Singleton getInstance(){
-		if(singleton == null){
-			synchronize(Singleton.class){
-			  if(singleton == null){
-			    singleton = new Singleton();
-			  }
-			}
-		}
-		return singleton ;
-	}
-	
-}
+    public class Singleton {
+        private static volatile Singleton singleton;
+
+        private Singleton() {
+        }
+
+        public static Singleton getInstance() {
+            if (singleton == null) {
+                synchronized (Singleton.class) {
+                    if (singleton == null) {
+                        singleton = new Singleton();
+                    }
+                }
+            }
+            return singleton;
+        }
+
+    }
 ```
 
 这里的 `volatile` 关键字主要是为了防止指令重排。
@@ -108,23 +111,26 @@ public class Singleton{
 - 初始化对象。(2)
 - 将 `singleton` 对象指向分配的内存地址。(3)
 
-加上 `volatile` 是为了让以上的三步操作顺序执行，反之有可能第二步在第三步之前被执行就有可能某个线程拿到的单例对象是还没有初始化的，以致于报错。
+加上 `volatile` 是为了让以上的三步操作顺序执行，反之有可能第三步在第二步之前被执行就有可能导致某个线程拿到的单例对象还没有初始化，以致于使用报错。
 
 #### 控制停止线程的标记
 
 ```java
-private volatile boolean flag ;
-private void run(){
-	new Thread(new Runnable(){
-	  if(flag){
-            doSomeThing();
-	  }
-	});
-}
+    private volatile boolean flag ;
+    private void run(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (flag) {
+                    doSomeThing();
+                }
+            }
+        });
+    }
 
-private void stop(){
-  flag = false ;
-}
+    private void stop(){
+        flag = false ;
+    }
 ```
 
 这里如果没有用 volatile 来修饰 flag ，就有可能其中一个线程调用了 `stop()`方法修改了 flag 的值并不会立即刷新到主内存中，导致这个循环并不会立即停止。
