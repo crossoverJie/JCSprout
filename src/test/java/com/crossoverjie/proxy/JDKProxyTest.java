@@ -4,11 +4,7 @@ import com.crossoverjie.proxy.jdk.CustomizeHandle;
 import com.crossoverjie.proxy.jdk.ISubject;
 import com.crossoverjie.proxy.jdk.impl.ISubjectImpl;
 import org.junit.Test;
-import sun.misc.ProxyGenerator;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.lang.reflect.Proxy;
 
 /**
@@ -29,16 +25,16 @@ public class JDKProxyTest {
 
     @Test
     public void clazzTest(){
-        byte[] proxyClassFile = ProxyGenerator.generateProxyClass(
-                "$Proxy1", new Class[]{ISubject.class}, 1);
-        try {
-            FileOutputStream out = new FileOutputStream("/Users/chenjie/Documents/$Proxy1.class") ;
-            out.write(proxyClassFile);
-            out.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        byte[] proxyClassFile = ProxyGenerator.generateProxyClass(
+//                "$Proxy1", new Class[]{ISubject.class}, 1);
+//        try {
+//            FileOutputStream out = new FileOutputStream("/Users/chenjie/Documents/$Proxy1.class") ;
+//            out.write(proxyClassFile);
+//            out.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }

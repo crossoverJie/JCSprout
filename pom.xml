@@ -23,7 +23,10 @@
         <!-- 编译时的编码 -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <dubbo.version>2.5.3</dubbo.version>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>11</jdk.version>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring.version>4.3.10.RELEASE</spring.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <springboot.version>1.5.6.RELEASE</springboot.version>
@@ -142,8 +145,11 @@
             <artifactId>jmh-generator-annprocess</artifactId>
             <version>1.9.3</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
 
 
     </dependencies>
@@ -155,8 +161,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
