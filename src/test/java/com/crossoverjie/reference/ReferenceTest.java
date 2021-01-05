@@ -31,8 +31,14 @@ public class ReferenceTest {
     @Test
     public void testReference01(){
         Car car1 = new Car("benz");
-        modifyCar(car1);
+        modifyCar1(car1);
         System.out.println(String.format("Final modify car1==%s", car1));
+    }
+
+    private void modifyCar1(Car car){
+        System.out.println(String.format("Before modify1 car==%s", car));
+        car.name = "bwm";
+        System.out.println(String.format("After modify1 car==%s", car));
     }
 
     @Test
