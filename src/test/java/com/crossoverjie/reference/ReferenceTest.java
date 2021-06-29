@@ -18,40 +18,52 @@ public class ReferenceTest {
     public void testBasic() {
         int a = 10;
         modifyBasic(a);
-        System.out.println(String.format("Final main a==%s", a));
+        System.out.println(String.format("最终结果 main a==%s", a));
     }
 
 
     private void modifyBasic(int aa) {
-        System.out.println(String.format("Before modify aa==%s", aa));
+        System.out.println(String.format("修改之前 aa==%s", aa));
         aa = 20;
-        System.out.println(String.format("After modify aa==%s", aa));
+        System.out.println(String.format("修改之后 aa==%s", aa));
     }
 
     @Test
     public void testReference01(){
         Car car1 = new Car("benz");
         modifyCar1(car1);
-        System.out.println(String.format("Final modify car1==%s", car1));
+        System.out.println(String.format("最终结果 main car1==%s", car1));
     }
 
     private void modifyCar1(Car car){
-        System.out.println(String.format("Before modify1 car==%s", car));
+        System.out.println(String.format("修改之前 car==%s", car));
         car.name = "bwm";
-        System.out.println(String.format("After modify1 car==%s", car));
+        System.out.println(String.format("修改之后 car==%s", car));
     }
 
     @Test
-    public void testReference02(){
+    public void testList(){
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        addList(list);
+        System.out.println(list);
+    }
+
+    private void addList(List<Integer> list) {
+        list.add(2);
+    }
+
+    @Test
+    public void test02(){
         Car car1 = new Car("benz");
         modifyCar(car1);
-        System.out.println(String.format("Final modify car1==%s", car1));
+        System.out.println(String.format("最终结果 main car1==%s", car1));
     }
 
     private void modifyCar(Car car2) {
-        System.out.println(String.format("Before modify car2==%s", car2));
+        System.out.println(String.format("修改之前 car2==%s", car2));
         car2 = new Car("bmw");
-        System.out.println(String.format("After modify car2==%s", car2));
+        System.out.println(String.format("修改之后 car2==%s", car2));
     }
 
     private class Car{

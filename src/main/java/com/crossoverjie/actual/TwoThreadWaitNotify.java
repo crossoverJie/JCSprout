@@ -41,9 +41,9 @@ public class TwoThreadWaitNotify {
         @Override
         public void run() {
 
-            while (number.start <= 100) {
+            while (number.start <= 10) {
                 synchronized (TwoThreadWaitNotify.class) {
-                    System.out.println("偶数线程抢到锁了");
+//                    System.out.println("偶数线程抢到锁了");
                     if (number.flag) {
                         System.out.println(Thread.currentThread().getName() + "+-+偶数" + number.start);
                         number.start++;
@@ -77,9 +77,9 @@ public class TwoThreadWaitNotify {
 
         @Override
         public void run() {
-            while (number.start <= 100) {
+            while (number.start <= 10) {
                 synchronized (TwoThreadWaitNotify.class) {
-                    System.out.println("奇数线程抢到锁了");
+//                    System.out.println("奇数线程抢到锁了");
                     if (!number.flag) {
                         System.out.println(Thread.currentThread().getName() + "+-+奇数" + number.start);
                         number.start++;
