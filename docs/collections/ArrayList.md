@@ -41,6 +41,8 @@
     private void grow(int minCapacity) {
         // overflow-conscious code
         int oldCapacity = elementData.length;
+        // 配置ArrayList的新容量，其中oldCapacity >> 1为右移运算，相当于oldCapacity除以2，不直接使用oldCapacity/2是因为在计算机中，位移运算比除法运算的运行效率更高
+        // ArrayList扩容之后是扩容之前的容量的1.5倍
         int newCapacity = oldCapacity + (oldCapacity >> 1);
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
