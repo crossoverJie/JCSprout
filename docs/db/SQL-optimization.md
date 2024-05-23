@@ -81,6 +81,46 @@ select name from user where telno=18722222222
 select name from user where telno='18722222222'
 ```
 
+以上的情况仅限在数据库中的字段为字符型而SQL中为整型，也就是说`整型到字符型`的类型转换会导致索引失效，那反过来呢？
+
+1. 先建一张测试表
+
+~~~mysql
+CREATE TABLE `t_user` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_no` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_user_no` (`user_no`) USING BTREE
+) ENGINE=InnoDB
+~~~
+
+2. 插入一些数据
+
+![1569394400678](SQL-optimization.assets/1569394400678.png)
+
+3. 按整型查询肯定是没有问题的，
+
+~~~mysql
+select * from t_user WHERE user_no=1819015;
+~~~
+
+结果图：
+
+![1569394544078](SQL-optimization.assets/1569394544078.png)
+
+4. 字符型到整型的类型转换，
+
+~~~mysql
+select * from t_user WHERE user_no='1819015';
+~~~
+
+可以看到也是没问题的
+
+![1569394649690](SQL-optimization.assets/1569394649690.png)
+
+
+
 ## 如果需要进行 join 的字段两表的字段类型要相同
 
 不然也不会命中索引。
