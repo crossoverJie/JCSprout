@@ -40,16 +40,16 @@ public class RedPacket {
      * 最大的红包是平均值的 TIMES 倍，防止某一次分配红包较大
      */
     private static final double TIMES = 2.1F;
-
+    //变量定义
+    private static int STATUS = 1;
     private int recursiveCount = 0;
 
-    public List<Integer> splitRedPacket(int money, int count) {
+    public List<Integer> splitRedPacket(int money, int count) throws Exception {
         List<Integer> moneys = new LinkedList<>();
 
-        //金额检查，如果最大红包 * 个数 < 总金额；则需要调大最小红包 MAX_MONEY
-        if (MAX_MONEY * count <= money) {
-            System.err.println("请调大最小红包金额 MAX_MONEY=[" + MAX_MONEY + "]");
-            return moneys ;
+        //金额检查，如果最大红包 * 个数 < 总金额或最小红包 * 个数 > 总金额；则需要调整红包总金额
+        if (MAX_MONEY * count < money || MIN_MONEY * count > money) {
+			throw new Exception();
         }
 
 
@@ -82,12 +82,21 @@ public class RedPacket {
         maxMoney = maxMoney > totalMoney ? totalMoney : maxMoney;
 
         //在 minMoney到maxMoney 生成一个随机红包
-        int redPacket = (int) (Math.random() * (maxMoney - minMoney) + minMoney);
+        int redPacket = 0;
+        double temp = (Math.random() * (maxMoney - minMoney) + minMoney);
+        if(STATUS == LESS){
+        	redPacket = (int) Math.floor(temp);
+        }else if(STATUS == MORE){
+        	redPacket = (int) Math.ceil(temp);
+        }else{
+        	redPacket = (int) temp;
+        }
 
         int lastMoney = totalMoney - redPacket;
 
         int status = checkMoney(lastMoney, count - 1);
-
+        STATUS = status;
+        
         //正常金额
         if (OK == status) {
             return redPacket;
@@ -132,14 +141,19 @@ public class RedPacket {
 
     public static void main(String[] args) {
         RedPacket redPacket = new RedPacket();
-        List<Integer> redPackets = redPacket.splitRedPacket(20000, 100);
-        System.out.println(redPackets);
-
-        int sum = 0;
-        for (Integer red : redPackets) {
-            sum += red;
-        }
-        System.out.println(sum);
+        List<Integer> redPackets = null;
+		try {
+			redPackets = redPacket.splitRedPacket(20000, 100);
+			System.out.println(redPackets);
+			
+			int sum = 0;
+			for (Integer red : redPackets) {
+				sum += red;
+			}
+			System.out.println(sum);
+		} catch (Exception e) {
+			System.err.println("请调整红包总金额 !");
+		}
     }
 
 }
